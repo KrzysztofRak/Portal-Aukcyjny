@@ -35,5 +35,7 @@ namespace Portal_aukcyjny
         public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
         public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
         public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
+        public virtual DbSet<Auctions> Auctions { get; set; }
+        public virtual DbSet<Shipments> Shipments { get; set; }
     }
 }

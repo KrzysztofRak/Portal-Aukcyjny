@@ -25,6 +25,8 @@
         <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pe__UserI__76969D2E" ManuallyRouted="false" />
         <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pr__UserI__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="PortalAukcyjnyModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Auctions" Width="1.5" PointX="10.875" PointY="15.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Shipments" Width="1.5" PointX="9.125" PointY="17" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
