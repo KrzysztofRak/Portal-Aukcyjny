@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="default.aspx.cs" Inherits="_default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Portal_aukcyjny.Default" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Portal aukcyjny
+            <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
+                <WizardSteps>
+                    <asp:CreateUserWizardStep runat="server" />
+                    <asp:CompleteWizardStep runat="server" />
+                </WizardSteps>
+            </asp:CreateUserWizard>
         </div>
     </form>
 </body>
