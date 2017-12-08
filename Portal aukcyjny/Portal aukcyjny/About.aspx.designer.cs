@@ -11,7 +11,7 @@ namespace Portal_aukcyjny
 {
 
 
-    public partial class _Default
+    public partial class About
     {
     }
 }

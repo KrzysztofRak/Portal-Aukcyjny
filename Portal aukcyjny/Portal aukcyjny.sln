@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal aukcyjny", "Portal aukcyjny\Portal aukcyjny.csproj", "{188132EF-6508-4AB8-A622-5758B0863E10}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portal aukcyjny", "Portal aukcyjny\Portal aukcyjny.csproj", "{B85411A9-9AAD-4CA7-847D-B2F1F687D535}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{188132EF-6508-4AB8-A622-5758B0863E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{188132EF-6508-4AB8-A622-5758B0863E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{188132EF-6508-4AB8-A622-5758B0863E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{188132EF-6508-4AB8-A622-5758B0863E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85411A9-9AAD-4CA7-847D-B2F1F687D535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85411A9-9AAD-4CA7-847D-B2F1F687D535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85411A9-9AAD-4CA7-847D-B2F1F687D535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85411A9-9AAD-4CA7-847D-B2F1F687D535}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DB3C85F0-C52E-4198-AACD-DB160B45E14B}
+		SolutionGuid = {AFE49EE8-4D56-45AB-B6F7-761F318DAC20}
 	EndGlobalSection
 EndGlobal
