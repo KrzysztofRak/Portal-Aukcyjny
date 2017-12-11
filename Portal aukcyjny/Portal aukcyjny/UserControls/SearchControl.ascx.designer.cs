@@ -10,24 +10,24 @@
 namespace Portal_aukcyjny {
     
     
-    public partial class _Default {
+    public partial class SearchControl {
         
         /// <summary>
-        /// SearchControl1 control.
+        /// SearchBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Portal_aukcyjny.SearchControl SearchControl1;
+        protected global::System.Web.UI.WebControls.TextBox SearchBox;
         
         /// <summary>
-        /// CategoriesTree control.
+        /// SearchBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView CategoriesTree;
+        protected global::System.Web.UI.WebControls.Button SearchBtn;
     }
 }

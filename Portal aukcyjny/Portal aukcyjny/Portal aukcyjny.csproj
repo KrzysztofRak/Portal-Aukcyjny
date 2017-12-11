@@ -60,6 +60,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -135,15 +136,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Accounts\Login.aspx" />
-    <Content Include="Accounts\Logout.aspx" />
-    <Content Include="Accounts\Register.aspx" />
+    <Content Include="MembersPages\Account\Logout.aspx" />
     <Content Include="App_Data\PortalAukcyjny.mdf" />
     <Content Include="App_Data\PortalAukcyjny_log.ldf">
       <DependentUpon>PortalAukcyjny.mdf</DependentUpon>
     </Content>
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -157,24 +154,27 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\PortalAukcyjnyModel.edmx">
+    <EntityDeploy Include="PortalAukcyjnyModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PortalAukcyjnyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\PortalAukcyjnyModel.edmx.diagram">
+    <Content Include="MembersPages\Auction\CreateAuction.aspx" />
+    <Content Include="PortalAukcyjnyModel.edmx.diagram">
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Models\PortalAukcyjnyModel.Context.tt">
+    <Content Include="PortalAukcyjnyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PortalAukcyjnyModel.Context.cs</LastGenOutput>
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
+      <LastGenOutput>PortalAukcyjnyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\PortalAukcyjnyModel.tt">
+    <Content Include="PortalAukcyjnyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
       <LastGenOutput>PortalAukcyjnyModel.cs</LastGenOutput>
     </Content>
+    <Content Include="PublicPages\Account\Login.aspx" />
+    <Content Include="PublicPages\Account\Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -203,6 +203,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="UserControls\SearchControl.ascx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -210,42 +211,56 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Accounts\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Accounts\Logout.aspx.cs">
+    <Compile Include="MembersPages\Account\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Accounts\Logout.aspx.designer.cs">
+    <Compile Include="MembersPages\Account\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Accounts\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Accounts\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="aspnet_Applications.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="aspnet_Membership.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Paths.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Profile.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Roles.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_SchemaVersions.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_Users.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnet_WebEvent_Events.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Auctions.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bidders.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categories.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -257,67 +272,56 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\aspnet_Applications.cs">
+    <Compile Include="MembersPages\Auction\CreateAuction.aspx.cs">
+      <DependentUpon>CreateAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembersPages\Auction\CreateAuction.aspx.designer.cs">
+      <DependentUpon>CreateAuction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Observers.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\aspnet_Membership.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Paths.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Profile.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Roles.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_SchemaVersions.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_Users.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\aspnet_WebEvent_Events.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Auctions.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bidders.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Categories.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Comments.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PortalAukcyjnyModel.Context.cs">
+    <Compile Include="PortalAukcyjnyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PortalAukcyjnyModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PortalAukcyjnyModel.cs">
+    <Compile Include="PortalAukcyjnyModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PortalAukcyjnyModel.Designer.cs">
+    <Compile Include="PortalAukcyjnyModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Shipments.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicPages\Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shipments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\SearchControl.ascx.cs">
+      <DependentUpon>SearchControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchControl.ascx.designer.cs">
+      <DependentUpon>SearchControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -348,10 +352,15 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdminPages\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

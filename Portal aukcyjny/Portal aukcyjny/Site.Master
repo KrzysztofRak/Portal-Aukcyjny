@@ -53,9 +53,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul id="TopMenu" runat="server" class="nav navbar-nav">
-                            <li><a runat="server" href="~/Accounts/Login">Zaloguj</a></li>
-                            <li><a runat="server" href="~/Accounts/Register">Rejestracja</a></li>
+                            <li><asp:HyperLink ID="HyperLink_Login" runat="server" NavigateUrl="~/PublicPages/Account/Login.aspx">Zaloguj</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink_Register" runat="server" NavigateUrl="~/PublicPages/Account/Register.aspx">Zarejestruj</asp:HyperLink></li>
                     </ul>
+                    
                 </div>
             </div>
         </div>

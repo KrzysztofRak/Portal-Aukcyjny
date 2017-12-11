@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Portal_aukcyjny
 {
-    public partial class About : Page
+    public partial class SearchControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -22,6 +22,24 @@ namespace Portal_aukcyjny {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TopMenu;
         
         /// <summary>
+        /// HyperLink_Login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink_Login;
+        
+        /// <summary>
+        /// HyperLink_Register control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink_Register;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

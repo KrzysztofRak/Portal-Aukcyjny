@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3b430043b63440985ab106f1bc6cbd9" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Membership" Width="1.5" PointX="10.5" PointY="11.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Paths" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="10.875" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="19.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Roles" Width="1.5" PointX="3" PointY="14" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="12.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Auctions" Width="1.5" PointX="13.5" PointY="11.75" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Bidders" Width="1.5" PointX="15.75" PointY="13.25" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Categories" Width="1.5" PointX="11.25" PointY="22.875" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Comments" Width="1.5" PointX="18.75" PointY="13" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Observers" Width="1.5" PointX="15.75" PointY="10.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Shipments" Width="1.5" PointX="11.25" PointY="8.375" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Me__Appli__3A81B327" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pa__Appli__6C190EBB" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Ro__Appli__59063A47" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Us__Appli__2A4B4B5E" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Me__UserI__3B75D760" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pe__PathI__71D1E811" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pe__PathI__75A278F5" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pe__UserI__76969D2E" />
+        <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pr__UserI__4F7CD00D" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_auctions" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_bidders" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_comments_authors" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_observers" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_bids" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_categories" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_comments" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_shipments" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_watched_auctions" />
+        <AssociationConnector Association="PortalAukcyjnyModel.aspnet_UsersInRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

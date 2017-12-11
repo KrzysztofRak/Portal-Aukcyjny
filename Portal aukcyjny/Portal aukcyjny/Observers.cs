@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnet_PersonalizationAllUsers
+    public partial class Observers
     {
-        public System.Guid PathId { get; set; }
-        public byte[] PageSettings { get; set; }
-        public System.DateTime LastUpdatedDate { get; set; }
+        public int Id { get; set; }
+        public System.Guid ObserverId { get; set; }
+        public int AuctionId { get; set; }
     
-        public virtual aspnet_Paths aspnet_Paths { get; set; }
+        public virtual aspnet_Users aspnet_Users { get; set; }
+        public virtual Auctions Auctions { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Data.Entity;
@@ -39,6 +39,7 @@ namespace Portal_aukcyjny.Models
         public virtual DbSet<Bidders> Bidders { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
+        public virtual DbSet<Observers> Observers { get; set; }
         public virtual DbSet<Shipments> Shipments { get; set; }
     }
 }

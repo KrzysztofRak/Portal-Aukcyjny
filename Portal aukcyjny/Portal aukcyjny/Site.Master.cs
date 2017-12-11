@@ -13,9 +13,15 @@ namespace Portal_aukcyjny
         {
             if (IsUserLoggedIn())
             {
-                TopMenu.InnerHtml = "<li><a runat=\"server\" href=\"~/Accounts/Login\">Moje konto</a></li>"
-                    + "<li><a runat=\"server\" href=\"~/Accounts/Login\">Moje aukcje</a></li>"
-                + "<li><a runat=\"server\" href=\"Accounts/Logout\">Wyloguj</a></li>";
+                string myAccountUrl = Page.ResolveUrl("~/MembersPages/Account/MyAccount");
+                string createAuctionUrl = Page.ResolveUrl("~/MembersPages/Auction/CreateAuction");
+                string myAuctionsUrl = Page.ResolveUrl("~/MembersPages/Auction/MyAuctions");
+                string logoutUrl = Page.ResolveUrl("~/MembersPages/Account/Logout");
+
+                TopMenu.InnerHtml = "<li><a runat=\"server\" href=\"" + myAccountUrl + "\">Moje konto</a></li>"
+                    + "<li><a runat=\"server\" href=\"" + createAuctionUrl + "\">Dodaj aukcje</a></li>"
+                    + "<li><a runat=\"server\" href=\"" + myAuctionsUrl + "\">Moje aukcje</a></li>"
+                + "<li><a runat=\"server\" href=\"" + logoutUrl + "\">Wyloguj</a></li>";
             }
         }
 

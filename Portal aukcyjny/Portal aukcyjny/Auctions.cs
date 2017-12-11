@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Collections.Generic;
@@ -19,12 +19,13 @@ namespace Portal_aukcyjny.Models
         {
             this.Bidders = new HashSet<Bidders>();
             this.Comments = new HashSet<Comments>();
+            this.Observers = new HashSet<Observers>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public string Image { get; set; }
         public decimal BuyItNowPrice { get; set; }
         public string Location { get; set; }
         public System.Guid OwnerId { get; set; }
@@ -33,6 +34,10 @@ namespace Portal_aukcyjny.Models
         public int Views { get; set; }
         public System.DateTime EndDate { get; set; }
         public bool Finalized { get; set; }
+        public int ItemsNumber { get; set; }
+        public bool BuyItNow { get; set; }
+        public bool Auction { get; set; }
+        public decimal CurrentPrice { get; set; }
     
         public virtual aspnet_Users aspnet_Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -41,5 +46,7 @@ namespace Portal_aukcyjny.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
         public virtual Shipments Shipments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Observers> Observers { get; set; }
     }
 }

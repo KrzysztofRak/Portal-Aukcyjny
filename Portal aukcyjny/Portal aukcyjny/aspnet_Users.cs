@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Collections.Generic;
@@ -21,6 +21,7 @@ namespace Portal_aukcyjny.Models
             this.Auctions = new HashSet<Auctions>();
             this.Bidders = new HashSet<Bidders>();
             this.Comments = new HashSet<Comments>();
+            this.Observers = new HashSet<Observers>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
         }
     
@@ -43,6 +44,8 @@ namespace Portal_aukcyjny.Models
         public virtual ICollection<Bidders> Bidders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Observers> Observers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
     }

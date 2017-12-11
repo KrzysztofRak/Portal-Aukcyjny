@@ -7,20 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Bidders
+    public partial class Shipments
     {
-        public int Id { get; set; }
-        public System.Guid BidderId { get; set; }
-        public int AuctionId { get; set; }
-        public decimal Price { get; set; }
-        public System.DateTime BidDate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Shipments()
+        {
+            this.Auctions = new HashSet<Auctions>();
+        }
     
-        public virtual aspnet_Users aspnet_Users { get; set; }
-        public virtual Auctions Auctions { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Auctions> Auctions { get; set; }
     }
 }

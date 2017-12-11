@@ -7,15 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Portal_aukcyjny.Models
+namespace Portal_aukcyjny
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnet_SchemaVersions
+    public partial class aspnet_PersonalizationAllUsers
     {
-        public string Feature { get; set; }
-        public string CompatibleSchemaVersion { get; set; }
-        public bool IsCurrentVersion { get; set; }
+        public System.Guid PathId { get; set; }
+        public byte[] PageSettings { get; set; }
+        public System.DateTime LastUpdatedDate { get; set; }
+    
+        public virtual aspnet_Paths aspnet_Paths { get; set; }
     }
 }
