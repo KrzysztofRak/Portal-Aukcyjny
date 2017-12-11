@@ -11,12 +11,9 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td>
-                        <asp:Login ID="Login2" runat="server" BackColor="#E3EAEB" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" TextLayout="TextOnTop">
-                            <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
-                            <LoginButtonStyle BackColor="White" BorderColor="#C5BBAF" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#1C5E55" />
-                            <TextBoxStyle Font-Size="0.8em" />
-                            <TitleTextStyle BackColor="#1C5E55" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                    <td class="text-center">
+                        <asp:Login ID="Login2" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt" Height="192px" style="font-size: small" Width="400px">
+                            <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
                         </asp:Login>
                     </td>
                     <td>&nbsp;</td>

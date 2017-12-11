@@ -15,7 +15,7 @@ namespace Portal_aukcyjny.Auction
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void CreateAuctionBtn_Click(object sender, EventArgs e)
         {
             PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
 
@@ -60,6 +60,8 @@ namespace Portal_aukcyjny.Auction
 
             db.Auctions.Add(auction);
             db.SaveChanges();
+
+            Response.Redirect(Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auction.Id.ToString()));
         }
 
         private string FileUpload()
@@ -82,6 +84,5 @@ namespace Portal_aukcyjny.Auction
             else
                 return "321";
         }
-
     }
 }

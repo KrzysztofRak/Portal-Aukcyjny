@@ -136,6 +136,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\defaultAuctionImg.jpg" />
     <Content Include="MembersPages\Account\Logout.aspx" />
     <Content Include="App_Data\PortalAukcyjny.mdf" />
     <Content Include="App_Data\PortalAukcyjny_log.ldf">
@@ -158,6 +159,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PortalAukcyjnyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="MembersPages\Account\MyAccount.aspx" />
     <Content Include="MembersPages\Auction\CreateAuction.aspx" />
     <Content Include="PortalAukcyjnyModel.edmx.diagram">
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
@@ -175,6 +177,8 @@
     </Content>
     <Content Include="PublicPages\Account\Login.aspx" />
     <Content Include="PublicPages\Account\Register.aspx" />
+    <Content Include="PublicPages\Auction\ViewAuction.aspx" />
+    <Content Include="PublicPages\User\UserProfile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -203,8 +207,10 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="UserControls\OfferControl.ascx" />
     <Content Include="UserControls\SearchControl.ascx" />
     <Content Include="Site.Master" />
+    <Content Include="UserControls\Test.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -272,6 +278,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MembersPages\Account\MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembersPages\Account\MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MembersPages\Auction\CreateAuction.aspx.cs">
       <DependentUpon>CreateAuction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,8 +325,29 @@
     <Compile Include="PublicPages\Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PublicPages\Auction\ViewAuction.aspx.cs">
+      <DependentUpon>ViewAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Auction\ViewAuction.aspx.designer.cs">
+      <DependentUpon>ViewAuction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\User\UserProfile.aspx.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\User\UserProfile.aspx.designer.cs">
+      <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shipments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OfferControl.ascx.cs">
+      <DependentUpon>OfferControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\OfferControl.ascx.designer.cs">
+      <DependentUpon>OfferControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SearchControl.ascx.cs">
       <DependentUpon>SearchControl.ascx</DependentUpon>
@@ -335,6 +369,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Test.ascx.cs">
+      <DependentUpon>Test.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Test.ascx.designer.cs">
+      <DependentUpon>Test.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -361,6 +402,7 @@
   <ItemGroup>
     <Folder Include="AdminPages\" />
     <Folder Include="Data\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

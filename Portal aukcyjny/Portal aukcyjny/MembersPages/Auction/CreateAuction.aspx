@@ -168,7 +168,7 @@
                                     <td class="text-left" style="width: 137px; font-size: small; color: #336699;">&nbsp;</td>
                                     <td class="text-left">
                                         <strong>
-                                        <asp:Button ID="Button1" runat="server" Height="60px" style="font-weight: bold" Text="Dodaj aukcje" Width="600px" OnClick="Button1_Click" />
+                                        <asp:Button ID="CreateAuctionBtn" runat="server" Height="60px" style="font-weight: bold" Text="Dodaj aukcje" Width="600px" OnClick="CreateAuctionBtn_Click" />
                                         </strong>
                                     </td>
                                     <td class="text-left">&nbsp;</td>
