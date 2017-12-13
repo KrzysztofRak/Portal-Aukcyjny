@@ -35,14 +35,14 @@ namespace Portal_aukcyjny.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void Reload()
+        {
             BidderName.Text = name;
             BidderName.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + userId);
             BidPrice.Text = price;
-        }
-
-        public void Reload(string asd)
-        {
-
         }
 
 

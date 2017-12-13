@@ -54,7 +54,8 @@ namespace Portal_aukcyjny.PublicPages.Auction
             for (int i = 0; i < 5; i++)
             {
                 myBase = new OfferControl();
-                myBase.name = "krzysio";
+                myBase.name = "dobra";
+
                 mycontrols.Add(myBase);
             }
 
@@ -62,7 +63,9 @@ namespace Portal_aukcyjny.PublicPages.Auction
             ListView_Offers.DataBind();
 
 
+            var ta = (OfferControl)ListView_Offers.FindControl("OfferControl");
 
+            ta.Reload();
         }
 
     }
