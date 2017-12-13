@@ -24,7 +24,7 @@ namespace Portal_aukcyjny.Auction
             auction.OwnerId = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             auction.Views = 0;
             auction.Finalized = false;
-           
+
             auction.Title = ItemTitle.Text;
             auction.Image = FileUpload();
             auction.ItemsNumber = int.Parse(ItemsNumber.Text);
@@ -64,25 +64,20 @@ namespace Portal_aukcyjny.Auction
             Response.Redirect(Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auction.Id.ToString()));
         }
 
-        private string FileUpload()
+        private byte[] FileUpload()
         {
-            if ((ImageFile.PostedFile != null) && (ImageFile.PostedFile.ContentLength > 0))
+            if (ImageFile.HasFile)
             {
-                string fn = System.IO.Path.GetFileName(ImageFile.PostedFile.FileName);
-                string SaveLocation = Server.MapPath("Data") + "\\" + fn;
-                try
-                {
-                    ImageFile.PostedFile.SaveAs(SaveLocation);
-                    Response.Write("The file has been uploaded to: " + SaveLocation);
-                    return SaveLocation;
-                }
-                catch (Exception ex)
-                {
-                    return "123";
-                }
+                int length = ImageFile.PostedFile.ContentLength;
+                byte[] pic = new byte[length];
+
+
+                ImageFile.PostedFile.InputStream.Read(pic, 0, length);
+
+                return pic;
             }
             else
-                return "321";
+                return null;
         }
     }
 }

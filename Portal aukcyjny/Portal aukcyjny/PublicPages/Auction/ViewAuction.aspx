@@ -53,11 +53,11 @@
         <tr>
             <td style="width: 30px; height: 22px"></td>
             <td style="height: 22px; width: 344px"><strong>
-                <asp:Label ID="Label4" runat="server" Style="color: #990000" Text="Cena kup teraz: "></asp:Label>
+                <asp:Label ID="BuyItNowLabel" runat="server" Style="color: #990000" Text="Cena kup teraz: "></asp:Label>
             </strong>&nbsp;<asp:Label ID="BuyItNowPrice" runat="server" Text="Label"></asp:Label>
             </td>
             <td colspan="2" style="height: 22px"><strong>
-                <asp:Label ID="Label3" runat="server" Style="color: #990000" Text="Najwyższa oferta: "></asp:Label>
+                <asp:Label ID="BidLabel" runat="server" Style="color: #990000" Text="Najwyższa oferta: "></asp:Label>
             </strong>&nbsp;<asp:Label ID="HighestBid" runat="server" Text="Label"></asp:Label>
             </td>
             <td style="height: 22px"></td>
