@@ -33,7 +33,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 auctionId = 0;
             }
 
-            auctionId = 1; ////////////////////////////////////////////
+           // auctionId = 1; ////////////////////////////////////////////
 
             PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
 
@@ -42,13 +42,13 @@ namespace Portal_aukcyjny.PublicPages.Auction
             auction.Views++;
             db.SaveChanges();
 
-            if (!auction.BuyItNow)
+            if (auction.BuyItNowPrice == 0)
             {
                 BuyItNowLabel.Visible = false;
                 BuyItNowPrice.Visible = false;
                 BuyItNowBtn.Visible = false;
             }
-            else if (!auction.Auction)
+            else if (auction.CurrentPrice == 0)
             {
                 BidLabel.Visible = false;
                 HighestBid.Visible = false;
@@ -75,7 +75,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
             Description.Text = auction.Description;
             ViewsNum.Text = auction.Views.ToString();
 
-            if (auction.Auction)
+            if (auction.CurrentPrice > 0)
             {
                 var bids = (from p in db.Bidders where p.AuctionId == auctionId select p).ToList();
                 List<OfferControl> offersControls = new List<OfferControl>();

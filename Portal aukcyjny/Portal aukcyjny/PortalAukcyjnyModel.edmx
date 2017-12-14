@@ -153,8 +153,6 @@
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="Finalized" Type="bit" Nullable="false" />
           <Property Name="ItemsNumber" Type="int" Nullable="false" />
-          <Property Name="BuyItNow" Type="bit" Nullable="false" />
-          <Property Name="Auction" Type="bit" Nullable="false" />
           <Property Name="CurrentPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Bidders">
@@ -803,8 +801,6 @@
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Finalized" Type="Boolean" Nullable="false" />
           <Property Name="ItemsNumber" Type="Int32" Nullable="false" />
-          <Property Name="BuyItNow" Type="Boolean" Nullable="false" />
-          <Property Name="Auction" Type="Boolean" Nullable="false" />
           <Property Name="CurrentPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_auctions" FromRole="Auctions" ToRole="aspnet_Users" />
           <NavigationProperty Name="Bidders" Relationship="PortalAukcyjnyModel.fk_bids" FromRole="Auctions" ToRole="Bidders" />
@@ -1228,8 +1224,6 @@
             <EntityTypeMapping TypeName="PortalAukcyjnyModel.Auctions">
               <MappingFragment StoreEntitySet="Auctions">
                 <ScalarProperty Name="CurrentPrice" ColumnName="CurrentPrice" />
-                <ScalarProperty Name="Auction" ColumnName="Auction" />
-                <ScalarProperty Name="BuyItNow" ColumnName="BuyItNow" />
                 <ScalarProperty Name="ItemsNumber" ColumnName="ItemsNumber" />
                 <ScalarProperty Name="Finalized" ColumnName="Finalized" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />

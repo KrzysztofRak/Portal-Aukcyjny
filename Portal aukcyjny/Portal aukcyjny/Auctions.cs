@@ -35,8 +35,6 @@ namespace Portal_aukcyjny
         public System.DateTime EndDate { get; set; }
         public bool Finalized { get; set; }
         public int ItemsNumber { get; set; }
-        public bool BuyItNow { get; set; }
-        public bool Auction { get; set; }
         public decimal CurrentPrice { get; set; }
     
         public virtual aspnet_Users aspnet_Users { get; set; }

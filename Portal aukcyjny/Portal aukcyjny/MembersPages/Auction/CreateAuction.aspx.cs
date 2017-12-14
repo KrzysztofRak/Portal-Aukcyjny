@@ -30,33 +30,21 @@ namespace Portal_aukcyjny.Auction
             auction.ItemsNumber = int.Parse(ItemsNumber.Text);
 
             if (CheckBox_BuyItNow.Checked)
-            {
                 auction.BuyItNowPrice = Convert.ToDecimal(BuyItNowPrice.Text);
-                auction.BuyItNow = true;
-            }
             else
-            {
                 auction.BuyItNowPrice = 0;
-                auction.BuyItNow = false;
-            }
 
             if (CheckBox_Auction.Checked)
-            {
                 auction.CurrentPrice = Convert.ToDecimal(StartPrice.Text);
-                auction.Auction = true;
-            }
             else
-            {
                 auction.CurrentPrice = 0;
-                auction.Auction = false;
-            }
 
             auction.Location = Location.Text;
             auction.EndDate = DateTime.Now.AddDays(int.Parse(EndDate.SelectedItem.Value));
             auction.Description = ItemDescription.Text;
 
-            auction.CategoryId = 0;//int.Parse(ItemCategory.SelectedItem.Value);
-            auction.ShipmentId = 0;//int.Parse(ShipmentType.SelectedItem.Value);
+            auction.CategoryId = int.Parse(ItemCategory.SelectedItem.Value);
+            auction.ShipmentId = int.Parse(ShipmentType.SelectedItem.Value);
 
             db.Auctions.Add(auction);
             db.SaveChanges();

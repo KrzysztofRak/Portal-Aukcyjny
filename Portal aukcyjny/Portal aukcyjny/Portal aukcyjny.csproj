@@ -208,6 +208,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="UserControls\AuctionControl.ascx" />
+    <Content Include="UserControls\CommentControl.ascx" />
     <Content Include="UserControls\OfferControl.ascx" />
     <Content Include="UserControls\SearchControl.ascx" />
     <Content Include="Site.Master" />
@@ -347,6 +348,13 @@
     </Compile>
     <Compile Include="UserControls\AuctionControl.ascx.designer.cs">
       <DependentUpon>AuctionControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CommentControl.ascx.cs">
+      <DependentUpon>CommentControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommentControl.ascx.designer.cs">
+      <DependentUpon>CommentControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\OfferControl.ascx.cs">
       <DependentUpon>OfferControl.ascx</DependentUpon>
