@@ -23,17 +23,15 @@ namespace Portal_aukcyjny.PublicPages.Auction
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int auctionId;
+            int auctionId = new int();
             try
             {
                 auctionId = int.Parse(Request.QueryString["id"]);
             }
             catch
             {
-                auctionId = 0;
+                Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
             }
-
-           // auctionId = 1; ////////////////////////////////////////////
 
             PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
 

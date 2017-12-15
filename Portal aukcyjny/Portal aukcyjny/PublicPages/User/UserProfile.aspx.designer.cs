@@ -40,6 +40,24 @@ namespace Portal_aukcyjny.PublicPages.User {
         protected global::System.Web.UI.WebControls.Label Email;
         
         /// <summary>
+        /// RegistrationDateLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RegistrationDateLabel;
+        
+        /// <summary>
+        /// RegistrationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RegistrationDate;
+        
+        /// <summary>
         /// SoldItemsNumLabel control.
         /// </summary>
         /// <remarks>

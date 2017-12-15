@@ -25,6 +25,15 @@
             <td style="height: 22px"></td>
         </tr>
         <tr>
+            <td style="height: 22px"><strong>
+                <asp:Label ID="RegistrationDateLabel" runat="server" Text="Członek od: "></asp:Label>
+                </strong>
+                <asp:Label ID="RegistrationDate" runat="server" Text="Label"></asp:Label>
+            </td>
+            <td style="height: 22px">&nbsp;</td>
+            <td style="height: 22px">&nbsp;</td>
+        </tr>
+        <tr>
             <td style="height: 23px"><strong>
                 <asp:Label ID="SoldItemsNumLabel" runat="server" Text="Sprzedanych przedmiotów:"></asp:Label>
                 </strong>&nbsp;<asp:Label ID="SoldItemsNum" runat="server" Text="Label"></asp:Label>
