@@ -8,16 +8,11 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Portal_aukcyjny.UserControls;
+using Portal_aukcyjny.Repositories;
 
 namespace Portal_aukcyjny.PublicPages.Auction
 {
-    class Bid
-    {
-        public string BiddrName { get; set; }
-        public string BidderId { get; set; }
-        public string Price { get; set; }
-        public string Date { get; set; }
-    }
+
 
     public partial class ViewAuction : System.Web.UI.Page
     {
@@ -82,7 +77,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 var bidsData =
                    (from o in bids
                     join u in db.aspnet_Users on o.BidderId equals u.UserId
-                    select new Bid() { BiddrName = u.UserName, BidderId = u.UserId.ToString(), Price = o.Price.ToString(), Date = o.BidDate.ToString() }).ToList();
+                    select new OfferControlData() { BiddrName = u.UserName, BidderId = u.UserId.ToString(), Price = o.Price.ToString(), Date = o.BidDate.ToString() }).ToList();
 
                 for (int i = 0; i < bidsData.Count; i++)
                     offersControls.Add(new OfferControl());

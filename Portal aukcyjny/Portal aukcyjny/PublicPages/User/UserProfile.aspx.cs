@@ -5,20 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Portal_aukcyjny.Repositories;
 
 namespace Portal_aukcyjny.PublicPages.User
 {
     public partial class UserProfile : System.Web.UI.Page
     {
-        class UserData
-        {
-            public string Username { get; set; }
-            public string Email { get; set; }
-            public DateTime RegistrationDate { get; set; }
-            public int SoldItemsNum { get; set; }
-            public List<Auctions> Auctions { get; set; }
-            public List<Comments> Comments { get; set; }
-        }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,13 +27,12 @@ namespace Portal_aukcyjny.PublicPages.User
 
             PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
 
-
             var userData = (from m in db.aspnet_Membership
                         where m.UserId == userId
                         join u in db.aspnet_Users on userId equals u.UserId
                         join a in db.Auctions on userId equals a.OwnerId into AuctionsList
                         join c in db.Comments on userId equals c.RecipientId into CommentsList
-                        select new UserData
+                        select new UserProfileData
                         {
                             Username = u.UserName,
                             Email = m.Email,

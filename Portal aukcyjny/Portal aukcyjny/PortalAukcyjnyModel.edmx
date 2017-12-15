@@ -144,7 +144,7 @@
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Image" Type="image" />
-          <Property Name="BuyItNowPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="BuyItNowPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
           <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ShipmentId" Type="int" Nullable="false" />
@@ -153,7 +153,7 @@
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="Finalized" Type="bit" Nullable="false" />
           <Property Name="ItemsNumber" Type="int" Nullable="false" />
-          <Property Name="CurrentPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CurrentPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Bidders">
           <Key>
@@ -162,7 +162,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BidderId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AuctionId" Type="int" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="BidDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Categories">
@@ -198,7 +198,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__3A81B327">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
@@ -792,7 +792,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="BuyItNowPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="BuyItNowPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OwnerId" Type="Guid" Nullable="false" />
           <Property Name="ShipmentId" Type="Int32" Nullable="false" />
@@ -801,7 +801,7 @@
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Finalized" Type="Boolean" Nullable="false" />
           <Property Name="ItemsNumber" Type="Int32" Nullable="false" />
-          <Property Name="CurrentPrice" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CurrentPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_auctions" FromRole="Auctions" ToRole="aspnet_Users" />
           <NavigationProperty Name="Bidders" Relationship="PortalAukcyjnyModel.fk_bids" FromRole="Auctions" ToRole="Bidders" />
           <NavigationProperty Name="Categories" Relationship="PortalAukcyjnyModel.fk_categories" FromRole="Auctions" ToRole="Categories" />
@@ -816,7 +816,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BidderId" Type="Guid" Nullable="false" />
           <Property Name="AuctionId" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="BidDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_bidders" FromRole="Bidders" ToRole="aspnet_Users" />
           <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_bids" FromRole="Bidders" ToRole="Auctions" />
@@ -859,7 +859,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_shipments" FromRole="Shipments" ToRole="Auctions" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__3A81B327">

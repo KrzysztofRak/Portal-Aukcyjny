@@ -271,6 +271,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -327,6 +328,7 @@
     </Compile>
     <Compile Include="PublicPages\Auction\ViewAuction.aspx.cs">
       <DependentUpon>ViewAuction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PublicPages\Auction\ViewAuction.aspx.designer.cs">
       <DependentUpon>ViewAuction.aspx</DependentUpon>
@@ -338,6 +340,9 @@
     <Compile Include="PublicPages\User\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryData.cs" />
     <Compile Include="Shipments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
@@ -408,7 +413,6 @@
   <ItemGroup>
     <Folder Include="AdminPages\" />
     <Folder Include="Data\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

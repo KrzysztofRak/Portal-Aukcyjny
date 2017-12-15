@@ -6,25 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
+using Portal_aukcyjny.Repositories;
 
 namespace Portal_aukcyjny
 {
-    class AuctionControlData
-    {
-        public string Title { get; set; }
-        public int AuctionId { get; set; }
-        public byte[] Image { get; set; }
-        public decimal BuyItNowPrice { get; set; }
-        public string CurrentPrice { get; set; }
-        public string SellerName { get; set; }
-        public Guid SellerId { get; set; }
-        public string ShipmentName { get; set; }
-        public decimal ShipmentPrice { get; set; }
-        public DateTime EndDate { get; set; }
-        public int OffersNum { get; set; }
-        public int Views { get; set; }
-    }
-
     public partial class _Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
