@@ -61,6 +61,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -136,12 +137,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PortalAukcyjny.mdf" />
+    <Content Include="App_Data\PortalAukcyjny_log.ldf" />
     <Content Include="Images\defaultAuctionImg.jpg" />
     <Content Include="MembersPages\Account\Logout.aspx" />
-    <Content Include="App_Data\PortalAukcyjny.mdf" />
-    <Content Include="App_Data\PortalAukcyjny_log.ldf">
-      <DependentUpon>PortalAukcyjny.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -259,6 +258,9 @@
     </Compile>
     <Compile Include="Comments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\LoadControls.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MembersPages\Account\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

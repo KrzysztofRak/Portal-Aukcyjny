@@ -22,13 +22,13 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.HyperLink AuthorName;
         
         /// <summary>
-        /// Comment0 control.
+        /// IsSeller control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Comment0;
+        protected global::System.Web.UI.WebControls.Label IsSeller;
         
         /// <summary>
         /// Comment control.

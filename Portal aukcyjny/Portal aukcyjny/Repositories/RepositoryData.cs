@@ -11,8 +11,6 @@ namespace Portal_aukcyjny.Repositories
         public string Email { get; set; }
         public DateTime RegistrationDate { get; set; }
         public int SoldItemsNum { get; set; }
-        public List<Auctions> Auctions { get; set; }
-        public List<Comments> Comments { get; set; }
     }
 
     public class AuctionControlData
@@ -33,7 +31,11 @@ namespace Portal_aukcyjny.Repositories
 
     public class CommentControlData
     {
-
+        public string AuthorName { get; set; }
+        public Guid AuthorId { get; set; }
+        public string Comment { get; set; }
+        public DateTime Date { get; set; }
+        public bool AuthorIsSeller { get; set; }
     }
 
     public class OfferControlData

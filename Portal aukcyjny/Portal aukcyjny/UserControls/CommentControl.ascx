@@ -19,13 +19,17 @@
         width: 429px;
         height: 32px;
     }
+
+    .comment {
+        border: 1px solid black;
+    }
 </style>
 
-<table class="auto-style4">
+<table class="auto-style4 comment">
     <tr>
         <td class="auto-style3">
             <asp:HyperLink ID="AuthorName" runat="server" CssClass="auto-style2">HyperLink </asp:HyperLink>
-            <asp:Label ID="Comment0" runat="server" Text="[Kupujący]"></asp:Label>
+            <asp:Label ID="IsSeller" runat="server" Text="[Kupujący]"></asp:Label>
         </td>
         <td class="auto-style7">
             <asp:Label ID="Comment" runat="server" Text="Label"></asp:Label>

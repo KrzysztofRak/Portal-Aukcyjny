@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portal_aukcyjny.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,24 +11,27 @@ namespace Portal_aukcyjny.Auction
 {
     public partial class CreateAuction : System.Web.UI.Page
     {
+        private PortalAukcyjnyEntities db;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            db = new PortalAukcyjnyEntities();
         }
 
         protected void CreateAuctionBtn_Click(object sender, EventArgs e)
         {
-            PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
+            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
 
-            Auctions auction = new Auctions();
-            auction.Id = 5;
-            auction.OwnerId = new Guid(Membership.GetUser().ProviderUserKey.ToString());
-            auction.Views = 0;
-            auction.Finalized = false;
+            Auctions auction = new Auctions
+            {
+                Id = 5,
+                OwnerId = new Guid(Membership.GetUser().ProviderUserKey.ToString()),
+                Views = 0,
+                Finalized = false,
 
-            auction.Title = ItemTitle.Text;
-            auction.Image = FileUpload();
-            auction.ItemsNumber = int.Parse(ItemsNumber.Text);
+                Title = ItemTitle.Text,
+                Image = FileUpload(),
+                ItemsNumber = int.Parse(ItemsNumber.Text)
+            };
 
             if (CheckBox_BuyItNow.Checked)
                 auction.BuyItNowPrice = Convert.ToDecimal(BuyItNowPrice.Text);
@@ -46,8 +50,7 @@ namespace Portal_aukcyjny.Auction
             auction.CategoryId = int.Parse(ItemCategory.SelectedItem.Value);
             auction.ShipmentId = int.Parse(ShipmentType.SelectedItem.Value);
 
-            db.Auctions.Add(auction);
-            db.SaveChanges();
+            auctionsRepo.Add(auction);
 
             Response.Redirect(Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auction.Id.ToString()));
         }

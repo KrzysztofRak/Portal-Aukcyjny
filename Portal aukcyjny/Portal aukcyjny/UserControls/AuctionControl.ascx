@@ -29,6 +29,11 @@
         height: 31px;
     }
 
+    .auto-style8 {
+        height: 23px;
+        width: 301px;
+    }
+
 </style>
 
 <table class="auto-style4">
@@ -46,7 +51,7 @@
         </strong>
             <asp:Label ID="BuyItNow" runat="server" Text="Label" Visible="False"></asp:Label>
         </td>
-        <td class="auto-style1"><strong>
+        <td class="auto-style8"><strong>
             <asp:Label ID="BidLabel" runat="server" Text="Licytacja: " Visible="False"></asp:Label>
         </strong>
             <asp:Label ID="Bid" runat="server" Text="Label" Visible="False"></asp:Label>
@@ -63,7 +68,7 @@
         </strong>
             <asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
         </td>
-        <td class="auto-style1"><strong>
+        <td class="auto-style8"><strong>
             <asp:Label ID="Label11" runat="server" Text="Pozostało: "></asp:Label>
         </strong>
             <asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
@@ -76,7 +81,7 @@
     </tr>
     <tr>
         <td class="auto-style6">&nbsp;</td>
-        <td class="auto-style1">&nbsp;</td>
+        <td class="auto-style8">&nbsp;</td>
         <td class="auto-style1"><strong>
             <asp:Label ID="Label13" runat="server" Text="Wyświetleń: "></asp:Label>
         </strong>

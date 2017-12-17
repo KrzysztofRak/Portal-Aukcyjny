@@ -35,6 +35,7 @@ namespace Portal_aukcyjny
         public int FailedPasswordAnswerAttemptCount { get; set; }
         public System.DateTime FailedPasswordAnswerAttemptWindowStart { get; set; }
         public string Comment { get; set; }
+        public int SoldItemsNum { get; set; }
     
         public virtual aspnet_Applications aspnet_Applications { get; set; }
         public virtual aspnet_Users aspnet_Users { get; set; }

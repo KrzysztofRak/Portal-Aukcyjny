@@ -16,9 +16,11 @@ namespace Portal_aukcyjny.PublicPages.Auction
 
     public partial class ViewAuction : System.Web.UI.Page
     {
+        private PortalAukcyjnyEntities db;
+        private int auctionId = -1;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            int auctionId = new int();
             try
             {
                 auctionId = int.Parse(Request.QueryString["id"]);
@@ -28,12 +30,19 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
             }
 
-            PortalAukcyjnyEntities db = new PortalAukcyjnyEntities();
+            db = new PortalAukcyjnyEntities();
 
+            LoadAuctionPage();
+        }
 
-            var auction = (from p in db.Auctions where p.Id == auctionId select p).First();
-            auction.Views++;
-            db.SaveChanges();
+        private void LoadAuctionPage()
+        {
+            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
+            var auction = auctionsRepo.Get(auctionId);
+            if(auction == null)
+                Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
+
+            auctionsRepo.UpdateViews(auction);
 
             if (auction.BuyItNowPrice == 0)
             {
@@ -50,7 +59,12 @@ namespace Portal_aukcyjny.PublicPages.Auction
             }
 
             AuctionTitle.Text = auction.Title;
-            AuctionImg.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auction.Image);
+
+            if (auction.Image == null)
+                AuctionImg.ImageUrl = "~/Images/defaultAuctionImg.jpg";
+            else
+                AuctionImg.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auction.Image);
+            
             ItemsNum.Text = auction.ItemsNumber.ToString();
             var timeLeft = (auction.EndDate.Subtract(DateTime.Now));
 
@@ -70,34 +84,36 @@ namespace Portal_aukcyjny.PublicPages.Auction
 
             if (auction.CurrentPrice > 0)
             {
-                var bids = (from p in db.Bidders where p.AuctionId == auctionId select p).ToList();
-                List<OfferControl> offersControls = new List<OfferControl>();
+                LoadOfferControls();
+            }
+        }
+
+        private void LoadOfferControls()
+        {
+            OffersRepository offersRepo = new OffersRepository(db);
+
+            var offers = offersRepo.GetForAuction(auctionId);
 
 
-                var bidsData =
-                   (from o in bids
-                    join u in db.aspnet_Users on o.BidderId equals u.UserId
-                    select new OfferControlData() { BiddrName = u.UserName, BidderId = u.UserId.ToString(), Price = o.Price.ToString(), Date = o.BidDate.ToString() }).ToList();
+            List<OfferControl> offersControls = new List<OfferControl>();
+            for (int i = 0; i < offers.Count; i++)
+                offersControls.Add(new OfferControl());
 
-                for (int i = 0; i < bidsData.Count; i++)
-                    offersControls.Add(new OfferControl());
+            ListView_Offers.DataSource = offersControls;
+            ListView_Offers.DataBind();
 
-                ListView_Offers.DataSource = offersControls;
-                ListView_Offers.DataBind();
-
-                int j = 0;
-                OfferControl offerControl;
-                HyperLink bidder;
-                foreach (var item in ListView_Offers.Items)
-                {
-                    offerControl = (OfferControl)item.FindControl("OfferControl");
-                    bidder = ((HyperLink)offerControl.FindControl("BidderName"));
-                    bidder.Text = bidsData[j].BiddrName;
-                    bidder.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + bidsData[j].BidderId);
-                    ((Label)offerControl.FindControl("BidPrice")).Text = bidsData[j].Price;
-                    ((Label)offerControl.FindControl("BidDate")).Text = bidsData[j].Date;
-                    j++;
-                }
+            int j = 0;
+            OfferControl offerControl;
+            HyperLink bidder;
+            foreach (var item in ListView_Offers.Items)
+            {
+                offerControl = (OfferControl)item.FindControl("OfferControl");
+                bidder = ((HyperLink)offerControl.FindControl("BidderName"));
+                bidder.Text = offers[j].BiddrName;
+                bidder.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + offers[j].BidderId);
+                ((Label)offerControl.FindControl("BidPrice")).Text = offers[j].Price;
+                ((Label)offerControl.FindControl("BidDate")).Text = offers[j].Date;
+                j++;
             }
         }
     }

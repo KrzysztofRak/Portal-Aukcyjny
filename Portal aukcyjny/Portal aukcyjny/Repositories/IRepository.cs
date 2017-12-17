@@ -13,8 +13,8 @@ namespace Portal_aukcyjny.Repositories
 
     public interface IAuctionsRepository
     {
-        IEnumerable<AuctionControlData> GetAuctionsListOfCategory(int catId);
-        IEnumerable<AuctionControlData> GetAuctionsList(Guid userId, bool unfinished = true, bool onlyObservated = false);
+        IEnumerable<AuctionControlData> GetCategoryAuctionsList(int catId = -1);
+        IEnumerable<AuctionControlData> GetUsetrAuctionsList(Guid userId);
         IEnumerable<AuctionControlData> GetObservatedAuctionsList();
         Auctions Get(int id);
         void Add(Auctions auction);

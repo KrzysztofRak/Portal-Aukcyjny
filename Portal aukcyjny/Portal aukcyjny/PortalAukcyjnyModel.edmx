@@ -39,6 +39,7 @@
           <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
           <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
           <Property Name="Comment" Type="ntext" />
+          <Property Name="SoldItemsNum" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="aspnet_Paths">
           <Key>
@@ -675,6 +676,7 @@
           <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
           <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoldItemsNum" Type="Int32" Nullable="false" />
           <NavigationProperty Name="aspnet_Applications" Relationship="PortalAukcyjnyModel.FK__aspnet_Me__Appli__3A81B327" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.FK__aspnet_Me__UserI__3B75D760" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
         </EntityType>
@@ -1101,6 +1103,7 @@
           <EntitySetMapping Name="aspnet_Membership">
             <EntityTypeMapping TypeName="PortalAukcyjnyModel.aspnet_Membership">
               <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="SoldItemsNum" ColumnName="SoldItemsNum" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
                 <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
