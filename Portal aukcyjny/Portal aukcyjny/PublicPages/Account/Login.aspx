@@ -12,7 +12,7 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="text-center">
-                        <asp:Login ID="Login2" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt" Height="192px" style="font-size: small" Width="400px">
+                        <asp:Login ID="LoginForm" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt" Height="192px" style="font-size: small" Width="400px">
                             <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
                         </asp:Login>
                     </td>

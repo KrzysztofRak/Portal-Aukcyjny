@@ -46,7 +46,7 @@ namespace Portal_aukcyjny
 
         private void LoadAuctionControls()
         {
-            AuctionsRepository auctionsRepo = new AuctionsRepository();
+            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
 
             List<AuctionControlData> auctions;
 
@@ -73,7 +73,7 @@ namespace Portal_aukcyjny
                 }
             }
 
-            LoadControls controls = new LoadControls();
+            Controller.Presenter controls = new Controller.Presenter();
             controls.LoadAuctionControls(auctions, ListView_Auctions);
         }
 

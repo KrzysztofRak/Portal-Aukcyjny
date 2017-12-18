@@ -62,7 +62,7 @@ namespace Portal_aukcyjny.PublicPages.User
 
             var auctions = auctionsRepo.GetByUserId(userId);
 
-            LoadControls controls = new LoadControls();
+            Controller.Presenter controls = new Controller.Presenter();
             controls.LoadAuctionControls(auctions, ListView_UserAuctions);
         }
 
@@ -71,7 +71,7 @@ namespace Portal_aukcyjny.PublicPages.User
             CommentsRepository commentsRepo = new CommentsRepository(db);
 
             var comments = commentsRepo.GetByUserId(userId);
-            LoadControls controls = new LoadControls();
+            Controller.Presenter controls = new Controller.Presenter();
             controls.LoadCommentControls(comments, ListView_Comments);
         }
     }

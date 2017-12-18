@@ -11,14 +11,27 @@ using System.Globalization;
 
 namespace Portal_aukcyjny.Controller
 {
-    public class LoadControls : Page
+    public class Presenter : Page
     {
+        //private View view;
+
+        //public Presenter(View _view)
+        //{
+        //    view = _view;
+        //}
+
+        public static bool IsUserLoggedIn()
+        {
+            return (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+        }
+
         public void LoadAuctionControls(List<AuctionControlData> auctions, ListView listView)
         {
             var auctionControls = new List<AuctionControl>();
             for (int i = 0; i < auctions.Count(); i++)
                 auctionControls.Add(new AuctionControl());
 
+            
             listView.DataSource = auctionControls;
             listView.DataBind();
 
@@ -64,7 +77,12 @@ namespace Portal_aukcyjny.Controller
                 var timeLeft = ((Label)auctionControl.FindControl("TimeLeft"));
                 var leftDateTime = (auctions[j].EndDate.Subtract(DateTime.Now));
 
-                if (leftDateTime.TotalDays > 1)
+                if(leftDateTime.TotalMinutes < 0)
+                {
+                    ((Label)auctionControl.FindControl("TimeLeftLabel")).Text = "Zakończono: ";
+                    timeLeft.Text = auctions[j].EndDate.ToString("dd.MM.yyyy hh:mm");
+                }
+                else if (leftDateTime.TotalDays > 1)
                     timeLeft.Text = (int)leftDateTime.TotalDays + " dni";
                 else
                     timeLeft.Text = String.Format("{0:hh\\:mm\\:ss}", leftDateTime);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portal_aukcyjny.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Portal_aukcyjny
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsUserLoggedIn())
+            if (Presenter.IsUserLoggedIn())
             {
                 string myAccountUrl = Page.ResolveUrl("~/MembersPages/Account/MyAccount");
                 string createAuctionUrl = Page.ResolveUrl("~/MembersPages/Auction/CreateAuction");
@@ -23,11 +24,6 @@ namespace Portal_aukcyjny
                     + "<li><a runat=\"server\" href=\"" + myAuctionsUrl + "\">Moje aukcje</a></li>"
                 + "<li><a runat=\"server\" href=\"" + logoutUrl + "\">Wyloguj</a></li>";
             }
-        }
-
-        private bool IsUserLoggedIn()
-        {
-            return (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
         }
     }
 }

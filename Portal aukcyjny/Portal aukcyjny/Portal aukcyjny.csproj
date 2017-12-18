@@ -160,6 +160,7 @@
     </EntityDeploy>
     <Content Include="MembersPages\Account\MyAccount.aspx" />
     <Content Include="MembersPages\Auction\CreateAuction.aspx" />
+    <Content Include="MembersPages\Auction\MyAuctions.aspx" />
     <Content Include="PortalAukcyjnyModel.edmx.diagram">
       <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
     </Content>
@@ -259,7 +260,14 @@
     <Compile Include="Comments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controller\LoadControls.cs">
+    <Compile Include="MembersPages\Auction\MyAuctions.aspx.cs">
+      <DependentUpon>MyAuctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembersPages\Auction\MyAuctions.aspx.designer.cs">
+      <DependentUpon>MyAuctions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\Presenter.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MembersPages\Account\Logout.aspx.cs">

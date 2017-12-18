@@ -69,7 +69,7 @@
             <asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
         </td>
         <td class="auto-style8"><strong>
-            <asp:Label ID="Label11" runat="server" Text="Pozostało: "></asp:Label>
+            <asp:Label ID="TimeLeftLabel" runat="server" Text="Pozostało: "></asp:Label>
         </strong>
             <asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
         </td>

@@ -85,6 +85,15 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label BuyItNowPrice;
         
         /// <summary>
+        /// BuyItNowBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BuyItNowBtn;
+        
+        /// <summary>
         /// BidLabel control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label HighestBid;
-        
-        /// <summary>
-        /// BuyItNowBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BuyItNowBtn;
         
         /// <summary>
         /// Bid control.
