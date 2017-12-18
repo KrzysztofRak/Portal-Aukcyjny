@@ -148,15 +148,6 @@ namespace Portal_aukcyjny.Auction {
         protected global::System.Web.UI.WebControls.DropDownList ShipmentType;
         
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
-        /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
         /// <remarks>
@@ -173,15 +164,6 @@ namespace Portal_aukcyjny.Auction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ItemCategory;
-        
-        /// <summary>
-        /// SqlDataSource_Categories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource_Categories;
         
         /// <summary>
         /// RequiredFieldValidator5 control.

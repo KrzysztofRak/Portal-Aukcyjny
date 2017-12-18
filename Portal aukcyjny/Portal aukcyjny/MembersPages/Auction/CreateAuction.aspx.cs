@@ -1,4 +1,5 @@
-﻿using Portal_aukcyjny.Repositories;
+﻿using Portal_aukcyjny.Controller;
+using Portal_aukcyjny.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,7 @@ namespace Portal_aukcyjny.Auction
 
             Auctions auction = new Auctions
             {
-                Id = 5,
-                OwnerId = new Guid(Membership.GetUser().ProviderUserKey.ToString()),
+                OwnerId = Presenter.GetCurrentUserId(),
                 Views = 0,
                 Finalized = false,
 
@@ -36,12 +36,12 @@ namespace Portal_aukcyjny.Auction
             if (CheckBox_BuyItNow.Checked)
                 auction.BuyItNowPrice = Convert.ToDecimal(BuyItNowPrice.Text);
             else
-                auction.BuyItNowPrice = 0;
+                auction.BuyItNowPrice = -1;
 
             if (CheckBox_Auction.Checked)
-                auction.CurrentPrice = Convert.ToDecimal(StartPrice.Text);
+                auction.MinimumPrice = Convert.ToDecimal(StartPrice.Text);
             else
-                auction.CurrentPrice = 0;
+                auction.MinimumPrice = Convert.ToDecimal(-1);
 
             auction.Location = Location.Text;
             auction.EndDate = DateTime.Now.AddDays(int.Parse(EndDate.SelectedItem.Value));

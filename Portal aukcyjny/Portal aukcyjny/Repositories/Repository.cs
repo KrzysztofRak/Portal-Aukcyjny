@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Portal_aukcyjny.Controller;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -20,13 +21,33 @@ namespace Portal_aukcyjny.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
+        //private AuctionControlData AssignAuctionControlData(Auctions a, aspnet_Users u, Shipments s)
+        //{
+        //    var auctionControlData = new AuctionControlData()
+        //    {
+        //        Title = a.Title,
+        //        AuctionId = a.Id,
+        //        Image = a.Image,
+        //        BuyItNowPrice = a.BuyItNowPrice,
+        //        MinimumPrice = Bids.Max(p => p.Price).ToString(),
+        //        SellerName = u.UserName,
+        //        SellerId = a.OwnerId,
+        //        ShipmentName = s.Name,
+        //        ShipmentPrice = s.Price,
+        //        EndDate = a.EndDate,
+        //        OffersNum = Bids.Count(),
+        //        Views = a.Views
+        //    };
+
+        //    return auctionControlData;
+        //}
         public List<AuctionControlData> GetByCategoryId(int catId = -1)
         {
             var auctionsData =
            (from a in db.Auctions
             where !a.Finalized && a.EndDate > DateTime.Now && (catId == -1 || a.CategoryId == catId)
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
-            join b in db.Bidders on a.Id equals b.AuctionId into Bids
+            join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
             select new AuctionControlData()
             {
@@ -34,7 +55,9 @@ namespace Portal_aukcyjny.Repositories
                 AuctionId = a.Id,
                 Image = a.Image,
                 BuyItNowPrice = a.BuyItNowPrice,
-                CurrentPrice = Bids.Max(p => p.Price).ToString(),
+                BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                MinimumPrice = a.MinimumPrice,
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
@@ -53,7 +76,7 @@ namespace Portal_aukcyjny.Repositories
            (from a in db.Auctions
             where ((!onlyFinished && !a.Finalized && a.EndDate > DateTime.Now) || (onlyFinished && (a.Finalized || a.EndDate <= DateTime.Now))) && a.OwnerId == userId
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
-            join b in db.Bidders on a.Id equals b.AuctionId into Bids
+            join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
             select new AuctionControlData()
             {
@@ -61,7 +84,9 @@ namespace Portal_aukcyjny.Repositories
                 AuctionId = a.Id,
                 Image = a.Image,
                 BuyItNowPrice = a.BuyItNowPrice,
-                CurrentPrice = Bids.Max(p => p.Price).ToString(),
+                BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                MinimumPrice = a.MinimumPrice,
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
@@ -77,11 +102,11 @@ namespace Portal_aukcyjny.Repositories
         public List<AuctionControlData> GetObserved(Guid userId)
         {
             var auctionsData =
-           (from o in db.Observers
-            where o.ObserverId == userId
-            join a in db.Auctions on new { A = o.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now }
+           (from w in db.Observers
+            where w.ObserverId == userId
+            join a in db.Auctions on new { A = w.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now }
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
-            join b in db.Bidders on a.Id equals b.AuctionId into Bids
+            join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
             select new AuctionControlData()
             {
@@ -89,7 +114,9 @@ namespace Portal_aukcyjny.Repositories
                 AuctionId = a.Id,
                 Image = a.Image,
                 BuyItNowPrice = a.BuyItNowPrice,
-                CurrentPrice = Bids.Max(p => p.Price).ToString(),
+                BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                MinimumPrice = a.MinimumPrice,
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
@@ -109,15 +136,17 @@ namespace Portal_aukcyjny.Repositories
             where b.BidderId == userId
             join a in db.Auctions on new { A = b.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now }
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
+            join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
-            join bid in db.Bidders on a.Id equals bid.AuctionId into Bids
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
                 Image = a.Image,
                 BuyItNowPrice = a.BuyItNowPrice,
-                CurrentPrice = Bids.Max(p => p.Price).ToString(),
+                BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                MinimumPrice = a.MinimumPrice,
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
@@ -137,7 +166,7 @@ namespace Portal_aukcyjny.Repositories
                 var auctions =
                (from a in db.Auctions.Where(au => !au.Finalized && au.EndDate > DateTime.Now && au.Title.Contains(searchString))
                 join u in db.aspnet_Users on a.OwnerId equals u.UserId
-                join b in db.Bidders on a.Id equals b.AuctionId into Bids
+                join t in db.Bidders on a.Id equals t.AuctionId into Bids
                 join s in db.Shipments on a.ShipmentId equals s.Id
                 select new AuctionControlData()
                 {
@@ -145,7 +174,9 @@ namespace Portal_aukcyjny.Repositories
                     AuctionId = a.Id,
                     Image = a.Image,
                     BuyItNowPrice = a.BuyItNowPrice,
-                    CurrentPrice = Bids.Max(p => p.Price).ToString(),
+                    BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                    BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                    MinimumPrice = a.MinimumPrice,
                     SellerName = u.UserName,
                     SellerId = a.OwnerId,
                     ShipmentName = s.Name,
@@ -177,7 +208,7 @@ namespace Portal_aukcyjny.Repositories
             return auction;
         }
 
-        public void UpdateViews(Auctions auction)
+        public void UpdateViewsNum(Auctions auction)
         {
             auction.Views++;
             db.SaveChanges();
@@ -228,9 +259,32 @@ namespace Portal_aukcyjny.Repositories
                (from o in db.Bidders
                 where o.AuctionId == auctionId
                 join u in db.aspnet_Users on o.BidderId equals u.UserId
-                select new OfferControlData() { BiddrName = u.UserName, BidderId = u.UserId.ToString(), Price = o.Price.ToString(), Date = o.BidDate.ToString() }).ToList();
+                select new OfferControlData() { BiddrName = u.UserName, BidderId = u.UserId.ToString(), Price = o.Price, Date = o.BidDate }).OrderByDescending(p => p.Price).ToList();
 
             return offers;
+        }
+
+        public decimal GetBestOffer(int auctionId)
+        {
+            var offers =
+               (from o in db.Bidders
+                where o.AuctionId == auctionId
+                select o).OrderByDescending(p => p.Price).ToList();
+
+            if (offers.Count > 0)
+                return offers.First().Price;
+            else
+                return 0;
+        }
+
+        public void Add(int auctionId, decimal price)
+        {
+            var userId = Presenter.GetCurrentUserId();
+            if (price > GetBestOffer(auctionId))
+            {
+                db.Bidders.Add(new Bidders { AuctionId = auctionId, BidderId = userId, Price = price, BidDate = DateTime.Now});
+                db.SaveChanges();
+            }
         }
     }
 
@@ -317,16 +371,40 @@ namespace Portal_aukcyjny.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        public void Add(Guid userId, int auctionId)
+        public bool CheckIfAuctionIsObservedByUser(int auctionId)
         {
-            db.Observers.Add(new Observers { AuctionId = auctionId, ObserverId = userId });
-            db.SaveChanges();
+            var userId = Presenter.GetCurrentUserId();
+            var observer = (from o in db.Observers where o.ObserverId == userId && o.AuctionId == auctionId select o).ToList();
+            return observer.Count() > 0;
         }
 
-        public void Delete(Guid userId, int auctionId)
+        public void Add(int auctionId)
         {
-            db.Observers.Remove(new Observers { AuctionId = auctionId, ObserverId = userId });
-            db.SaveChanges();
+            var userId = Presenter.GetCurrentUserId();
+            if (!db.Observers.Any(o => o.ObserverId == userId && o.AuctionId == auctionId))
+            {
+                db.Observers.Add(new Observers { AuctionId = auctionId, ObserverId = userId });
+                db.SaveChanges();
+            }
+        }
+
+        public void Delete(int auctionId)
+        {
+            try
+            {
+                var userId = Presenter.GetCurrentUserId();
+                if (db.Observers.Any(o => o.ObserverId == userId && o.AuctionId == auctionId))
+                {
+                    var observer = (from o in db.Observers where o.ObserverId == userId && o.AuctionId == auctionId select o).FirstOrDefault();
+                    db.Observers.Attach(observer);
+                    db.Observers.Remove(observer);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
     }
 
@@ -344,12 +422,14 @@ namespace Portal_aukcyjny.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        public string GetShipmentName(int shipmentId)
+        public string GetShipmentFullName(int shipmentId)
         {
-            var shipmentName =
+            var shipment =
             (from s in db.Shipments
              where s.Id == shipmentId
-             select s.Name + " " + s.Price).DefaultIfEmpty("").FirstOrDefault();
+             select s).First();
+
+            var shipmentName = shipment.Name + " " + CurrencyExchangeRepository.Exchange(shipment.Price);
 
             return shipmentName;
         }

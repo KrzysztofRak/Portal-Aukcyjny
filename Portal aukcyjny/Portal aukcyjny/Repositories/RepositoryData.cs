@@ -19,7 +19,9 @@ namespace Portal_aukcyjny.Repositories
         public int AuctionId { get; set; }
         public byte[] Image { get; set; }
         public decimal BuyItNowPrice { get; set; }
-        public string CurrentPrice { get; set; }
+        public string BestPriceUsername { get; set; }
+        public decimal BestPrice { get; set; }
+        public decimal MinimumPrice { get; set; }
         public string SellerName { get; set; }
         public Guid SellerId { get; set; }
         public string ShipmentName { get; set; }
@@ -27,6 +29,7 @@ namespace Portal_aukcyjny.Repositories
         public DateTime EndDate { get; set; }
         public int OffersNum { get; set; }
         public int Views { get; set; }
+        public bool IsObserved { get; set; }
     }
 
     public class CommentControlData
@@ -42,8 +45,8 @@ namespace Portal_aukcyjny.Repositories
     {
         public string BiddrName { get; set; }
         public string BidderId { get; set; }
-        public string Price { get; set; }
-        public string Date { get; set; }
+        public decimal Price { get; set; }
+        public DateTime Date { get; set; }
     }
 
 

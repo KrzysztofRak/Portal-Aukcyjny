@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Krzysztof\Desktop\SOLUTION\SharePoint-School\Portal aukcyjny\Portal aukcyjny\PortalAukcyjnyModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\krak\Desktop\ASP.NET\SharePoint-School\Portal aukcyjny\Portal aukcyjny\PortalAukcyjnyModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

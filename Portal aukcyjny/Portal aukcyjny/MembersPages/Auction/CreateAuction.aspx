@@ -102,9 +102,8 @@
                                 <tr>
                                     <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Rodzaj przesyłki:</strong></td>
                                     <td class="text-left" style="height: 24px">
-                                        <asp:DropDownList ID="ShipmentType" runat="server" Height="17px" Width="200px" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id">
+                                        <asp:DropDownList ID="ShipmentType" runat="server" Height="17px" Width="200px">
                                         </asp:DropDownList>
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PortalAukcyjnyConnectionString %>" SelectCommand="SELECT [Id], [Name], [Price] FROM [Shipments]"></asp:SqlDataSource>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ShipmentType" ErrorMessage="Wybranie rodzaju przesyłki jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px"></td>
@@ -118,9 +117,8 @@
                                 <tr>
                                     <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Kategoria:</strong></td>
                                     <td class="text-left" style="height: 24px">
-                                        <asp:DropDownList ID="ItemCategory" runat="server" Height="17px" Width="200px" DataSourceID="SqlDataSource_Categories" DataTextField="Name" DataValueField="Id">
+                                        <asp:DropDownList ID="ItemCategory" runat="server" Height="17px" Width="200px">
                                         </asp:DropDownList>
-                                        <asp:SqlDataSource ID="SqlDataSource_Categories" runat="server" ConnectionString="<%$ ConnectionStrings:PortalAukcyjnyConnectionString %>" SelectCommand="SELECT [Name], [Id] FROM [Categories]"></asp:SqlDataSource>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ItemCategory" ErrorMessage="Wybranie kategorii jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px"></td>

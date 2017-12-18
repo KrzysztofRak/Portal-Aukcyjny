@@ -350,10 +350,14 @@
     <Compile Include="PublicPages\User\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CurrencyExchangeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RepositoryData.cs" />
     <Compile Include="Shipments.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Table.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AuctionControl.ascx.cs">

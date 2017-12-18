@@ -154,7 +154,7 @@
           <Property Name="EndDate" Type="datetime" Nullable="false" />
           <Property Name="Finalized" Type="bit" Nullable="false" />
           <Property Name="ItemsNumber" Type="int" Nullable="false" />
-          <Property Name="CurrentPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="MinimumPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Bidders">
           <Key>
@@ -200,6 +200,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AuctionId" Type="int" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__3A81B327">
           <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
@@ -459,6 +467,7 @@
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Observers" EntityType="Self.Observers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shipments" EntityType="Self.Shipments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__aspnet_Me__Appli__3A81B327" Association="Self.FK__aspnet_Me__Appli__3A81B327">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -561,6 +570,7 @@
           <EntitySet Name="Comments" EntityType="PortalAukcyjnyModel.Comments" />
           <EntitySet Name="Observers" EntityType="PortalAukcyjnyModel.Observers" />
           <EntitySet Name="Shipments" EntityType="PortalAukcyjnyModel.Shipments" />
+          <EntitySet Name="Table" EntityType="PortalAukcyjnyModel.Table" />
           <AssociationSet Name="FK__aspnet_Me__Appli__3A81B327" Association="PortalAukcyjnyModel.FK__aspnet_Me__Appli__3A81B327">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -803,7 +813,7 @@
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Finalized" Type="Boolean" Nullable="false" />
           <Property Name="ItemsNumber" Type="Int32" Nullable="false" />
-          <Property Name="CurrentPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="MinimumPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_auctions" FromRole="Auctions" ToRole="aspnet_Users" />
           <NavigationProperty Name="Bidders" Relationship="PortalAukcyjnyModel.fk_bids" FromRole="Auctions" ToRole="Bidders" />
           <NavigationProperty Name="Categories" Relationship="PortalAukcyjnyModel.fk_categories" FromRole="Auctions" ToRole="Categories" />
@@ -863,6 +873,14 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_shipments" FromRole="Shipments" ToRole="Auctions" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="AuctionId" Type="Int32" />
+          <Property Name="UserId" Type="Guid" Nullable="false" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__3A81B327">
           <End Type="PortalAukcyjnyModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
@@ -1226,7 +1244,7 @@
           <EntitySetMapping Name="Auctions">
             <EntityTypeMapping TypeName="PortalAukcyjnyModel.Auctions">
               <MappingFragment StoreEntitySet="Auctions">
-                <ScalarProperty Name="CurrentPrice" ColumnName="CurrentPrice" />
+                <ScalarProperty Name="MinimumPrice" ColumnName="MinimumPrice" />
                 <ScalarProperty Name="ItemsNumber" ColumnName="ItemsNumber" />
                 <ScalarProperty Name="Finalized" ColumnName="Finalized" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -1289,6 +1307,15 @@
               <MappingFragment StoreEntitySet="Shipments">
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="PortalAukcyjnyModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

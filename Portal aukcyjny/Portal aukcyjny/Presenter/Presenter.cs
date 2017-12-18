@@ -8,6 +8,7 @@ using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
 using Portal_aukcyjny.Repositories;
 using System.Globalization;
+using System.Web.Security;
 
 namespace Portal_aukcyjny.Controller
 {
@@ -23,6 +24,11 @@ namespace Portal_aukcyjny.Controller
         public static bool IsUserLoggedIn()
         {
             return (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+        }
+
+        public static Guid GetCurrentUserId()
+        {
+            return new Guid(Membership.GetUser().ProviderUserKey.ToString());
         }
 
         public void LoadAuctionControls(List<AuctionControlData> auctions, ListView listView)
@@ -60,10 +66,10 @@ namespace Portal_aukcyjny.Controller
                 }
 
 
-                if (auctions[j].CurrentPrice.ToString() != null)
+                if (auctions[j].MinimumPrice.ToString() != null)
                 {
                     var bid = ((Label)auctionControl.FindControl("Bid"));
-                    bid.Text = auctions[j].CurrentPrice;
+                    bid.Text = CurrencyExchangeRepository.Exchange(auctions[j].MinimumPrice);
                     bid.Visible = true;
                     ((Label)auctionControl.FindControl("BidLabel")).Visible = true;
                 }
@@ -72,7 +78,7 @@ namespace Portal_aukcyjny.Controller
                 seller.Text = auctions[j].SellerName;
                 seller.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
 
-                ((Label)auctionControl.FindControl("Shipment")).Text = auctions[j].ShipmentName + " " + auctions[j].ShipmentPrice.ToString("C", CultureInfo.CurrentCulture); ;
+                ((Label)auctionControl.FindControl("Shipment")).Text = auctions[j].ShipmentName + " " + CurrencyExchangeRepository.Exchange(auctions[j].ShipmentPrice);
 
                 var timeLeft = ((Label)auctionControl.FindControl("TimeLeft"));
                 var leftDateTime = (auctions[j].EndDate.Subtract(DateTime.Now));

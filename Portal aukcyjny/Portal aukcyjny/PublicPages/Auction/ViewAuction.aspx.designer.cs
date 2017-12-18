@@ -94,6 +94,24 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Button BuyItNowBtn;
         
         /// <summary>
+        /// Bid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Bid;
+        
+        /// <summary>
+        /// BidBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BidBtn;
+        
+        /// <summary>
         /// BidLabel control.
         /// </summary>
         /// <remarks>
@@ -112,22 +130,22 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label HighestBid;
         
         /// <summary>
-        /// Bid control.
+        /// BidUsernameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Bid;
+        protected global::System.Web.UI.WebControls.Label BidUsernameLabel;
         
         /// <summary>
-        /// BidBtn control.
+        /// BestBidUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BidBtn;
+        protected global::System.Web.UI.WebControls.HyperLink BestBidUserName;
         
         /// <summary>
         /// Label10 control.
@@ -164,6 +182,15 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink SellerName;
+        
+        /// <summary>
+        /// Observe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Observe;
         
         /// <summary>
         /// Label11 control.

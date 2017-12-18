@@ -41,5 +41,6 @@ namespace Portal_aukcyjny
         public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Observers> Observers { get; set; }
         public virtual DbSet<Shipments> Shipments { get; set; }
+        public virtual DbSet<Table> Table { get; set; }
     }
 }
