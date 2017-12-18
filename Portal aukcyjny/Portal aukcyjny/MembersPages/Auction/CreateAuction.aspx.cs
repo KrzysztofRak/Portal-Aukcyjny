@@ -70,5 +70,17 @@ namespace Portal_aukcyjny.Auction
             else
                 return null;
         }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(!CheckBox_Auction.Checked && !CheckBox_BuyItNow.Checked)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace Portal_aukcyjny.Repositories
             var auctionsData =
            (from o in db.Observers
             where o.ObserverId == userId
-            join a in db.Auctions on new { A = o.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now}
+            join a in db.Auctions on new { A = o.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now }
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join b in db.Bidders on a.Id equals b.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
@@ -106,7 +106,7 @@ namespace Portal_aukcyjny.Repositories
         {
             var auctionsData =
            (from b in db.Bidders
-            where b.BidderId == userId 
+            where b.BidderId == userId
             join a in db.Auctions on new { A = b.AuctionId, B = true } equals new { A = a.Id, B = a.EndDate > DateTime.Now }
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join s in db.Shipments on a.ShipmentId equals s.Id
@@ -157,7 +157,7 @@ namespace Portal_aukcyjny.Repositories
 
                 return auctions;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine(e.ToString());
             }
@@ -263,6 +263,11 @@ namespace Portal_aukcyjny.Repositories
 
             return user;
         }
+
+        public aspnet_Users Get(Guid userId)
+        {
+            return db.aspnet_Users.Find(userId);
+        }
     }
 
     public class CommentsRepository
@@ -322,6 +327,31 @@ namespace Portal_aukcyjny.Repositories
         {
             db.Observers.Remove(new Observers { AuctionId = auctionId, ObserverId = userId });
             db.SaveChanges();
+        }
+    }
+
+    public class ShipmentsRepository
+    {
+        private PortalAukcyjnyEntities db;
+
+        public ShipmentsRepository(PortalAukcyjnyEntities _db)
+        {
+            db = _db;
+        }
+
+        public ShipmentsRepository()
+        {
+            db = new PortalAukcyjnyEntities();
+        }
+
+        public string GetShipmentName(int shipmentId)
+        {
+            var shipmentName =
+            (from s in db.Shipments
+             where s.Id == shipmentId
+             select s.Name + " " + s.Price).DefaultIfEmpty("").FirstOrDefault();
+
+            return shipmentName;
         }
     }
 }

@@ -38,6 +38,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
         private void LoadAuctionPage()
         {
             AuctionsRepository auctionsRepo = new AuctionsRepository(db);
+        
             var auction = auctionsRepo.Get(auctionId);
             if(auction == null)
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
@@ -73,7 +74,9 @@ namespace Portal_aukcyjny.PublicPages.Auction
             else
                 EndTime.Text = String.Format("{0:hh\\:mm\\:ss}", timeLeft);
 
-            var seller = db.aspnet_Users.Find(auction.OwnerId);// (from p in db.aspnet_Users where p.UserId ==  select p).First();
+            UsersRepository usersRepo = new UsersRepository(db);
+
+            var seller = usersRepo.Get(auction.OwnerId);// (from p in db.aspnet_Users where p.UserId ==  select p).First();
             SellerName.Text = seller.UserName;
             SellerName.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + seller.UserId.ToString());
             BuyItNowPrice.Text = auction.BuyItNowPrice.ToString();
@@ -82,6 +85,8 @@ namespace Portal_aukcyjny.PublicPages.Auction
             Description.Text = auction.Description;
             ViewsNum.Text = auction.Views.ToString();
 
+            ShipmentsRepository shipmentsRepo = new ShipmentsRepository(db);
+            Shipment.Text = shipmentsRepo.GetShipmentName(auction.ShipmentId);
             if (auction.CurrentPrice > 0)
             {
                 LoadOfferControls();

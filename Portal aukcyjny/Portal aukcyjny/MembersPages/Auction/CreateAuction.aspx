@@ -11,49 +11,51 @@
                             <asp:Label ID="Label2" runat="server" Font-Size="X-Large" Text="Utwórz nową aukcję"></asp:Label>
                             <table class="nav-justified">
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="height: 43px; width: 137px; font-size: small; color: #336699;">
+                                    <td class="text-left" style="height: 43px; width: 146px; font-size: small; color: #336699;">
                                         <strong>
                                         <asp:Label ID="Label3" runat="server" Text="Tytuł: "></asp:Label>
                                         </strong>
                                     </td>
                                     <td class="text-left" style="height: 43px">
                                                     <asp:TextBox ID="ItemTitle" runat="server" Width="398px"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ItemTitle" ErrorMessage="Tutuł jest wymagany"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 43px">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="height: 24px; width: 137px; font-size: small; color: #336699;"><strong>Zdjęcie:</strong></td>
+                                    <td class="text-left" style="height: 24px; width: 146px; font-size: small; color: #336699;"><strong>Zdjęcie:</strong></td>
                                     <td class="text-left" style="height: 24px">
                                         <asp:FileUpload ID="ImageFile" runat="server" Width="406px" />
                                     </td>
                                     <td class="text-left" style="height: 24px">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="height: 24px; width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="height: 24px; width: 146px">&nbsp;</td>
                                     <td class="text-left" style="height: 24px">
                                         &nbsp;</td>
                                     <td class="text-left" style="height: 24px">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="height: 24px; width: 137px; color: #336699; font-size: small;"><strong>Ilość przedmtów:</strong></td>
+                                    <td class="text-left" style="height: 24px; width: 146px; color: #336699; font-size: small;"><strong>Ilość przedmtów:</strong></td>
                                     <td class="text-left" style="height: 24px">
-                                        <asp:TextBox ID="ItemsNumber" runat="server" Width="123px"></asp:TextBox>
+                                        <asp:TextBox ID="ItemsNumber" runat="server" Width="123px" TextMode="Number">1</asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ItemsNumber" ErrorMessage="Podanie ilości przedmiotów jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="height: 24px; width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="height: 24px; width: 146px">&nbsp;</td>
                                     <td class="text-left" style="height: 24px">
                                         &nbsp;</td>
                                     <td class="text-left" style="height: 24px">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699;"><strong>Cena:</strong></td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699;"><strong>Cena i rodzaj aukcji:</strong></td>
                                     <td class="text-left">
                                         <table style="width:100%;">
                                             <tr>
@@ -66,10 +68,11 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 184px">
-                                                    <asp:TextBox ID="BuyItNowPrice" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="BuyItNowPrice" runat="server" TextMode="Number"></asp:TextBox>
                                                 </td>
                                                 <td>
-                                                    <asp:TextBox ID="StartPrice" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="StartPrice" runat="server" TextMode="Number"></asp:TextBox>
+                                                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Wymagane jest wybranie co najmniej jednego rodzaju aukcji" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                                                 </td>
                                             </tr>
                                         </table>
@@ -77,62 +80,65 @@
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">
                                         &nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; height: 24px; font-size: small; color: #336699;"><strong>Lokalizacja:</strong></td>
+                                    <td class="text-left" style="width: 146px; height: 24px; font-size: small; color: #336699;"><strong>Lokalizacja:</strong></td>
                                     <td class="text-left" style="height: 24px">
                                         <asp:TextBox ID="Location" runat="server" Width="175px"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Location" ErrorMessage="Podanie lokalizacji jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px"></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">
                                         &nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699; height: 24px;"><strong>Rodzaj przesyłki:</strong></td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Rodzaj przesyłki:</strong></td>
                                     <td class="text-left" style="height: 24px">
                                         <asp:DropDownList ID="ShipmentType" runat="server" Height="17px" Width="200px" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id">
                                         </asp:DropDownList>
                                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PortalAukcyjnyConnectionString %>" SelectCommand="SELECT [Id], [Name], [Price] FROM [Shipments]"></asp:SqlDataSource>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ShipmentType" ErrorMessage="Wybranie rodzaju przesyłki jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px"></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">
                                         &nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699; height: 24px;"><strong>Kategoria:</strong></td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Kategoria:</strong></td>
                                     <td class="text-left" style="height: 24px">
                                         <asp:DropDownList ID="ItemCategory" runat="server" Height="17px" Width="200px" DataSourceID="SqlDataSource_Categories" DataTextField="Name" DataValueField="Id">
                                         </asp:DropDownList>
                                         <asp:SqlDataSource ID="SqlDataSource_Categories" runat="server" ConnectionString="<%$ ConnectionStrings:PortalAukcyjnyConnectionString %>" SelectCommand="SELECT [Name], [Id] FROM [Categories]"></asp:SqlDataSource>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ItemCategory" ErrorMessage="Wybranie kategorii jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px"></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; height: 22px;"></td>
+                                    <td class="text-left" style="width: 146px; height: 22px;"></td>
                                     <td class="text-left" style="height: 22px">
                                     </td>
                                     <td class="text-left" style="height: 22px"></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">
                                         &nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px"><span style="color: #336699; font-size: small;"><strong>Data zakończenia</strong></span><strong>:</strong></td>
+                                    <td class="text-left" style="width: 146px"><span style="color: #336699; font-size: small;"><strong>Czas trwania:</strong></span></td>
                                     <td class="text-left">
                                         <asp:DropDownList ID="EndDate" runat="server" Height="17px" Width="200px">
                                             <asp:ListItem Value="1">1 dzień</asp:ListItem>
@@ -140,34 +146,36 @@
                                             <asp:ListItem Value="7">1 tydzień</asp:ListItem>
                                             <asp:ListItem Value="14">2 tygodnie</asp:ListItem>
                                         </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="EndDate" ErrorMessage="Wybranie czasu trwania aukcji jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px">&nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; height: 22px;"></td>
+                                    <td class="text-left" style="width: 146px; height: 22px;"></td>
                                     <td class="text-left" style="color: #336699; height: 22px;"></td>
                                     <td class="text-left" style="height: 22px"></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699;"><strong>Opis przedmiotu:</strong></td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699;"><strong>Opis przedmiotu:</strong></td>
                                     <td class="text-left">
                                         <asp:TextBox ID="ItemDescription" runat="server" Height="300px" TextMode="MultiLine" Wrap="True" style="min-width: 600px"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ItemDescription" ErrorMessage="Podanie opisu przedmiotu jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699;">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699;">&nbsp;</td>
                                     <td class="text-left">
                                         &nbsp;</td>
                                     <td class="text-left">&nbsp;</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-left" style="width: 137px; font-size: small; color: #336699;">&nbsp;</td>
+                                    <td class="text-left" style="width: 146px; font-size: small; color: #336699;">&nbsp;</td>
                                     <td class="text-left">
                                         <strong>
                                         <asp:Button ID="CreateAuctionBtn" runat="server" Height="60px" style="font-weight: bold" Text="Dodaj aukcje" Width="600px" OnClick="CreateAuctionBtn_Click" />

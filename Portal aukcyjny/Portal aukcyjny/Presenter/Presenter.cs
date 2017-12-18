@@ -118,7 +118,7 @@ namespace Portal_aukcyjny.Controller
 
                 ((Label)commentControl.FindControl("Comment")).Text = comments[j].Comment;
 
-                ((Label)commentControl.FindControl("Date")).Text = comments[j].Date.ToShortDateString();
+                ((Label)commentControl.FindControl("Date")).Text = comments[j].Date.ToString("dd.MM.yyyy hh:mm"); ;
 
                 j++;
             }
