@@ -203,7 +203,9 @@
                 <asp:Button ID="Observe" runat="server" Height="38px" Text="Obserwuj aukcje" Width="399px" />
             </td>
             <td style="height: 22px; width: 29px"></td>
-            <td class="auto-style17"></td>
+            <td class="auto-style17">
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+            </td>
             <td class="auto-style18"></td>
             <td style="height: 22px; width: 304px"></td>
             <td style="height: 22px"></td>

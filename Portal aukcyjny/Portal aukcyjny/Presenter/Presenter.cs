@@ -9,6 +9,7 @@ using Portal_aukcyjny.UserControls;
 using Portal_aukcyjny.Repositories;
 using System.Globalization;
 using System.Web.Security;
+using Portal_aukcyjny.CustomModels;
 
 namespace Portal_aukcyjny.Controller
 {

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
 using Portal_aukcyjny.Repositories;
 using Portal_aukcyjny.Controller;
+using Portal_aukcyjny.CustomModels;
 
 namespace Portal_aukcyjny
 {

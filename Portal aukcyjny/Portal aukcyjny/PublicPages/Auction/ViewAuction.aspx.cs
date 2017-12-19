@@ -20,6 +20,8 @@ namespace Portal_aukcyjny.PublicPages.Auction
         private PortalAukcyjnyEntities db;
         private int auctionId = -1;
 
+        private string minimumOffer;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -34,6 +36,11 @@ namespace Portal_aukcyjny.PublicPages.Auction
             db = new PortalAukcyjnyEntities();
 
             LoadAuctionPage();
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            Bid.Text = minimumOffer;
         }
 
         protected void StopObserve_Click(object sender, EventArgs e)
@@ -123,7 +130,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
             if (auction.MinimumPrice != -1)
             {
                 HighestBid.Text = CurrencyExchangeRepository.Exchange(auction.MinimumPrice);
-                Bid.Text = (auction.MinimumPrice + 1).ToString();
+                minimumOffer = (auction.MinimumPrice + 1).ToString();
                 LoadOfferControls(auction);
             }
 
@@ -147,7 +154,11 @@ namespace Portal_aukcyjny.PublicPages.Auction
 
             var offers = offersRepo.GetForAuction(auctionId);
             if (offers.Count() == 0)
+            {
+                BidLabel.Text = "Cena minimalna: ";
+                BidUsernameLabel.Visible = false;
                 return;
+            }
 
             List<OfferControl> offersControls = new List<OfferControl>();
             for (int i = 0; i < offers.Count; i++)
@@ -170,7 +181,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
             HighestBid.Text = CurrencyExchangeRepository.Exchange(offers[j].Price);
             BestBidUserName.Text = offers[j].BiddrName;
             BestBidUserName.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + offers[j].BidderId);
-            Bid.Text = (offers[j].Price + 1).ToString();
+            minimumOffer = (offers[j].Price + 1).ToString();
 
             foreach (var item in ListView_Offers.Items)
             {
@@ -187,7 +198,14 @@ namespace Portal_aukcyjny.PublicPages.Auction
         protected void BidBtn_Click(object sender, EventArgs e)
         {
             OffersRepository offersRepo = new OffersRepository(db);
+            Debug.WriteLine(Bid.Text);
             offersRepo.Add(auctionId, Convert.ToDecimal(Bid.Text));
+            LoadAuctionPage();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine(Bid.Text);
         }
     }
 }
