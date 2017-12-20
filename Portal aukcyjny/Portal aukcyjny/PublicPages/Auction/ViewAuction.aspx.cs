@@ -8,8 +8,9 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Portal_aukcyjny.UserControls;
-using Portal_aukcyjny.Repositories;
-using Portal_aukcyjny.Controller;
+using Model.Repositories;
+using Portal_aukcyjny.Presenters;
+using Model;
 
 namespace Portal_aukcyjny.PublicPages.Auction
 {
@@ -46,7 +47,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
         protected void StopObserve_Click(object sender, EventArgs e)
         {
             ObserversRepository observersRepo = new ObserversRepository(db);
-            observersRepo.Delete(auctionId);
+            observersRepo.Delete(MyPresenter.GetCurrentUserId(), auctionId);
             Observe.Text = "Obserwuj";
             Observe.Click -= StopObserve_Click;
             Observe.Click += StartObserve_Click;
@@ -55,7 +56,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
         protected void StartObserve_Click(object sender, EventArgs e)
         {
             ObserversRepository observersRepo = new ObserversRepository(db);
-            observersRepo.Add(auctionId);
+            observersRepo.Add(MyPresenter.GetCurrentUserId(), auctionId);
             Observe.Text = "Przestań obserwować";
             Observe.Click -= StartObserve_Click;
             Observe.Click += StopObserve_Click;
@@ -86,14 +87,14 @@ namespace Portal_aukcyjny.PublicPages.Auction
             else
                 EndTime.Text = String.Format("{0:hh\\:mm\\:ss}", timeLeft);
 
-            if(!Presenter.IsUserLoggedIn() || Presenter.GetCurrentUserId() == auction.OwnerId)
+            if(!MyPresenter.IsUserLoggedIn() || MyPresenter.GetCurrentUserId() == auction.OwnerId)
             {
                 Observe.Visible = false;
             }
             else
             {
                 ObserversRepository observersRepo = new ObserversRepository(db);
-                if(!observersRepo.CheckIfAuctionIsObservedByUser(auction.Id))
+                if(!observersRepo.CheckIfAuctionIsObservedByUser(MyPresenter.GetCurrentUserId(), auction.Id))
                 {
                     Observe.Text = "Obserwuj";
                     Observe.Click -= StopObserve_Click;
@@ -134,7 +135,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 LoadOfferControls(auction);
             }
 
-            if(!Presenter.IsUserLoggedIn())
+            if(!MyPresenter.IsUserLoggedIn())
             {
                 BuyItNowBtn.Visible = false;
                 Bid.Visible = false;
@@ -199,7 +200,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
         {
             OffersRepository offersRepo = new OffersRepository(db);
             Debug.WriteLine(Bid.Text);
-            offersRepo.Add(auctionId, Convert.ToDecimal(Bid.Text));
+            offersRepo.Add(MyPresenter.GetCurrentUserId(), auctionId, Convert.ToDecimal(Bid.Text));
             LoadAuctionPage();
         }
 

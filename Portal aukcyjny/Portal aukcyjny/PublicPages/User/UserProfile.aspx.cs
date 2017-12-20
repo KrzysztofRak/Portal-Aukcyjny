@@ -1,13 +1,14 @@
-﻿using Portal_aukcyjny.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Portal_aukcyjny.Repositories;
-using Portal_aukcyjny.Controller;
+using Model.Repositories;
 using System.Diagnostics;
+using Portal_aukcyjny.Presenters;
+using Portal_aukcyjny.UserControls;
+using Model;
 
 namespace Portal_aukcyjny.PublicPages.User
 {
@@ -62,7 +63,7 @@ namespace Portal_aukcyjny.PublicPages.User
 
             var auctions = auctionsRepo.GetByUserId(userId);
 
-            Controller.Presenter controls = new Controller.Presenter();
+            MyPresenter controls = new MyPresenter();
             controls.LoadAuctionControls(auctions, ListView_UserAuctions);
         }
 
@@ -71,7 +72,7 @@ namespace Portal_aukcyjny.PublicPages.User
             CommentsRepository commentsRepo = new CommentsRepository(db);
 
             var comments = commentsRepo.GetByUserId(userId);
-            Controller.Presenter controls = new Controller.Presenter();
+            MyPresenter controls = new MyPresenter();
             controls.LoadCommentControls(comments, ListView_Comments);
         }
     }

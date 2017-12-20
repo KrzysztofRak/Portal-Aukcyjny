@@ -1,12 +1,13 @@
-﻿using Portal_aukcyjny.Controller;
-using Portal_aukcyjny.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Model;
+using Model.Repositories;
+using Portal_aukcyjny.Presenters;
 
 namespace Portal_aukcyjny.Auction
 {
@@ -24,7 +25,7 @@ namespace Portal_aukcyjny.Auction
 
             Auctions auction = new Auctions
             {
-                OwnerId = Presenter.GetCurrentUserId(),
+                OwnerId = MyPresenter.GetCurrentUserId(),
                 Views = 0,
                 Finalized = false,
 

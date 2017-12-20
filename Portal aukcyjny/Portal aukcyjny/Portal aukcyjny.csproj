@@ -154,27 +154,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="PortalAukcyjnyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PortalAukcyjnyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="MembersPages\Account\MyAccount.aspx" />
     <Content Include="MembersPages\Auction\CreateAuction.aspx" />
     <Content Include="MembersPages\Auction\MyAuctions.aspx" />
-    <Content Include="PortalAukcyjnyModel.edmx.diagram">
-      <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="PortalAukcyjnyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
-      <LastGenOutput>PortalAukcyjnyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PortalAukcyjnyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
-      <LastGenOutput>PortalAukcyjnyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="PublicPages\Account\Login.aspx" />
     <Content Include="PublicPages\Account\Register.aspx" />
     <Content Include="PublicPages\Auction\ViewAuction.aspx" />
@@ -218,48 +201,6 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="aspnet_Applications.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Membership.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Paths.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_PersonalizationAllUsers.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_PersonalizationPerUser.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Profile.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Roles.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_SchemaVersions.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_Users.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aspnet_WebEvent_Events.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Auctions.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Bidders.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Categories.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Comments.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MembersPages\Auction\MyAuctions.aspx.cs">
       <DependentUpon>MyAuctions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,7 +208,7 @@
     <Compile Include="MembersPages\Auction\MyAuctions.aspx.designer.cs">
       <DependentUpon>MyAuctions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Presenter\Presenter.cs">
+    <Compile Include="Presenters\MyPresenter.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MembersPages\Account\Logout.aspx.cs">
@@ -303,24 +244,6 @@
     <Compile Include="MembersPages\Auction\CreateAuction.aspx.designer.cs">
       <DependentUpon>CreateAuction.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Observers.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PortalAukcyjnyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortalAukcyjnyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PortalAukcyjnyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PortalAukcyjnyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortalAukcyjnyModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicPages\Account\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -349,16 +272,6 @@
     </Compile>
     <Compile Include="PublicPages\User\UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Repositories\CurrencyExchangeRepository.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\RepositoryData.cs" />
-    <Compile Include="Shipments.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Table.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AuctionControl.ascx.cs">
       <DependentUpon>AuctionControl.ascx</DependentUpon>
@@ -427,6 +340,16 @@
   <ItemGroup>
     <Folder Include="AdminPages\" />
     <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{145cd504-acd2-4a40-b676-adf83263285f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenter\Presenter.csproj">
+      <Project>{1b565658-e2c3-4f77-a45c-6c36e116fd58}</Project>
+      <Name>Presenter</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

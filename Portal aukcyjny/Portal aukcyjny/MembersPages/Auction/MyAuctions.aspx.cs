@@ -1,13 +1,11 @@
-﻿using Portal_aukcyjny.Controller;
-using Portal_aukcyjny.CustomModels;
-using Portal_aukcyjny.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Model.RepositoriesDataModel;
+using Model.Repositories;
+using Portal_aukcyjny.Presenters;
+using Model;
 
 namespace Portal_aukcyjny.MembersPages.Auction
 {
@@ -18,7 +16,7 @@ namespace Portal_aukcyjny.MembersPages.Auction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Presenter.IsUserLoggedIn())
+            if (!Portal_aukcyjny.Presenters.MyPresenter.IsUserLoggedIn())
             {
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
             }
@@ -37,7 +35,7 @@ namespace Portal_aukcyjny.MembersPages.Auction
             List<AuctionControlData> watchedAuctions = auctionsRepo.GetObserved(userId);
             List<AuctionControlData> bidAuctions = auctionsRepo.GetAuctioned(userId);
 
-            Controller.Presenter controls = new Controller.Presenter();
+            Presenters.MyPresenter controls = new Presenters.MyPresenter();
             controls.LoadAuctionControls(myAuctions, ListView_MyAuctions);
             controls.LoadAuctionControls(myFinishedAuctions, ListView_Finished);
             controls.LoadAuctionControls(watchedAuctions, ListView_Watched);

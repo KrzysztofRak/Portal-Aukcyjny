@@ -6,25 +6,31 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
-using Portal_aukcyjny.Repositories;
-using Portal_aukcyjny.Controller;
-using Portal_aukcyjny.CustomModels;
+using Model.Repositories;
+using Model.RepositoriesDataModel;
+using Portal_aukcyjny.Presenters;
+using Model;
+using Presenter;
+using Presenter.IViews;
 
 namespace Portal_aukcyjny
 {
-    public partial class _Default : Page
+    public partial class _Default : Page, IDefaultView
     {
         private PortalAukcyjnyEntities db;
+        private DefaultPresenter presenter;
+
         private int catId;
         private string searchString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new PortalAukcyjnyEntities();
+            presenter = new DefaultPresenter(this);
 
             if (!this.IsPostBack)
             {
-                LoadCategoriesTree();
+                presenter.GetCategoriesList();
             }
 
             LoadAuctionControls();
@@ -32,8 +38,7 @@ namespace Portal_aukcyjny
 
         private void LoadCategoriesTree()
         {
-            CategoriesRepository catRepo = new CategoriesRepository(db);
-            var categories = catRepo.GetCategoriesList();
+            var categories = presenter.GetCategoriesList();
 
             TreeNode categoriesChild;
             foreach (var cat in categories)
@@ -74,9 +79,10 @@ namespace Portal_aukcyjny
                 }
             }
 
-            Controller.Presenter controls = new Controller.Presenter();
+            MyPresenter controls = new MyPresenter();
             controls.LoadAuctionControls(auctions, ListView_Auctions);
         }
 
+            
     }
 }
