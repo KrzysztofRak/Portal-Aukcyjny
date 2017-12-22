@@ -22,7 +22,24 @@ namespace Portal_aukcyjny.Presenters
         //{
         //    view = _view;
         //}
+       
+        private Guid currentUserId;
 
+        public string GetDefaultCurrency()
+        {
+            if (HttpContext.Current.Request.Cookies["defaultCurrency"] != null)
+                return HttpContext.Current.Request.Cookies["defaultCurrency"].Value.ToString();
+            else
+                return "pln";
+        }
+
+        public MyPresenter()
+        {
+            if (IsUserLoggedIn())
+                currentUserId = GetCurrentUserId();
+            else
+                currentUserId = new Guid();
+        }
         public static bool IsUserLoggedIn()
         {
             return (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
@@ -35,6 +52,10 @@ namespace Portal_aukcyjny.Presenters
 
         public void LoadAuctionControls(List<AuctionControlData> auctions, ListView listView)
         {
+            Debug.WriteLine("$$$$$$$$$$$$$$$$$$");
+            Debug.WriteLine(GetDefaultCurrency());
+;            CurrencyExchangeRepository currencyRepo = new CurrencyExchangeRepository(new Model.PortalAukcyjnyEntities());
+
             var auctionControls = new List<AuctionControl>();
             for (int i = 0; i < auctions.Count(); i++)
                 auctionControls.Add(new AuctionControl());
@@ -71,7 +92,7 @@ namespace Portal_aukcyjny.Presenters
                 if (auctions[j].MinimumPrice.ToString() != null)
                 {
                     var bid = ((Label)auctionControl.FindControl("Bid"));
-                    bid.Text = CurrencyExchangeRepository.Exchange(auctions[j].MinimumPrice);
+                    bid.Text = currencyRepo.Exchange(auctions[j].MinimumPrice, Global.GetDefaultCurrency());
                     bid.Visible = true;
                     ((Label)auctionControl.FindControl("BidLabel")).Visible = true;
                 }
@@ -80,7 +101,7 @@ namespace Portal_aukcyjny.Presenters
                 seller.Text = auctions[j].SellerName;
                 seller.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
 
-                ((Label)auctionControl.FindControl("Shipment")).Text = auctions[j].ShipmentName + " " + CurrencyExchangeRepository.Exchange(auctions[j].ShipmentPrice);
+                ((Label)auctionControl.FindControl("Shipment")).Text = auctions[j].ShipmentName + " " + currencyRepo.Exchange(auctions[j].ShipmentPrice, Global.GetDefaultCurrency());
 
                 var timeLeft = ((Label)auctionControl.FindControl("TimeLeft"));
                 var leftDateTime = (auctions[j].EndDate.Subtract(DateTime.Now));

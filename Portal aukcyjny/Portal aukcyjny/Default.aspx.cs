@@ -10,8 +10,8 @@ using Model.Repositories;
 using Model.RepositoriesDataModel;
 using Portal_aukcyjny.Presenters;
 using Model;
-using Presenter;
-using Presenter.IViews;
+using Presenters;
+using Presenters.IViews;
 
 namespace Portal_aukcyjny
 {
@@ -30,7 +30,7 @@ namespace Portal_aukcyjny
 
             if (!this.IsPostBack)
             {
-                presenter.GetCategoriesList();
+                LoadCategoriesTree();
             }
 
             LoadAuctionControls();

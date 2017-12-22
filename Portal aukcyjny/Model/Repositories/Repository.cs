@@ -418,14 +418,14 @@ namespace Model.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        public string GetShipmentFullName(int shipmentId)
+        public string GetShipmentFullName(CurrencyExchangeRepository currencyRepo, int shipmentId)
         {
             var shipment =
             (from s in db.Shipments
              where s.Id == shipmentId
              select s).First();
 
-            var shipmentName = shipment.Name + " " + CurrencyExchangeRepository.Exchange(shipment.Price);
+            var shipmentName = shipment.Name + " " + currencyRepo.Exchange(shipment.Price);
 
             return shipmentName;
         }

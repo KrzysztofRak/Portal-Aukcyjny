@@ -80,7 +80,10 @@
   <ItemGroup>
     <Compile Include="DefaultPresenter.cs" />
     <Compile Include="IPresenters\IDefaultPresenter.cs" />
+    <Compile Include="IPresenters\IMasterPresenter.cs" />
     <Compile Include="IViews\IDefaultView.cs" />
+    <Compile Include="IViews\IMasterView.cs" />
+    <Compile Include="MasterPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

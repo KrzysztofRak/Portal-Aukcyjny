@@ -154,7 +154,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="MembersPages\Account\MyAccount.aspx" />
     <Content Include="MembersPages\Auction\CreateAuction.aspx" />
     <Content Include="MembersPages\Auction\MyAuctions.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -229,13 +228,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="MembersPages\Account\MyAccount.aspx.cs">
-      <DependentUpon>MyAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MembersPages\Account\MyAccount.aspx.designer.cs">
-      <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="MembersPages\Auction\CreateAuction.aspx.cs">
       <DependentUpon>CreateAuction.aspx</DependentUpon>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Presenters.IViews
+namespace Presenter.IViews
 {
-    public interface IDefaultView
+    public interface IMasterView
     {
     }
 }

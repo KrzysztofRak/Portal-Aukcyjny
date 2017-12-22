@@ -19,6 +19,9 @@ namespace Portal_aukcyjny.PublicPages.Auction
     public partial class ViewAuction : System.Web.UI.Page
     {
         private PortalAukcyjnyEntities db;
+        private Guid currentUserId;
+        private CurrencyExchangeRepository currencyRepo;
+
         private int auctionId = -1;
 
         private string minimumOffer;
@@ -35,6 +38,12 @@ namespace Portal_aukcyjny.PublicPages.Auction
             }
 
             db = new PortalAukcyjnyEntities();
+            if (MyPresenter.IsUserLoggedIn())
+                currentUserId = MyPresenter.GetCurrentUserId();
+            else
+                currentUserId = new Guid();
+
+            currencyRepo = new CurrencyExchangeRepository(db);
 
             LoadAuctionPage();
         }
@@ -117,7 +126,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
             ViewsNum.Text = auction.Views.ToString();
 
             ShipmentsRepository shipmentsRepo = new ShipmentsRepository(db);
-            Shipment.Text = shipmentsRepo.GetShipmentFullName(auction.ShipmentId);
+            Shipment.Text = shipmentsRepo.GetShipmentFullName(currencyRepo, auction.ShipmentId);
 
             if (auction.BuyItNowPrice != -1)
             {
@@ -125,12 +134,12 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 BuyItNowPrice.Visible = true;
                 BuyItNowBtn.Visible = true;
 
-                BuyItNowPrice.Text = CurrencyExchangeRepository.Exchange(auction.BuyItNowPrice);
+                BuyItNowPrice.Text = currencyRepo.Exchange(auction.BuyItNowPrice);
             }
 
             if (auction.MinimumPrice != -1)
             {
-                HighestBid.Text = CurrencyExchangeRepository.Exchange(auction.MinimumPrice);
+                HighestBid.Text = currencyRepo.Exchange(auction.MinimumPrice);
                 minimumOffer = (auction.MinimumPrice + 1).ToString();
                 LoadOfferControls(auction);
             }
@@ -179,7 +188,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 BuyItNowPrice.Visible = false;
                 BuyItNowBtn.Visible = false;
             }
-            HighestBid.Text = CurrencyExchangeRepository.Exchange(offers[j].Price);
+            HighestBid.Text = currencyRepo.Exchange(offers[j].Price);
             BestBidUserName.Text = offers[j].BiddrName;
             BestBidUserName.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + offers[j].BidderId);
             minimumOffer = (offers[j].Price + 1).ToString();
@@ -190,7 +199,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
                 bidder = ((HyperLink)offerControl.FindControl("BidderName"));
                 bidder.Text = offers[j].BiddrName;
                 bidder.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + offers[j].BidderId);
-                ((Label)offerControl.FindControl("BidPrice")).Text = CurrencyExchangeRepository.Exchange(offers[j].Price);
+                ((Label)offerControl.FindControl("BidPrice")).Text = currencyRepo.Exchange(offers[j].Price);
                 ((Label)offerControl.FindControl("BidDate")).Text = offers[j].Date.ToString("dd.MM.yyyy hh:mm");
                 j++;
             }

@@ -17,5 +17,13 @@ namespace Portal_aukcyjny
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        public static string GetDefaultCurrency()
+        {
+            if (HttpContext.Current.Request.Cookies["defaultCurrency"] != null)
+                return HttpContext.Current.Request.Cookies["defaultCurrency"].Value.ToString();
+            else
+                return "pln";
+        }
     }
 }

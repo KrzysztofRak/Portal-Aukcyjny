@@ -15,6 +15,40 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style type="text/css">
+        .auto-style2 {
+            width: 858px;
+            text-align: left;
+            height: 22px;
+        }
+        .auto-style3 {
+            height: 23px;
+        }
+        .auto-style5 {
+            text-align: left;
+            height: 23px;
+            width: 122px;
+        }
+        .auto-style9 {
+            margin-left: 65;
+        }
+        .auto-style11 {
+            width: 122px;
+            height: 22px;
+        }
+        .auto-style12 {
+            text-align: left;
+            width: 122px;
+            height: 24px;
+        }
+        .auto-style13 {
+            height: 24px;
+        }
+        .auto-style14 {
+            height: 22px;
+        }
+    </style>
+
 </head>
 <body>
     <form runat="server">
@@ -54,7 +88,7 @@
                 <div class="navbar-collapse collapse">
                     <ul id="TopMenu" runat="server" class="nav navbar-nav">
                             <li><asp:HyperLink ID="HyperLink_Login" runat="server" NavigateUrl="~/PublicPages/Account/Login.aspx">Zaloguj</asp:HyperLink></li>
-                            <li><asp:HyperLink ID="HyperLink_Register" runat="server" NavigateUrl="~/PublicPages/Account/Register.aspx">Zarejestruj</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/PublicPages/Account/Register.aspx">Zarejestruj</asp:HyperLink></li>
                     </ul>
                     
                 </div>
@@ -64,8 +98,39 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+                    <div class="text-center">
+                        <table style="width:100%;">
+                            <tr>
+                                <td class="auto-style3"></td>
+                                <td class="text-right" colspan="2"><strong>
+                                    <asp:Label ID="LabelLanguage" runat="server" Text="Język: "></asp:Label>
+                                    </strong></td>
+                                <td class="auto-style5">
+                                    <asp:DropDownList ID="ListLanguages" runat="server" CssClass="auto-style9" Height="21px" Width="300px">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style14"></td>
+                                <td class="auto-style2"></td>
+                                <td class="auto-style14"></td>
+                                <td class="auto-style11"></td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style13"></td>
+                                <td class="text-right" colspan="2"><strong>
+                                    <asp:Label ID="LabelDefautCurrency" runat="server" Text="Pokazuj walute w:  "></asp:Label>
+                                    </strong></td>
+                                <td class="auto-style12">
+                                    <asp:DropDownList ID="ListDefaultCurrency" runat="server" Height="21px" Width="300px" AutoPostBack="true" OnSelectedIndexChanged="ListDefaultCurrency_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+            </div>
+
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Portal aukcyjny</p>
+                <p>&copy; <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>- Portal aukcyjny</p>
             </footer>
         </div>
 
