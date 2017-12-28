@@ -30,6 +30,7 @@ namespace Portal_aukcyjny.Auction
 
             ItemCategory.DataSource = catRepo.GetList();
             ItemCategory.DataTextField = "Name";
+            ItemCategory.DataValueField = "Id";
             ItemCategory.DataBind();
         }
 
@@ -67,7 +68,7 @@ namespace Portal_aukcyjny.Auction
 
             auctionsRepo.Add(auction);
 
-            Response.Redirect(Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auction.Id.ToString()));
+            Response.Redirect(Page.ResolveUrl("~/PublicPages/Auction/AuctionPage?id=" + auction.Id.ToString()));
         }
 
         private byte[] FileUpload()

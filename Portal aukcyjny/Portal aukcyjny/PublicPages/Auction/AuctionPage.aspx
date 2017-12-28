@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ViewAuction.aspx.cs" Inherits="Portal_aukcyjny.PublicPages.Auction.ViewAuction" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AuctionPage.aspx.cs" Inherits="Portal_aukcyjny.PublicPages.Auction.AuctionPage" %>
 
 <%@ Register Src="../../UserControls/OfferControl.ascx" TagName="OfferControl" TagPrefix="uc1" %>
 <%@ Register Src="~/UserControls/OfferControl.ascx" TagPrefix="uc2" TagName="OfferControl" %>
@@ -99,7 +99,7 @@
             <td rowspan="11" style="width: 29px">&nbsp;</td>
             <td class="auto-style19"><strong>
                 <asp:Label ID="Label8" runat="server" Style="color: #336699" Text="Do końca pozostało: "></asp:Label>
-            </strong>&nbsp;<asp:Label ID="EndTime" runat="server" Text="Label"></asp:Label>
+            </strong>&nbsp;<asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
                 &nbsp;</td>
             <td colspan="2" class="auto-style3"><strong>
                 <asp:Label ID="Label6" runat="server" Style="color: #336699" Text="Dostępnych sztuk: "></asp:Label>
@@ -120,7 +120,7 @@
             </strong>&nbsp;<asp:Label ID="BuyItNowPrice" runat="server" Text="Label" Visible="False"></asp:Label>
             </td>
             <td colspan="2" class="auto-style16">
-                <asp:Button ID="BuyItNowBtn" runat="server" Text="Kup teraz" Width="129px" Height="31px" Visible="False" />
+                <asp:Button ID="BuyItNowBtn" runat="server" Text="Kup teraz" Width="129px" Height="31px" Visible="False" OnClick="BuyItNowBtn_Click" />
             </td>
             <td class="auto-style16"></td>
         </tr>

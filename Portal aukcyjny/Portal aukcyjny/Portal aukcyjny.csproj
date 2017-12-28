@@ -157,7 +157,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="PublicPages\Account\Login.aspx" />
     <Content Include="PublicPages\Account\Register.aspx" />
-    <Content Include="PublicPages\Auction\ViewAuction.aspx" />
+    <Content Include="PublicPages\Auction\AuctionPage.aspx" />
     <Content Include="PublicPages\User\UserProfile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -251,12 +251,12 @@
     <Compile Include="PublicPages\Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PublicPages\Auction\ViewAuction.aspx.cs">
-      <DependentUpon>ViewAuction.aspx</DependentUpon>
+    <Compile Include="PublicPages\Auction\AuctionPage.aspx.cs">
+      <DependentUpon>AuctionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PublicPages\Auction\ViewAuction.aspx.designer.cs">
-      <DependentUpon>ViewAuction.aspx</DependentUpon>
+    <Compile Include="PublicPages\Auction\AuctionPage.aspx.designer.cs">
+      <DependentUpon>AuctionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="PublicPages\User\UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>

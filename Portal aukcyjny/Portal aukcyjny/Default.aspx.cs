@@ -54,7 +54,7 @@ namespace Portal_aukcyjny
                 LoadCategoriesTree();
             }
 
-            LoadAuctionControls();
+            LoadAuctionsControls();
         }
 
         private void LoadCategoriesTree()
@@ -71,7 +71,7 @@ namespace Portal_aukcyjny
             }
         }
 
-        private void LoadAuctionControls()
+        private void LoadAuctionsControls()
         {
             var auctions = presenter.GetAuctionsList();
 

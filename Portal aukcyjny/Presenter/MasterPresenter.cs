@@ -10,7 +10,7 @@ using static Model.Repositories.CurrencyExchangeRepository;
 
 namespace Presenters
 {
-    public class MasterPresenter
+    public class MasterPresenter : IMasterPresenter
     {
         protected PortalAukcyjnyEntities db;
 
@@ -53,9 +53,12 @@ namespace Presenters
             return (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
         }
 
-        protected Guid GetCurrentUserId()
+        public Guid GetCurrentUserId()
         {
-            return new Guid(System.Web.Security.Membership.GetUser().ProviderUserKey.ToString());
+            if (IsUserLoggedIn())
+                return new Guid(System.Web.Security.Membership.GetUser().ProviderUserKey.ToString());
+            else
+                return new Guid();
         }
 
         public void LoadLanguagesList()
@@ -65,7 +68,7 @@ namespace Presenters
 
         public List<Currency> GetCurrencyList()
         {
-            return currencyRepo.GetList();          
+            return currencyRepo.GetList();
         }
     }
 }

@@ -133,7 +133,7 @@ namespace Portal_aukcyjny.UserControls
                 IAuctionControlView ac = (IAuctionControlView)item.FindControl("AuctionControl");
                 ac = presenter.SetControl(auctions[j], ac);
 
-                ac.AuctionUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auctions[j].AuctionId);
+                ac.AuctionUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/Auction/AuctionPage?id=" + auctions[j].AuctionId);
                 ac.SellerNavUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
                 j++;
             }

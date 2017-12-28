@@ -79,14 +79,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuctionControlPresenter.cs" />
+    <Compile Include="AuctionPagePresenter.cs" />
     <Compile Include="DefaultPresenter.cs" />
     <Compile Include="IPresenters\IAuctionControlPresenter.cs" />
+    <Compile Include="IPresenters\IAuctionPagePresenter.cs" />
     <Compile Include="IPresenters\IDefaultPresenter.cs" />
     <Compile Include="IPresenters\IMasterPresenter.cs" />
+    <Compile Include="IPresenters\IOfferControlPresenter.cs" />
     <Compile Include="IViews\IAuctionControlView.cs" />
+    <Compile Include="IViews\IAuctionPageView.cs" />
     <Compile Include="IViews\IDefaultView.cs" />
     <Compile Include="IViews\IMasterView.cs" />
+    <Compile Include="IViews\IOfferControlView.cs" />
     <Compile Include="MasterPresenter.cs" />
+    <Compile Include="OfferControlPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

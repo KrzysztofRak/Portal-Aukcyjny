@@ -37,10 +37,10 @@ namespace Model
         public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<Auctions> Auctions { get; set; }
         public virtual DbSet<Bidders> Bidders { get; set; }
+        public virtual DbSet<Buyed> Buyed { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Observers> Observers { get; set; }
         public virtual DbSet<Shipments> Shipments { get; set; }
-        public virtual DbSet<Table> Table { get; set; }
     }
 }

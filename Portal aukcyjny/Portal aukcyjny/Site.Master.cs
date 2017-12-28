@@ -46,7 +46,7 @@ namespace Portal_aukcyjny
             ListDefaultCurrency.DataBind();
         }
 
-        public void SetDefaultCurrency(string currencyCode)
+        private void SetDefaultCurrency(string currencyCode)
         {
             Response.Cookies["defaultCurrency"].Value = currencyCode;
             Response.Cookies["defaultCurrency"].Expires = DateTime.Now.AddDays(10000);
@@ -54,8 +54,6 @@ namespace Portal_aukcyjny
 
         protected void ListDefaultCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine("################################");
-            Debug.WriteLine(Global.GetDefaultCurrency());
             SetDefaultCurrency(ListDefaultCurrency.SelectedValue);
             Response.Redirect(Request.RawUrl);
         }

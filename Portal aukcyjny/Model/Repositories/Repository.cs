@@ -21,26 +21,6 @@ namespace Model.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        //private AuctionControlData AssignAuctionControlData(Auctions a, aspnet_Users u, Shipments s)
-        //{
-        //    var auctionControlData = new AuctionControlData()
-        //    {
-        //        Title = a.Title,
-        //        AuctionId = a.Id,
-        //        Image = a.Image,
-        //        BuyItNowPrice = a.BuyItNowPrice,
-        //        MinimumPrice = Bids.Max(p => p.Price).ToString(),
-        //        SellerName = u.UserName,
-        //        SellerId = a.OwnerId,
-        //        ShipmentName = s.Name,
-        //        ShipmentPrice = s.Price,
-        //        EndDate = a.EndDate,
-        //        OffersNum = Bids.Count(),
-        //        Views = a.Views
-        //    };
-
-        //    return auctionControlData;
-        //}
         public List<AuctionControlData> GetByCategoryId(int catId = -1)
         {
             var auctionsData =

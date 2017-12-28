@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Presenter.IViews
+namespace Presenter.IPresenters
 {
-    public interface IMasterView
+    public interface IAuctionPagePresenter
     {
-
     }
 }

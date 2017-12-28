@@ -101,6 +101,9 @@
     <Compile Include="Bidders.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Buyed.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Categories.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
@@ -131,9 +134,6 @@
     <Compile Include="Repositories\CurrencyExchangeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Shipments.cs">
-      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Table.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

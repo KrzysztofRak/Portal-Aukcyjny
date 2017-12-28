@@ -12,10 +12,12 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Table
+    public partial class Buyed
     {
         public int Id { get; set; }
         public Nullable<int> AuctionId { get; set; }
         public System.Guid UserId { get; set; }
+        public System.DateTime Date { get; set; }
+        public Nullable<int> ItemsNum { get; set; }
     }
 }

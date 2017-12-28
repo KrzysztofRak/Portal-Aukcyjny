@@ -10,7 +10,7 @@
 namespace Portal_aukcyjny.PublicPages.Auction {
     
     
-    public partial class ViewAuction {
+    public partial class AuctionPage {
         
         /// <summary>
         /// AuctionTitle control.
@@ -40,13 +40,13 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// EndTime control.
+        /// TimeLeft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EndTime;
+        protected global::System.Web.UI.WebControls.Label TimeLeft;
         
         /// <summary>
         /// Label6 control.
