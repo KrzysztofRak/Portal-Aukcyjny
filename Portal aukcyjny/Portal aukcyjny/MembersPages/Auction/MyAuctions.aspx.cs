@@ -37,7 +37,7 @@ namespace Portal_aukcyjny.MembersPages.Auction
 
             Presenters.MyPresenter controls = new Presenters.MyPresenter();
             controls.LoadAuctionControls(myAuctions, ListView_MyAuctions);
-            controls.LoadAuctionControls(myFinishedAuctions, ListView_Finished);
+            controls.LoadAuctionControls(myFinishedAuctions, ListView_Sold);
             controls.LoadAuctionControls(watchedAuctions, ListView_Watched);
             controls.LoadAuctionControls(bidAuctions, ListView_Bid);
         }

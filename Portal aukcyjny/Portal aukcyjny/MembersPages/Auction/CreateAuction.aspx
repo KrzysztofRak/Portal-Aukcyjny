@@ -72,7 +72,6 @@
                                                 </td>
                                                 <td>
                                                     <asp:TextBox ID="StartPrice" runat="server" TextMode="Number"></asp:TextBox>
-                                                    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Wymagane jest wybranie co najmniej jednego rodzaju aukcji" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                                                 </td>
                                             </tr>
                                         </table>
@@ -102,7 +101,7 @@
                                 <tr>
                                     <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Rodzaj przesyłki:</strong></td>
                                     <td class="text-left" style="height: 24px">
-                                        <asp:DropDownList ID="ShipmentType" runat="server" Height="17px" Width="200px">
+                                        <asp:DropDownList ID="ShipmentType" runat="server" Height="25px" Width="298px">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ShipmentType" ErrorMessage="Wybranie rodzaju przesyłki jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
@@ -117,7 +116,7 @@
                                 <tr>
                                     <td class="text-left" style="width: 146px; font-size: small; color: #336699; height: 24px;"><strong>Kategoria:</strong></td>
                                     <td class="text-left" style="height: 24px">
-                                        <asp:DropDownList ID="ItemCategory" runat="server" Height="17px" Width="200px">
+                                        <asp:DropDownList ID="ItemCategory" runat="server" Height="25px" Width="298px">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ItemCategory" ErrorMessage="Wybranie kategorii jest wymagane"></asp:RequiredFieldValidator>
                                     </td>
@@ -138,7 +137,7 @@
                                 <tr>
                                     <td class="text-left" style="width: 146px"><span style="color: #336699; font-size: small;"><strong>Czas trwania:</strong></span></td>
                                     <td class="text-left">
-                                        <asp:DropDownList ID="EndDate" runat="server" Height="17px" Width="200px">
+                                        <asp:DropDownList ID="EndDate" runat="server" Height="25px" Width="200px">
                                             <asp:ListItem Value="1">1 dzień</asp:ListItem>
                                             <asp:ListItem Value="3">3 dni</asp:ListItem>
                                             <asp:ListItem Value="7">1 tydzień</asp:ListItem>

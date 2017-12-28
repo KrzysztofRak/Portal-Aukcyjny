@@ -56,39 +56,23 @@ namespace Model.Repositories
 
         public List<Currency> GetList()
         {
-            var currencyXmlUrl = "https://www.currency-iso.org/dam/downloads/lists/list_one.xml";
-            var currencies = new List<Currency>();
-            string currencyXmlString;
+            var currenciesList = new List<Currency>();
 
-            using (var wc = new WebClient())
-            {
-                currencyXmlString = wc.DownloadString(currencyXmlUrl);
-            }
+            currenciesList.Add(new Currency {name = "[USD] US Dollar", code = "usd" });
+            currenciesList.Add(new Currency {name = "[EUR] Euro", code = "eur" });
+            currenciesList.Add(new Currency {name = "[JPY] Japanese Yen", code = "jpy" });
+            currenciesList.Add(new Currency {name = "[GBP] British Pound", code = "gbp" });
+            currenciesList.Add(new Currency {name = "[CHF] Swiss Franc", code = "chf" });
+            currenciesList.Add(new Currency {name = "[CAD] Canadian Dollar", code = "cad" });
+            currenciesList.Add(new Currency {name = "[AUD] Australian Dollar", code = "aud" });
+            currenciesList.Add(new Currency {name = "[HKD] Hong Kong Dollar", code = "hkd" });
+            currenciesList.Add(new Currency {name = "[PLN] Polish Zloty", code = "pln" });
+            currenciesList.Add(new Currency {name = "[NZD] New Zealand Dollar", code = "nzd" });
+            currenciesList.Add(new Currency {name = "[MXN] Mexican Peso", code = "mxn" });
+            currenciesList.Add(new Currency {name = "[CNY] Chinese Yuan", code = "cny" });
+            currenciesList.Add(new Currency {name = "[HRK] Croatian Kuna", code = "hrk" });
 
-            XmlDocument currencyXml = new XmlDocument();
-            currencyXml.LoadXml(currencyXmlString);
-            XmlNode currencyNode = currencyXml.SelectSingleNode("/ISO_4217/CcyTbl");
-            XmlNodeList currencyNodeList = currencyNode.SelectNodes("CcyNtry");
-
-            foreach (XmlNode xn in currencyNodeList)
-            {
-                XmlNode ccyNmNode = xn.SelectSingleNode("CcyNm");
-                XmlNode ccyNode = xn.SelectSingleNode("Ccy");
-
-                if (ccyNmNode != null && ccyNode != null)
-                {
-                    string currencyCode = ccyNode.InnerText;
-                    currencies.Add(new Currency() { name = "[" + currencyCode + "] " + ccyNmNode.InnerText, code = currencyCode });
-                }
-            }
-
-            currencies = currencies
-              .GroupBy(p => p.code)
-              .Select(g => g.First())
-              .OrderBy(p => p.code)
-              .ToList();
-
-            return currencies;
+            return currenciesList.OrderBy(p => p.code).ToList();
         }
     }
 }

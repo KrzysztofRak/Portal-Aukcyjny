@@ -49,5 +49,12 @@ namespace Model.RepositoriesDataModel
         public DateTime Date { get; set; }
     }
 
+    public class ShipmentsWithFullNames
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+    }
+
 
 }

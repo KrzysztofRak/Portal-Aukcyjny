@@ -134,27 +134,28 @@ namespace Model.Repositories
             var auctions = db.Bidders.OrderByDescending(x => x.Price).GroupBy(x => x.AuctionId).Select(x => x.FirstOrDefault());
 
             Debug.WriteLine(auctions.Count());
-            var auctionsData = (from a in db.Auctions where auctions.Any(auc => auc.Id == a.Id) && a.EndDate > DateTime.Now
-            join u in db.aspnet_Users on a.OwnerId equals u.UserId
-            join t in db.Bidders on a.Id equals t.AuctionId into Bids
-            join s in db.Shipments on a.ShipmentId equals s.Id
-            select new AuctionControlData()
-            {
-                Title = a.Title,
-                AuctionId = a.Id,
-                Image = a.Image,
-                BuyItNowPrice = a.BuyItNowPrice,
-                BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
-                BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
-                MinimumPrice = a.MinimumPrice,
-                SellerName = u.UserName,
-                SellerId = a.OwnerId,
-                ShipmentName = s.Name,
-                ShipmentPrice = s.Price,
-                EndDate = a.EndDate,
-                OffersNum = Bids.Count(),
-                Views = a.Views
-            }).ToList();
+            var auctionsData = (from a in db.Auctions
+                                where auctions.Any(auc => auc.Id == a.Id) && a.EndDate > DateTime.Now
+                                join u in db.aspnet_Users on a.OwnerId equals u.UserId
+                                join t in db.Bidders on a.Id equals t.AuctionId into Bids
+                                join s in db.Shipments on a.ShipmentId equals s.Id
+                                select new AuctionControlData()
+                                {
+                                    Title = a.Title,
+                                    AuctionId = a.Id,
+                                    Image = a.Image,
+                                    BuyItNowPrice = a.BuyItNowPrice,
+                                    BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
+                                    BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
+                                    MinimumPrice = a.MinimumPrice,
+                                    SellerName = u.UserName,
+                                    SellerId = a.OwnerId,
+                                    ShipmentName = s.Name,
+                                    ShipmentPrice = s.Price,
+                                    EndDate = a.EndDate,
+                                    OffersNum = Bids.Count(),
+                                    Views = a.Views
+                                }).ToList();
 
             return auctionsData;
         }
@@ -231,7 +232,7 @@ namespace Model.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        public List<Categories> GetCategoriesList()
+        public List<Categories> GetList()
         {
             var categories = db.Categories.ToList();
             return categories;
@@ -281,7 +282,7 @@ namespace Model.Repositories
         {
             if (price > GetBestOffer(auctionId))
             {
-                db.Bidders.Add(new Bidders { AuctionId = auctionId, BidderId = userId, Price = price, BidDate = DateTime.Now});
+                db.Bidders.Add(new Bidders { AuctionId = auctionId, BidderId = userId, Price = price, BidDate = DateTime.Now });
                 db.SaveChanges();
             }
         }
@@ -416,6 +417,24 @@ namespace Model.Repositories
         public ShipmentsRepository()
         {
             db = new PortalAukcyjnyEntities();
+        }
+
+
+
+        public List<ShipmentsWithFullNames> GetList(CurrencyExchangeRepository currencyRepo, string currencyCode)
+        {
+
+            var shipments = 
+            (from s in db.Shipments select s).ToList();
+
+            var shipmentsWithFullNames = new List<ShipmentsWithFullNames>();
+
+            foreach(var s in shipments)
+            {
+                shipmentsWithFullNames.Add(new ShipmentsWithFullNames() { Id = s.Id, Name = s.Name + " " + currencyRepo.Exchange(s.Price, currencyCode) });
+            }
+
+            return shipmentsWithFullNames;
         }
 
         public string GetShipmentFullName(CurrencyExchangeRepository currencyRepo, int shipmentId)

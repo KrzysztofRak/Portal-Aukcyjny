@@ -112,15 +112,6 @@ namespace Portal_aukcyjny.Auction {
         protected global::System.Web.UI.WebControls.TextBox StartPrice;
         
         /// <summary>
-        /// CustomValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
-        
-        /// <summary>
         /// Location control.
         /// </summary>
         /// <remarks>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -17,6 +18,19 @@ namespace Portal_aukcyjny.Auction
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new PortalAukcyjnyEntities();
+
+            CurrencyExchangeRepository currencyRepo = new CurrencyExchangeRepository(db);
+            CategoriesRepository catRepo = new CategoriesRepository(db);
+            ShipmentsRepository shipmentsRepo = new ShipmentsRepository(db);
+
+            ShipmentType.DataSource = shipmentsRepo.GetList(currencyRepo, "PLN");
+            ShipmentType.DataTextField = "Name";
+            ShipmentType.DataValueField = "Id";
+            ShipmentType.DataBind();
+
+            ItemCategory.DataSource = catRepo.GetList();
+            ItemCategory.DataTextField = "Name";
+            ItemCategory.DataBind();
         }
 
         protected void CreateAuctionBtn_Click(object sender, EventArgs e)
@@ -70,18 +84,6 @@ namespace Portal_aukcyjny.Auction
             }
             else
                 return null;
-        }
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            if(!CheckBox_Auction.Checked && !CheckBox_BuyItNow.Checked)
-            {
-                args.IsValid = false;
-            }
-            else
-            {
-                args.IsValid = true;
-            }
         }
     }
 }

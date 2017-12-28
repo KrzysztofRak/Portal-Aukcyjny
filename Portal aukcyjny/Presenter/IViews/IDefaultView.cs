@@ -7,5 +7,7 @@ namespace Presenters.IViews
 {
     public interface IDefaultView
     {
+        int CatId { get; }
+        string SearchString { get; }
     }
 }

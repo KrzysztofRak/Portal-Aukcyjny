@@ -30,14 +30,37 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label3" runat="server" Style="font-size: x-large; color: #CC9900" Text="Zakończone"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Style="font-size: x-large; color: #CC9900" Text="Sprzedane"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>
-                <asp:ListView ID="ListView_Finished" runat="server">
+                <asp:ListView ID="ListView_Sold" runat="server">
+                    <ItemTemplate>
+                        <uc1:AuctionControl runat="server" ID="AuctionControl" />
+                    </ItemTemplate>
+                </asp:ListView>
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>
+                <asp:Label ID="Label5" runat="server" Style="font-size: x-large; color: #CC9900" Text="Kupione"></asp:Label>
+            </strong></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ListView ID="ListView_Buyed" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
@@ -53,14 +76,14 @@
         </tr>
         <tr>
             <td style="height: 36px"><strong>
-                <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #CC9900" Text="Obserwowane"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Style="font-size: x-large; color: #CC9900" Text="Licytuję"></asp:Label>
             </strong></td>
             <td style="height: 36px"></td>
             <td style="height: 36px"></td>
         </tr>
         <tr>
             <td style="height: 22px">
-                <asp:ListView ID="ListView_Watched" runat="server">
+                <asp:ListView ID="ListView_Bid" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
@@ -76,18 +99,19 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label4" runat="server" Style="font-size: x-large; color: #CC9900" Text="Licytuję"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #CC9900" Text="Obserwowane"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>
-                <asp:ListView ID="ListView_Bid" runat="server">
+                                <asp:ListView ID="ListView_Watched" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

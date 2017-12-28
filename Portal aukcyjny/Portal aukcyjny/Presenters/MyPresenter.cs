@@ -22,7 +22,7 @@ namespace Portal_aukcyjny.Presenters
         //{
         //    view = _view;
         //}
-       
+
         private Guid currentUserId;
 
         public string GetDefaultCurrency()
@@ -52,8 +52,6 @@ namespace Portal_aukcyjny.Presenters
 
         public void LoadAuctionControls(List<AuctionControlData> auctions, ListView listView)
         {
-            Debug.WriteLine("$$$$$$$$$$$$$$$$$$");
-            Debug.WriteLine(GetDefaultCurrency());
 ;            CurrencyExchangeRepository currencyRepo = new CurrencyExchangeRepository(new Model.PortalAukcyjnyEntities());
 
             var auctionControls = new List<AuctionControl>();
@@ -67,57 +65,9 @@ namespace Portal_aukcyjny.Presenters
             int j = 0;
             foreach (var item in listView.Items)
             {
-                var auctionControl = (AuctionControl)item.FindControl("AuctionControl");
-
-                var title = ((HyperLink)auctionControl.FindControl("Title"));
-                title.Text = auctions[j].Title;
-                title.NavigateUrl = Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auctions[j].AuctionId);
-
-                var image = ((Image)auctionControl.FindControl("Image"));
-
-                if (auctions[j].Image == null)
-                    image.ImageUrl = "~/Images/defaultAuctionImg.jpg";
-                else
-                    image.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auctions[j].Image);
-
-                if (auctions[j].BuyItNowPrice > 0)
-                {
-                    var buyItNow = ((Label)auctionControl.FindControl("BuyItNow"));
-                    buyItNow.Text = auctions[j].BuyItNowPrice.ToString();
-                    buyItNow.Visible = true;
-                    ((Label)auctionControl.FindControl("BuyItNowLabel")).Visible = true;
-                }
-
-
-                if (auctions[j].MinimumPrice.ToString() != null)
-                {
-                    var bid = ((Label)auctionControl.FindControl("Bid"));
-                    bid.Text = currencyRepo.Exchange(auctions[j].MinimumPrice, Global.GetDefaultCurrency());
-                    bid.Visible = true;
-                    ((Label)auctionControl.FindControl("BidLabel")).Visible = true;
-                }
-
-                var seller = ((HyperLink)auctionControl.FindControl("Seller"));
-                seller.Text = auctions[j].SellerName;
-                seller.NavigateUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
-
-                ((Label)auctionControl.FindControl("Shipment")).Text = auctions[j].ShipmentName + " " + currencyRepo.Exchange(auctions[j].ShipmentPrice, Global.GetDefaultCurrency());
-
-                var timeLeft = ((Label)auctionControl.FindControl("TimeLeft"));
-                var leftDateTime = (auctions[j].EndDate.Subtract(DateTime.Now));
-
-                if(leftDateTime.TotalMinutes < 0)
-                {
-                    ((Label)auctionControl.FindControl("TimeLeftLabel")).Text = "Zakończono: ";
-                    timeLeft.Text = auctions[j].EndDate.ToString("dd.MM.yyyy hh:mm");
-                }
-                else if (leftDateTime.TotalDays > 1)
-                    timeLeft.Text = (int)leftDateTime.TotalDays + " dni";
-                else
-                    timeLeft.Text = String.Format("{0:hh\\:mm\\:ss}", leftDateTime);
-
-                ((Label)auctionControl.FindControl("OffersNum")).Text = auctions[j].OffersNum.ToString();
-                ((Label)auctionControl.FindControl("Views")).Text = auctions[j].Views.ToString();
+                var ac = (AuctionControl)item.FindControl("AuctionControl");
+                ac.AuctionUrl = Page.ResolveUrl("~/PublicPages/Auction/ViewAuction?id=" + auctions[j].AuctionId);
+                ac.SellerNavUrl = Page.ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
                 j++;
             }
         }

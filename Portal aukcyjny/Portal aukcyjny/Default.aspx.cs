@@ -17,16 +17,37 @@ namespace Portal_aukcyjny
 {
     public partial class _Default : Page, IDefaultView
     {
-        private PortalAukcyjnyEntities db;
         private DefaultPresenter presenter;
 
         private int catId;
         private string searchString;
 
+        public int CatId
+        {
+            get { return catId; }
+        }
+
+        public string SearchString
+        {
+            get { return searchString; }
+        }
+
+        public _Default()
+        {
+            presenter = new DefaultPresenter(this);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new PortalAukcyjnyEntities();
-            presenter = new DefaultPresenter(this);
+            searchString = Request.QueryString["search"];
+            try
+            {
+                catId = int.Parse(Request.QueryString["catId"]);
+            }
+            catch
+            {
+                catId = -1;
+            }
 
             if (!this.IsPostBack)
             {
@@ -52,37 +73,13 @@ namespace Portal_aukcyjny
 
         private void LoadAuctionControls()
         {
-            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
+            var auctions = presenter.GetAuctionsList();
 
-            List<AuctionControlData> auctions;
-
-            try
-            {
-                searchString = Request.QueryString["search"];
-                if (searchString == null)
-                    throw new Exception();
-                auctions = auctionsRepo.Search(searchString);
-            }
-            catch
-            {
-                try
-                {
-                    catId = int.Parse(Request.QueryString["catId"]);
-                }
-                catch
-                {
-                    catId = -1;
-                }
-                finally
-                {
-                    auctions = auctionsRepo.GetByCategoryId(catId);
-                }
-            }
-
-            MyPresenter controls = new MyPresenter();
-            controls.LoadAuctionControls(auctions, ListView_Auctions);
+            AuctionControl ac = new AuctionControl();
+            ac.LoadControl("~/UserControls/AuctionControl.ascx");
+            ac.LoadControls(auctions, ListView_Auctions);
         }
 
-            
+
     }
 }

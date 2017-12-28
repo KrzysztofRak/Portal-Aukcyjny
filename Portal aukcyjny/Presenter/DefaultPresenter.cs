@@ -6,10 +6,11 @@ using Presenters.IViews;
 using Presenters.IPresenters;
 using Model;
 using Model.Repositories;
+using Model.RepositoriesDataModel;
 
 namespace Presenters
 {
-    public class DefaultPresenter : MasterPresenter//: IDefaultPresenter
+    public class DefaultPresenter : MasterPresenter, IDefaultPresenter
     {
         private IDefaultView view;
 
@@ -20,9 +21,17 @@ namespace Presenters
 
         public List<Categories> GetCategoriesList()
         {
-            var categories = catRepo.GetCategoriesList();
+            var categories = catRepo.GetList();
 
             return categories;
+        }
+
+        public List<AuctionControlData> GetAuctionsList()
+        {
+            if (view.SearchString != null)
+                return auctionsRepo.Search(view.SearchString);
+            else
+                return auctionsRepo.GetByCategoryId(view.CatId);
         }
     }
 }

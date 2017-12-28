@@ -59,6 +59,16 @@
             height: 22px;
             width: 472px;
         }
+        .auto-style19 {
+            width: 893px;
+            text-align: left;
+            height: 29px;
+        }
+        .auto-style20 {
+            text-align: left;
+            width: 893px;
+            height: 24px;
+        }
     </style>
     <table style="width: 100%;">
         <tr>
@@ -87,19 +97,19 @@
                 <asp:Image ID="AuctionImg" runat="server" Width="400px" BorderStyle="Solid" BorderWidth="1px" />
             </td>
             <td rowspan="11" style="width: 29px">&nbsp;</td>
-            <td class="auto-style2"><strong>
-                <asp:Label ID="Label6" runat="server" Style="color: #336699" Text="Ilość przedmiotów: "></asp:Label>
-            </strong>&nbsp;<asp:Label ID="ItemsNum" runat="server" Text="Label"></asp:Label>
-            </td>
-            <td colspan="2" class="auto-style3"><strong>
+            <td class="auto-style19"><strong>
                 <asp:Label ID="Label8" runat="server" Style="color: #336699" Text="Do końca pozostało: "></asp:Label>
             </strong>&nbsp;<asp:Label ID="EndTime" runat="server" Text="Label"></asp:Label>
                 &nbsp;</td>
+            <td colspan="2" class="auto-style3"><strong>
+                <asp:Label ID="Label6" runat="server" Style="color: #336699" Text="Dostępnych sztuk: "></asp:Label>
+            </strong><asp:Label ID="ItemsNum" runat="server" Text="Label"></asp:Label>
+            </td>
             <td class="auto-style3"></td>
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
+            <td class="auto-style19">&nbsp;</td>
             <td colspan="2" class="auto-style3">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
         </tr>
@@ -110,7 +120,7 @@
             </strong>&nbsp;<asp:Label ID="BuyItNowPrice" runat="server" Text="Label" Visible="False"></asp:Label>
             </td>
             <td colspan="2" class="auto-style16">
-                <asp:Button ID="BuyItNowBtn" runat="server" Text="Kup teraz" Width="125px" Height="31px" Visible="False" />
+                <asp:Button ID="BuyItNowBtn" runat="server" Text="Kup teraz" Width="129px" Height="31px" Visible="False" />
             </td>
             <td class="auto-style16"></td>
         </tr>
@@ -122,7 +132,7 @@
         </tr>
         <tr>
             <td class="auto-style11">&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style20">
                 &nbsp;</td>
             <td class="auto-style10" rowspan="6">
                 <asp:TextBox ID="Bid" runat="server" CssClass="bid-input" Visible="False">0</asp:TextBox>
@@ -133,13 +143,13 @@
         </tr>
         <tr>
             <td class="auto-style11">&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style20">
                 &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style11">&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style20">
                 <strong>
                 <asp:Label ID="BidLabel" runat="server" Style="color: #990000" Text="Najwyższa oferta: " Visible="False"></asp:Label>
             </strong><asp:Label ID="HighestBid" runat="server" Text="Label" Visible="False"></asp:Label>
@@ -148,7 +158,7 @@
         </tr>
         <tr>
             <td class="auto-style11">&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style20">
                 <strong>
                 <asp:Label ID="BidUsernameLabel" runat="server" Style="color: #990000" Text="Od użytkownika:  " Visible="False"></asp:Label>
             </strong>
@@ -158,20 +168,20 @@
         </tr>
         <tr>
             <td class="auto-style11">&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style20">
                 &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style11"></td>
-            <td class="auto-style12">
+            <td class="auto-style20">
             &nbsp;
                 </td>
             <td></td>
         </tr>
         <tr>
             <td class="auto-style1"></td>
-            <td class="auto-style2">
+            <td class="auto-style19">
                 <strong>
                 <asp:Label ID="Label10" runat="server" Style="color: #006600" Text="Przesyłka: "></asp:Label>
             </strong><asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
@@ -204,8 +214,7 @@
             </td>
             <td style="height: 22px; width: 29px"></td>
             <td class="auto-style17">
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-            </td>
+                &nbsp;</td>
             <td class="auto-style18"></td>
             <td style="height: 22px; width: 304px"></td>
             <td style="height: 22px"></td>

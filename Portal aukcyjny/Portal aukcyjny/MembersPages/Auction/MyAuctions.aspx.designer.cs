@@ -40,31 +40,31 @@ namespace Portal_aukcyjny.MembersPages.Auction {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// ListView_Finished control.
+        /// ListView_Sold control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView_Finished;
+        protected global::System.Web.UI.WebControls.ListView ListView_Sold;
         
         /// <summary>
-        /// Label2 control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// ListView_Watched control.
+        /// ListView_Buyed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView_Watched;
+        protected global::System.Web.UI.WebControls.ListView ListView_Buyed;
         
         /// <summary>
         /// Label4 control.
@@ -83,5 +83,23 @@ namespace Portal_aukcyjny.MembersPages.Auction {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ListView_Bid;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// ListView_Watched control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView_Watched;
     }
 }
