@@ -324,13 +324,16 @@ namespace Model.Repositories
             (from c in db.Comments
              where c.RecipientId == userId
              join u in db.aspnet_Users on userId equals u.UserId
+             join a in db.Auctions on c.AuctionId equals a.Id
              select new CommentControlData()
              {
                  AuthorId = c.AuthorId,
                  AuthorName = u.UserName,
                  AuthorIsSeller = c.AuthorIsSeller,
                  Comment = c.Comment,
-                 Date = c.Date
+                 Date = c.Date,
+                 AuctionTitle = a.Title,
+                 AuctionId = c.AuctionId
              }).ToList();
 
             return comments;
@@ -404,12 +407,12 @@ namespace Model.Repositories
         public List<ShipmentsWithFullNames> GetList(CurrencyExchangeRepository currencyRepo, string currencyCode)
         {
 
-            var shipments = 
+            var shipments =
             (from s in db.Shipments select s).ToList();
 
             var shipmentsWithFullNames = new List<ShipmentsWithFullNames>();
 
-            foreach(var s in shipments)
+            foreach (var s in shipments)
             {
                 shipmentsWithFullNames.Add(new ShipmentsWithFullNames() { Id = s.Id, Name = s.Name + " " + currencyRepo.Exchange(s.Price, currencyCode) });
             }

@@ -4,18 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Model.Repositories;
 using System.Diagnostics;
 using Portal_aukcyjny.Presenters;
 using Portal_aukcyjny.UserControls;
-using Model;
+using Presenter.IViews;
+using Presenter;
 
 namespace Portal_aukcyjny.PublicPages.User
 {
-    public partial class UserProfile : System.Web.UI.Page
+    public partial class UserProfile : System.Web.UI.Page, IUserProfileView
     {
         private Guid userId;
-        private PortalAukcyjnyEntities db;
+        private UserProfilePresenter presenter;
+
+        public string UsernameField
+        {
+            get { return Username.Text; }
+            set { Username.Text = value; }
+        }
+
+        public string EmailField
+        {
+            get { return Email.Text; }
+            set { Email.Text = value; }
+        }
+        public string SoldItemsNumField
+        {
+            get { return SoldItemsNum.Text; }
+            set { SoldItemsNum.Text = value; }
+        }
+        public string RegistrationDateField
+        {
+            get { return RegistrationDate.Text; }
+            set { RegistrationDate.Text = value; }
+        }
+
+        public UserProfile()
+        {
+            presenter = new UserProfilePresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,30 +55,13 @@ namespace Portal_aukcyjny.PublicPages.User
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
             }
 
-            db = new PortalAukcyjnyEntities();
-
             LoadUserProfile();
         }
 
         private void LoadUserProfile()
         {
-            UsersRepository usersRepo = new UsersRepository(db);
-
-            var user = usersRepo.GetUserProfile(userId);
-
-           if(user.Username == null)
+           if(presenter.LoadUserProfile(userId) == false)
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
-
-            List<CommentControl> commentControls = new List<CommentControl>();
-
-
-            ListView_Comments.DataSource = commentControls;
-            ListView_Comments.DataBind();
-
-            Username.Text = user.Username;
-            Email.Text = user.Email;
-            SoldItemsNum.Text = user.SoldItemsNum.ToString();
-            RegistrationDate.Text = user.RegistrationDate.ToShortDateString();
 
             LoadAuctionsSection();
             LoadCommentsSection();
@@ -59,21 +69,16 @@ namespace Portal_aukcyjny.PublicPages.User
 
         private void LoadAuctionsSection()
         {
-            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
-
-            var auctions = auctionsRepo.GetByUserId(userId);
-
-            MyPresenter controls = new MyPresenter();
-            controls.LoadAuctionControls(auctions, ListView_UserAuctions);
+            AuctionControl ac = new AuctionControl();
+            ac.LoadByUserId(userId);
+            ac.LoadControls(ListView_UserAuctions);
         }
 
         private void LoadCommentsSection()
         {
-            CommentsRepository commentsRepo = new CommentsRepository(db);
-
-            var comments = commentsRepo.GetByUserId(userId);
-            MyPresenter controls = new MyPresenter();
-            controls.LoadCommentControls(comments, ListView_Comments);
+            CommentControl cc = new CommentControl();
+            cc.LoadByUserId(userId);
+            cc.LoadControls(ListView_Comments);
         }
     }
 }

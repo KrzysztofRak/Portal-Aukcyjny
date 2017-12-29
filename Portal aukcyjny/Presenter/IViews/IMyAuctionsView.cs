@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Presenter.IViews
 {
-    public interface IMasterView
+    public interface IMyAuctionsView
     {
-
     }
 }

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Model.RepositoriesDataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Presenter.IViews
 {
@@ -23,5 +25,13 @@ namespace Presenter.IViews
         string TimeLeftLabelText { get; set; }
         string OffersNumField { get; set; }
         string ViewsField { get; set; }
+        void LoadAuctionsBySearch(string searchString);
+        void LoadAuctionsByCatId(int catId);
+        void LoadSelling();
+        void LoadSold();
+        void LoadBuyed();
+        void LoadBidding();
+        void LoadObserved();
+        void LoadByUserId(Guid userId);
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Presenter.IViews
+namespace Presenter.IPresenters
 {
-    public interface IMasterView
+    public interface IUserProfilePresenter
     {
-
     }
 }

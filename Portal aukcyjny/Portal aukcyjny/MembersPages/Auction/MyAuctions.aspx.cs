@@ -6,40 +6,48 @@ using Model.RepositoriesDataModel;
 using Model.Repositories;
 using Portal_aukcyjny.Presenters;
 using Model;
+using Portal_aukcyjny.UserControls;
+using Presenter;
+using Presenter.IViews;
 
 namespace Portal_aukcyjny.MembersPages.Auction
 {
-    public partial class MyAuctions : System.Web.UI.Page
+    public partial class MyAuctions : System.Web.UI.Page, IMyAuctionsView
     {
-        private PortalAukcyjnyEntities db;
-        private Guid userId;
+        private MyAuctionsPresenter presenter;
+
+        public MyAuctions()
+        {
+            presenter = new MyAuctionsPresenter(this);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Portal_aukcyjny.Presenters.MyPresenter.IsUserLoggedIn())
-            {
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
-            }
 
-            db = new PortalAukcyjnyEntities();
-            userId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             LoadAuctionControls();
         }
 
         private void LoadAuctionControls()
         {
-            AuctionsRepository auctionsRepo = new AuctionsRepository(db);
+            AuctionControl ac = new AuctionControl();
+            ac.LoadSelling();
+            ac.LoadControls(ListView_MyAuctions);
 
-            List<AuctionControlData> myAuctions = auctionsRepo.GetByUserId(userId);
-            List<AuctionControlData> myFinishedAuctions = auctionsRepo.GetByUserId(userId, true);
-            List<AuctionControlData> watchedAuctions = auctionsRepo.GetObserved(userId);
-            List<AuctionControlData> bidAuctions = auctionsRepo.GetAuctioned(userId);
+            ac.LoadSold();
+            ac.LoadControls(ListView_Sold);
 
-            Presenters.MyPresenter controls = new Presenters.MyPresenter();
-            controls.LoadAuctionControls(myAuctions, ListView_MyAuctions);
-            controls.LoadAuctionControls(myFinishedAuctions, ListView_Sold);
-            controls.LoadAuctionControls(watchedAuctions, ListView_Watched);
-            controls.LoadAuctionControls(bidAuctions, ListView_Bid);
+            ac.LoadBuyed();
+            ac.LoadControls(ListView_Buyed);
+
+            ac.LoadObserved();
+            ac.LoadControls(ListView_Watched);
+
+            ac.LoadBidding();
+            ac.LoadControls(ListView_Bid);
         }
+
+
     }
 }

@@ -6,10 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
-using Model.Repositories;
-using Model.RepositoriesDataModel;
 using Portal_aukcyjny.Presenters;
-using Model;
 using Presenters;
 using Presenters.IViews;
 
@@ -19,19 +16,18 @@ namespace Portal_aukcyjny
     {
         private DefaultPresenter presenter;
 
-        private int catId;
+        private int selectedCatId;
         private string searchString;
 
-        public int CatId
+        public int SelectedCatId
         {
-            get { return catId; }
+            get { return selectedCatId; }
         }
 
         public string SearchString
         {
             get { return searchString; }
         }
-
         public _Default()
         {
             presenter = new DefaultPresenter(this);
@@ -42,42 +38,40 @@ namespace Portal_aukcyjny
             searchString = Request.QueryString["search"];
             try
             {
-                catId = int.Parse(Request.QueryString["catId"]);
+                selectedCatId = int.Parse(Request.QueryString["catId"]);
             }
             catch
             {
-                catId = -1;
+                selectedCatId = -1;
             }
 
             if (!this.IsPostBack)
             {
-                LoadCategoriesTree();
+                presenter.LoadCategoriesTree();
             }
 
             LoadAuctionsControls();
         }
 
-        private void LoadCategoriesTree()
+        public void AddNewItemToCategoriesTree(string catName, int catId)
         {
-            var categories = presenter.GetCategoriesList();
-
-            TreeNode categoriesChild;
-            foreach (var cat in categories)
+            TreeNode categoriesChild = new TreeNode
             {
-                categoriesChild = new TreeNode();
-                categoriesChild.Text = cat.Name;
-                categoriesChild.NavigateUrl = ResolveUrl("~/Default.aspx?catId=" + cat.Id);
-                CategoriesTree.Nodes.Add(categoriesChild);
-            }
+                Text = catName,
+                NavigateUrl = ResolveUrl("~/Default.aspx?catId=" + catId)
+            };
+            CategoriesTree.Nodes.Add(categoriesChild);
         }
 
         private void LoadAuctionsControls()
         {
-            var auctions = presenter.GetAuctionsList();
-
             AuctionControl ac = new AuctionControl();
-            ac.LoadControl("~/UserControls/AuctionControl.ascx");
-            ac.LoadControls(auctions, ListView_Auctions);
+            if (searchString != null)
+                ac.LoadAuctionsBySearch(searchString);
+            else
+                ac.LoadAuctionsByCatId(selectedCatId);
+
+            ac.LoadControls(ListView_Auctions);
         }
 
 

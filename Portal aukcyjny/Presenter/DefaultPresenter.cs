@@ -19,19 +19,19 @@ namespace Presenters
             this.view = view;
         }
 
-        public List<Categories> GetCategoriesList()
-        {
-            var categories = catRepo.GetList();
-
-            return categories;
-        }
-
         public List<AuctionControlData> GetAuctionsList()
         {
             if (view.SearchString != null)
                 return auctionsRepo.Search(view.SearchString);
             else
-                return auctionsRepo.GetByCategoryId(view.CatId);
+                return auctionsRepo.GetByCategoryId(view.SelectedCatId);
+        }
+
+        public void LoadCategoriesTree()
+        {
+            var categories = catRepo.GetList();
+            foreach (var cat in categories)
+                view.AddNewItemToCategoriesTree(cat.Name, cat.Id);
         }
     }
 }

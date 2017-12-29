@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Model.RepositoriesDataModel;
 using Presenter;
 using Presenter.IViews;
 
@@ -119,10 +118,50 @@ namespace Portal_aukcyjny.UserControls
             set { Views.Text = value; }
         }
 
-        public void LoadControls(List<AuctionControlData> auctions, ListView listView)
+        public void LoadAuctionsBySearch(string searchString)
+        {
+            presenter.LoadAuctionsBySearch(searchString);
+        }
+
+        public void LoadAuctionsByCatId(int catId)
+        {
+            presenter.LoadAuctionsByCatId(catId);
+        }
+
+        public void LoadSelling()
+        {
+            presenter.LoadSelling();
+        }
+
+        public void LoadSold()
+        {
+            presenter.LoadSold();
+        }
+
+        public void LoadBuyed()
+        {
+            presenter.LoadBuyed();
+        }
+
+        public void LoadBidding()
+        {
+            presenter.LoadBidding();
+        }
+
+        public void LoadObserved()
+        {
+            presenter.LoadObserved();
+        }
+
+        public void LoadByUserId(Guid userId)
+        {
+            presenter.LoadByUserId(userId);
+        }
+
+        public void LoadControls(ListView listView)
         {
             var auctionControls = new List<AuctionControl>();
-            for (int i = 0; i < auctions.Count(); i++)
+            for (int i = 0; i < presenter.GetAuctionsNum(); i++)
                 auctionControls.Add(new AuctionControl());
             listView.DataSource = auctionControls;
             listView.DataBind();
@@ -131,10 +170,9 @@ namespace Portal_aukcyjny.UserControls
             foreach (var item in listView.Items)
             {
                 IAuctionControlView ac = (IAuctionControlView)item.FindControl("AuctionControl");
-                ac = presenter.SetControl(auctions[j], ac);
-
-                ac.AuctionUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/Auction/AuctionPage?id=" + auctions[j].AuctionId);
-                ac.SellerNavUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/User/UserProfile?id=" + auctions[j].SellerId);
+                ac.AuctionUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/Auction/AuctionPage?id=");
+                ac.SellerNavUrl = (HttpContext.Current.Handler as Page).ResolveUrl("~/PublicPages/User/UserProfile?id=");
+                presenter.SetControl(ac, j);
                 j++;
             }
         }

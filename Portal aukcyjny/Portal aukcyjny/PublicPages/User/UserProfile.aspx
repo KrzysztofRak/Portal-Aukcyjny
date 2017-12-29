@@ -80,7 +80,7 @@
         </tr>
         <tr>
             <td style="height: 22px"><strong>
-                <asp:Label ID="Label8" runat="server" Style="color: #CC9900; font-size: x-large" Text="Komentarze użytkownika"></asp:Label>
+                <asp:Label ID="Label8" runat="server" Style="color: #CC9900; font-size: x-large" Text="Otrzymane komentarze"></asp:Label>
             </strong></td>
             <td style="height: 22px"></td>
             <td style="height: 22px"></td>

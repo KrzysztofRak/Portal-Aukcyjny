@@ -39,6 +39,8 @@ namespace Model.RepositoriesDataModel
         public string Comment { get; set; }
         public DateTime Date { get; set; }
         public bool AuthorIsSeller { get; set; }
+        public string AuctionTitle { get; set; }
+        public int? AuctionId { get; set; }
     }
 
     public class OfferControlData
