@@ -175,7 +175,9 @@
         <tr>
             <td class="auto-style11"></td>
             <td class="auto-style20">
-            &nbsp;
+                <strong>
+                <asp:Label ID="Label10" runat="server" Style="color: #006600" Text="Przesyłka: "></asp:Label>
+            </strong><asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
                 </td>
             <td></td>
         </tr>
@@ -183,15 +185,12 @@
             <td class="auto-style1"></td>
             <td class="auto-style19">
                 <strong>
-                <asp:Label ID="Label10" runat="server" Style="color: #006600" Text="Przesyłka: "></asp:Label>
-            </strong><asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
-            </td>
-            <td class="auto-style6">
-                <strong>
                 <asp:Label ID="Label12" runat="server" Style="color: #CC6600" Text="Sprzedający: "></asp:Label>
             </strong>
                 <asp:HyperLink ID="SellerName" runat="server">HyperLink</asp:HyperLink>
             </td>
+            <td class="auto-style6">
+                &nbsp;</td>
             <td class="auto-style7">
                 </td>
             <td class="auto-style3"></td>

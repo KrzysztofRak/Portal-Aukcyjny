@@ -207,9 +207,6 @@
     <Compile Include="MembersPages\Auction\MyAuctions.aspx.designer.cs">
       <DependentUpon>MyAuctions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Presenters\MyPresenter.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MembersPages\Account\Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -9,7 +9,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Portal_aukcyjny.UserControls;
 using Model.Repositories;
-using Portal_aukcyjny.Presenters;
 using Presenter.IViews;
 using Presenter;
 

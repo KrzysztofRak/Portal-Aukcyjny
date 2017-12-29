@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
-using Portal_aukcyjny.Presenters;
 using Presenters;
 using Presenters.IViews;
 

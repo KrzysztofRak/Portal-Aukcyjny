@@ -4,7 +4,6 @@ using System.Web.Security;
 using System.Web.UI;
 using Model.RepositoriesDataModel;
 using Model.Repositories;
-using Portal_aukcyjny.Presenters;
 using Model;
 using Portal_aukcyjny.UserControls;
 using Presenter;
@@ -23,7 +22,7 @@ namespace Portal_aukcyjny.MembersPages.Auction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Portal_aukcyjny.Presenters.MyPresenter.IsUserLoggedIn())
+            if (!presenter.IsUserLoggedIn())
                 Response.Redirect(Page.ResolveUrl("~/Default.aspx"));
 
             LoadAuctionControls();

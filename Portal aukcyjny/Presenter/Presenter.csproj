@@ -81,10 +81,12 @@
     <Compile Include="AuctionControlPresenter.cs" />
     <Compile Include="AuctionPagePresenter.cs" />
     <Compile Include="CommentControlPresenter.cs" />
+    <Compile Include="CreateAuctionPresenter.cs" />
     <Compile Include="DefaultPresenter.cs" />
     <Compile Include="IPresenters\IAuctionControlPresenter.cs" />
     <Compile Include="IPresenters\IAuctionPagePresenter.cs" />
     <Compile Include="IPresenters\ICommentControlPresenter.cs" />
+    <Compile Include="IPresenters\ICreateAuctionPresenter.cs" />
     <Compile Include="IPresenters\IDefaultPresenter.cs" />
     <Compile Include="IPresenters\IMasterPresenter.cs" />
     <Compile Include="IPresenters\IMyAuctionsPresenter.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="IViews\IAuctionControlView.cs" />
     <Compile Include="IViews\IAuctionPageView.cs" />
     <Compile Include="IViews\ICommentControlView.cs" />
+    <Compile Include="IViews\ICreateAuctionView.cs" />
     <Compile Include="IViews\IDefaultView.cs" />
     <Compile Include="IViews\IMasterView.cs" />
     <Compile Include="IViews\IMyAuctionsView.cs" />
