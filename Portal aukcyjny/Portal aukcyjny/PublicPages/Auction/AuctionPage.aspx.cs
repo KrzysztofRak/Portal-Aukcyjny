@@ -8,7 +8,6 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Portal_aukcyjny.UserControls;
-using Model.Repositories;
 using Presenter.IViews;
 using Presenter;
 
@@ -218,7 +217,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
 
         public AuctionPage()
         {
-            presenter = new AuctionPagePresenter(this);
+            presenter = new AuctionPagePresenter(this, Global.GetDefaultCurrency());
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -283,6 +282,11 @@ namespace Portal_aukcyjny.PublicPages.Auction
         protected void BuyItNowBtn_Click(object sender, EventArgs e)
         {
             presenter.Buy();
+        }
+
+        protected void CloseAuction_Click(object sender, EventArgs e)
+        {
+            presenter.CloseAuction();
         }
     }
 }

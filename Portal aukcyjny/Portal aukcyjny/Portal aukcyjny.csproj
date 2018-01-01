@@ -331,10 +331,6 @@
     <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{145cd504-acd2-4a40-b676-adf83263285f}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Presenter\Presenter.csproj">
       <Project>{1b565658-e2c3-4f77-a45c-6c36e116fd58}</Project>
       <Name>Presenter</Name>

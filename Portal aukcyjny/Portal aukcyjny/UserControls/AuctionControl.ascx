@@ -31,7 +31,12 @@
 
     .auto-style8 {
         height: 23px;
-        width: 301px;
+        width: 249px;
+    }
+
+    .auto-style9 {
+        height: 23px;
+        text-align: left;
     }
 
 </style>
@@ -47,45 +52,45 @@
             <asp:Image ID="Image" runat="server" Height="80px" ImageAlign="Middle" Width="80px" />
         </td>
         <td class="auto-style6"><strong>
+            <asp:Label ID="Label7" runat="server" Text="Sprzedający: "></asp:Label>
+        </strong>
+            <asp:HyperLink ID="Seller" runat="server">HyperLink</asp:HyperLink>
+        </td>
+        <td class="auto-style8"><strong>
             <asp:Label ID="BuyItNowLabel" runat="server" Text="Kup teraz: " Visible="False"></asp:Label>
         </strong>
             <asp:Label ID="BuyItNow" runat="server" Text="Label" Visible="False"></asp:Label>
+        </td>
+        <td class="auto-style1">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="auto-style6"><strong>
+            <asp:Label ID="TimeLeftLabel" runat="server" Text="Pozostało: "></asp:Label>
+        </strong>
+            <asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
         </td>
         <td class="auto-style8"><strong>
             <asp:Label ID="BidLabel" runat="server" Text="Licytacja: " Visible="False"></asp:Label>
         </strong>
             <asp:Label ID="Bid" runat="server" Text="Label" Visible="False"></asp:Label>
         </td>
-        <td class="auto-style1"><strong>
-            <asp:Label ID="Label7" runat="server" Text="Sprzedający: "></asp:Label>
-        </strong>
-            <asp:HyperLink ID="Seller" runat="server">HyperLink</asp:HyperLink>
-        </td>
+        <td class="auto-style1">&nbsp;</td>
     </tr>
     <tr>
         <td class="auto-style6"><strong>
-            <asp:Label ID="Label3" runat="server" Text="Przesyłka: "></asp:Label>
+            <asp:Label ID="Label13" runat="server" Text="Wyświetleń: "></asp:Label>
         </strong>
-            <asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Views" runat="server" Text="Label"></asp:Label>
         </td>
         <td class="auto-style8"><strong>
-            <asp:Label ID="TimeLeftLabel" runat="server" Text="Pozostało: "></asp:Label>
-        </strong>
-            <asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
-        </td>
-        <td class="auto-style1"><strong>
             <asp:Label ID="Label5" runat="server" Text="Ofert: "></asp:Label>
         </strong>
             <asp:Label ID="OffersNum" runat="server" Text="Label"></asp:Label>
         </td>
-    </tr>
-    <tr>
-        <td class="auto-style6">&nbsp;</td>
-        <td class="auto-style8">&nbsp;</td>
-        <td class="auto-style1"><strong>
-            <asp:Label ID="Label13" runat="server" Text="Wyświetleń: "></asp:Label>
+        <td class="auto-style9"><strong>
+            <asp:Label ID="Label3" runat="server" Text="Przesyłka: "></asp:Label>
         </strong>
-            <asp:Label ID="Views" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Shipment" runat="server" Text="Label"></asp:Label>
         </td>
     </tr>
 </table>

@@ -31,42 +31,6 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.Image Image;
         
         /// <summary>
-        /// BuyItNowLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BuyItNowLabel;
-        
-        /// <summary>
-        /// BuyItNow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BuyItNow;
-        
-        /// <summary>
-        /// BidLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label BidLabel;
-        
-        /// <summary>
-        /// Bid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Bid;
-        
-        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -85,22 +49,22 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.HyperLink Seller;
         
         /// <summary>
-        /// Label3 control.
+        /// BuyItNowLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label BuyItNowLabel;
         
         /// <summary>
-        /// Shipment control.
+        /// BuyItNow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Shipment;
+        protected global::System.Web.UI.WebControls.Label BuyItNow;
         
         /// <summary>
         /// TimeLeftLabel control.
@@ -121,22 +85,22 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.Label TimeLeft;
         
         /// <summary>
-        /// Label5 control.
+        /// BidLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label BidLabel;
         
         /// <summary>
-        /// OffersNum control.
+        /// Bid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label OffersNum;
+        protected global::System.Web.UI.WebControls.Label Bid;
         
         /// <summary>
         /// Label13 control.
@@ -155,5 +119,41 @@ namespace Portal_aukcyjny.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Views;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// OffersNum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label OffersNum;
+        
+        /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// Shipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Shipment;
     }
 }

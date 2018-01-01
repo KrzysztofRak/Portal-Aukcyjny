@@ -6,6 +6,7 @@ using Presenters;
 using Presenters.IViews;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -15,10 +16,12 @@ namespace Presenter
     {
         private IAuctionPageView view;
         private List<OfferControlData> offers;
+        private string currencyCode;
 
-        public AuctionPagePresenter(IAuctionPageView view)
+        public AuctionPagePresenter(IAuctionPageView view, string currencyCode)
         {
             this.view = view;
+            this.currencyCode = currencyCode;
         }
 
         public void StartObserve(object sender, EventArgs e)
@@ -88,6 +91,7 @@ namespace Presenter
 
             view.ShipmentField = shipmentsRepo.GetShipmentFullName(currencyRepo, auction.ShipmentId);
 
+            Debug.WriteLine(auction.BuyItNowPrice);
 
             if (auction.BuyItNowPrice != -1)
             {
@@ -95,21 +99,22 @@ namespace Presenter
                 view.BuyItNowPriceFieldVisiblity = true;
                 view.BuyItNowBtnVisiblity = true;
 
-                view.BuyItNowPriceField = currencyRepo.Exchange(auction.BuyItNowPrice);
-            }
-            if (!IsUserLoggedIn())
-            {
-                view.BuyItNowBtnVisiblity = false;
-                view.BidFieldVisiblity = false;
-                view.BidBtnVisiblity = false;
+                view.BuyItNowPriceField = currencyRepo.Exchange(auction.BuyItNowPrice, currencyCode);
             }
 
 
             if (auction.MinimumPrice != -1)
             {
-                view.HighestBidField = currencyRepo.Exchange(auction.MinimumPrice);
-                view.MinimumOffer = (auction.MinimumPrice + 1).ToString();
+                view.HighestBidField = currencyRepo.Exchange(auction.MinimumPrice, currencyCode);
+                view.MinimumOffer = currencyRepo.Exchange((auction.MinimumPrice + 1), currencyCode);
                 LoadOffers(auction);
+            }
+
+            if (!IsUserLoggedIn() || GetCurrentUserId() == auction.OwnerId)
+            {
+                view.BuyItNowBtnVisiblity = false;
+                view.BidFieldVisiblity = false;
+                view.BidBtnVisiblity = false;
             }
 
             return true;
@@ -119,18 +124,18 @@ namespace Presenter
         {
             offers = offersRepo.GetForAuction(view.AuctionId);
 
+            view.BestBidLabelVisiblity = true;
+            view.HighestBidFieldVisiblity = true;
+            view.BestBidUserNameLabelVisiblity = true;
+            view.BidFieldVisiblity = true;
+            view.BidBtnVisiblity = true;
+
             if (offers.Count() == 0)
             {
-                view.BestBidLabelText = "Cena minimalna: ";
+                view.BestBidLabelText = "Licytacja od: ";
                 view.BestBidUserNameLabelVisiblity = false;
                 return;
             }
-
-            view.BestBidLabelVisiblity = true;
-            view.BestBidUserNameLabelVisiblity = true;
-            view.HighestBidFieldVisiblity = true;
-            view.BidFieldVisiblity = true;
-            view.BidBtnVisiblity = true;
 
             view.BestBidUserNameFieldVisiblity = true;
             if (offers[0].Price >= auction.BuyItNowPrice)
@@ -140,10 +145,10 @@ namespace Presenter
                 view.BuyItNowBtnVisiblity = false;
             }
 
-            view.HighestBidField = currencyRepo.Exchange(offers[0].Price);
+            view.HighestBidField = currencyRepo.Exchange(offers[0].Price, currencyCode);
             view.BestBidUserNameField = offers[0].BiddrName;
             view.BestBidderId = offers[0].BidderId;
-            view.MinimumOffer = (offers[0].Price + 1).ToString();
+            view.MinimumOffer = currencyRepo.Exchange((offers[0].Price + 1), currencyCode);
 
             view.LoadOffersControls(offers.Count());
         }
@@ -151,7 +156,7 @@ namespace Presenter
         public void SetControl(IOfferControlView oc, int j)
         {
             oc.BidderNameField = offers[j].BiddrName;
-            oc.BidPriceField = currencyRepo.Exchange(offers[j].Price);
+            oc.BidPriceField = currencyRepo.Exchange(offers[j].Price, currencyCode);
             oc.BidDateField = offers[j].Date.ToString("dd.MM.yyyy hh:mm");
             view.BidderId = offers[j].BidderId;
         }
@@ -163,6 +168,11 @@ namespace Presenter
         }
 
         public void Buy()
+        {
+
+        }
+
+        public void CloseAuction()
         {
 
         }

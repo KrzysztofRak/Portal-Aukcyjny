@@ -11,6 +11,6 @@ namespace Presenter.IPresenters
     {
         bool IsUserLoggedIn();
         void LoadLanguagesList();
-        List<Currency> GetCurrencyList();
+        void SetCurrenciesListSource();
     }
 }

@@ -67,6 +67,15 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label ItemsNum;
         
         /// <summary>
+        /// CloseAuction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CloseAuction;
+        
+        /// <summary>
         /// BuyItNowLabel control.
         /// </summary>
         /// <remarks>

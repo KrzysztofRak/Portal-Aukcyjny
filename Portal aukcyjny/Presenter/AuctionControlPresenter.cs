@@ -78,7 +78,7 @@ namespace Presenter
 
             if (auctions[j].BuyItNowPrice > 0)
             {
-                ac.BuyItNowField = auctions[j].BuyItNowPrice.ToString();
+                ac.BuyItNowField = currencyRepo.Exchange(auctions[j].BuyItNowPrice, currencyCode);
                 ac.BuyItNowVisiblity = true;
                 ac.BuyItNowLabelVisiblity = true;
             }

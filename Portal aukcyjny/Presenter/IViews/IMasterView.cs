@@ -8,6 +8,6 @@ namespace Presenter.IViews
 {
     public interface IMasterView
     {
-
+       object CurrenciesSource { get; set; }
     }
 }

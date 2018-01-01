@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Web.Security;
 using System.Web.UI;
-using Model.RepositoriesDataModel;
-using Model.Repositories;
-using Model;
 using Portal_aukcyjny.UserControls;
 using Presenter;
 using Presenter.IViews;

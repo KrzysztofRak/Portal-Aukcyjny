@@ -7,7 +7,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static Model.Repositories.CurrencyExchangeRepository;
 
 namespace Portal_aukcyjny
 {
@@ -15,10 +14,25 @@ namespace Portal_aukcyjny
     {
         private MasterPresenter presenter;
 
-        protected void Page_Load(object sender, EventArgs e)
+        public object CurrenciesSource
+        {
+            get { return ListDefaultCurrency.DataSource; }
+            set { ListDefaultCurrency.DataSource = value; }
+        }
+
+        public object LanguagesSource
+        {
+            get { return ListDefaultCurrency.DataSource; }
+            set { ListDefaultCurrency.DataSource = value; }
+        }
+
+        public SiteMaster()
         {
             presenter = new MasterPresenter(this);
-           
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {        
             if (presenter.IsUserLoggedIn())
             {
                 string createAuctionUrl = Page.ResolveUrl("~/MembersPages/Auction/CreateAuction");
@@ -37,11 +51,10 @@ namespace Portal_aukcyjny
 
         private void LoadDefaultCurrencyList()
         {
-            var currencyList = presenter.GetCurrencyList();
+            presenter.SetCurrenciesListSource();
 
             ListDefaultCurrency.DataTextField = "name";
             ListDefaultCurrency.DataValueField = "code";
-            ListDefaultCurrency.DataSource = currencyList;
             ListDefaultCurrency.DataBind();
         }
 

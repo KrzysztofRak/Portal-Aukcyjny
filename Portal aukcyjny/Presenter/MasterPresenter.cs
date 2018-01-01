@@ -66,9 +66,9 @@ namespace Presenters
 
         }
 
-        public List<Currency> GetCurrencyList()
+        public void SetCurrenciesListSource()
         {
-            return currencyRepo.GetList();
+            masterView.CurrenciesSource = currencyRepo.GetList();
         }
     }
 }

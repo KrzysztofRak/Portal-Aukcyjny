@@ -109,7 +109,9 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style19">&nbsp;</td>
+            <td class="auto-style19">
+                <asp:Button ID="CloseAuction" runat="server" Text="Zakończ aukcje" Width="186px" Height="31px" Visible="False" OnClick="CloseAuction_Click" />
+            </td>
             <td colspan="2" class="auto-style3">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
         </tr>

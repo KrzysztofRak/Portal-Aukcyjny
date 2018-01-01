@@ -13,6 +13,7 @@ namespace Presenter.IPresenters
         void StopObserve(object sender, EventArgs e);
         bool LoadAuctionPage();
         void SetControl(IOfferControlView oc, int j);
+        void CloseAuction();
 
     }
 }

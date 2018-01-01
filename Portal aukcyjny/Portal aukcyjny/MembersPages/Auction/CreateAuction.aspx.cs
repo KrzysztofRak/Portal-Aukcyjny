@@ -6,8 +6,6 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Model;
-using Model.Repositories;
 using Presenter;
 using Presenter.IPresenters;
 using Presenter.IViews;
@@ -18,8 +16,6 @@ namespace Portal_aukcyjny.Auction
     {
         private CreateAuctionPresenter presenter;
         private byte[] imgFile;
-
-        private PortalAukcyjnyEntities db;
 
         public string AuctionTitleField
         {
@@ -112,9 +108,8 @@ namespace Portal_aukcyjny.Auction
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            db = new PortalAukcyjnyEntities();
-
-            LoadDropDownLists();
+            if(!IsPostBack)
+              LoadDropDownLists();
         }
 
         private void LoadDropDownLists()
