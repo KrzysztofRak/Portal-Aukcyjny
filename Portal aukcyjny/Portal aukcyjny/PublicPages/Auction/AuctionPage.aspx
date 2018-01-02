@@ -98,11 +98,11 @@
             </td>
             <td rowspan="11" style="width: 29px">&nbsp;</td>
             <td class="auto-style19"><strong>
-                <asp:Label ID="Label8" runat="server" Style="color: #336699" Text="Do końca pozostało: "></asp:Label>
+                <asp:Label ID="TimeLeftLabel" runat="server" Style="color: #336699" Text="Do końca pozostało: "></asp:Label>
             </strong>&nbsp;<asp:Label ID="TimeLeft" runat="server" Text="Label"></asp:Label>
                 &nbsp;</td>
             <td colspan="2" class="auto-style3"><strong>
-                <asp:Label ID="Label6" runat="server" Style="color: #336699" Text="Dostępnych sztuk: "></asp:Label>
+                <asp:Label ID="ItemsNumLabel" runat="server" Style="color: #336699" Text="Dostępnych sztuk: "></asp:Label>
             </strong><asp:Label ID="ItemsNum" runat="server" Text="Label"></asp:Label>
             </td>
             <td class="auto-style3"></td>
@@ -110,7 +110,7 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style19">
-                <asp:Button ID="CloseAuction" runat="server" Text="Zakończ aukcje" Width="186px" Height="31px" Visible="False" OnClick="CloseAuction_Click" />
+                <asp:Button ID="BtnCloseAuction" runat="server" Text="Zakończ aukcje" Width="186px" Height="31px" Visible="False" OnClick="BtnCloseAuction_Click" />
             </td>
             <td colspan="2" class="auto-style3">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>

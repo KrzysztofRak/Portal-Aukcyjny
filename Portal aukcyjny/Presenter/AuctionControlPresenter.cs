@@ -44,22 +44,22 @@ namespace Presenter
 
         public void LoadSold()
         {
-            auctions = auctionsRepo.GetByUserId(GetCurrentUserId(), true);
+
         }
 
         public void LoadBuyed()
         {
-            auctions = auctionsRepo.GetObserved(GetCurrentUserId());
+
         }
 
         public void LoadBidding()
         {
-            auctions = auctionsRepo.GetAuctioned(GetCurrentUserId());
+
         }
 
         public void LoadObserved()
         {
-            auctions = auctionsRepo.GetAuctioned(GetCurrentUserId());
+            auctions = auctionsRepo.GetObserved(GetCurrentUserId());
         }
 
         public void LoadByUserId(Guid userId)
@@ -84,7 +84,7 @@ namespace Presenter
             }
 
 
-            if (auctions[j].MinimumPrice.ToString() != null)
+            if (auctions[j].MinimumPrice != -1)
             {
                 ac.BidField = currencyRepo.Exchange(auctions[j].MinimumPrice, currencyCode);
                 ac.BidVisiblity = true;

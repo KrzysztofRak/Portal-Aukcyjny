@@ -19,11 +19,15 @@ namespace Presenter.IViews
         string AuctionTitleField { get; set; }
         string AuctionImgUrl { get; set; }
         string TimeLeftField { get; set; }
+        string TimeLeftLabelText { get; set; }
         string ItemsNumField { get; set; }
+        bool ItemsNumLabelVisiblity { get; set; }
+        bool ItemsNumFieldVisiblity { get; set; }
         string BuyItNowPriceField { get; set; }
         bool BuyItNowPriceFieldVisiblity { get; set; }
         bool BuyItNowLabelVisiblity { get; set; }
         bool BuyItNowBtnVisiblity { get; set; }
+        bool CloseAuctionBtnVisiblity { get; set; }
         string HighestBidField { get; set; }
         bool HighestBidFieldVisiblity { get; set; }
         string BestBidUserNameField { get; set; }

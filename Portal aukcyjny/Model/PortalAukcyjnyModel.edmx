@@ -171,11 +171,11 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="AuctionId" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuctionId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
-          <Property Name="ItemsNum" Type="int" />
+          <Property Name="ItemsNum" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -380,6 +380,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_buyed_auctions">
+          <End Role="Auctions" Type="Self.Auctions" Multiplicity="1" />
+          <End Role="Buyed" Type="Self.Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auctions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyed">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_buyers">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="Buyed" Type="Self.Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Buyed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
           <End Role="Auctions" Type="Self.Auctions" Multiplicity="*" />
@@ -527,6 +551,14 @@
             <End Role="Auctions" EntitySet="Auctions" />
             <End Role="Bidders" EntitySet="Bidders" />
           </AssociationSet>
+          <AssociationSet Name="fk_buyed_auctions" Association="Self.fk_buyed_auctions">
+            <End Role="Auctions" EntitySet="Auctions" />
+            <End Role="Buyed" EntitySet="Buyed" />
+          </AssociationSet>
+          <AssociationSet Name="fk_buyers" Association="Self.fk_buyers">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Buyed" EntitySet="Buyed" />
+          </AssociationSet>
           <AssociationSet Name="fk_categories" Association="Self.fk_categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Auctions" EntitySet="Auctions" />
@@ -649,6 +681,14 @@
           <AssociationSet Name="aspnet_UsersInRoles" Association="PortalAukcyjnyModel.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_buyers" Association="PortalAukcyjnyModel.fk_buyers">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Buyed" EntitySet="Buyed" />
+          </AssociationSet>
+          <AssociationSet Name="fk_buyed_auctions" Association="PortalAukcyjnyModel.fk_buyed_auctions">
+            <End Role="Auctions" EntitySet="Auctions" />
+            <End Role="Buyed" EntitySet="Buyed" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
@@ -779,6 +819,7 @@
           <NavigationProperty Name="Comments" Relationship="PortalAukcyjnyModel.fk_comments_authors" FromRole="aspnet_Users" ToRole="Comments" />
           <NavigationProperty Name="Observers" Relationship="PortalAukcyjnyModel.fk_observers" FromRole="aspnet_Users" ToRole="Observers" />
           <NavigationProperty Name="aspnet_Roles" Relationship="PortalAukcyjnyModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyers" FromRole="aspnet_Users" ToRole="Buyed" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -824,6 +865,7 @@
           <NavigationProperty Name="Comments" Relationship="PortalAukcyjnyModel.fk_comments" FromRole="Auctions" ToRole="Comments" />
           <NavigationProperty Name="Shipments" Relationship="PortalAukcyjnyModel.fk_shipments" FromRole="Auctions" ToRole="Shipments" />
           <NavigationProperty Name="Observers" Relationship="PortalAukcyjnyModel.fk_watched_auctions" FromRole="Auctions" ToRole="Observers" />
+          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyed_auctions" FromRole="Auctions" ToRole="Buyed" />
         </EntityType>
         <EntityType Name="Bidders">
           <Key>
@@ -842,10 +884,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="AuctionId" Type="Int32" />
+          <Property Name="AuctionId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ItemsNum" Type="Int32" />
+          <Property Name="ItemsNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_buyers" FromRole="Buyed" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_buyed_auctions" FromRole="Buyed" ToRole="Auctions" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -1107,6 +1151,30 @@
         <Association Name="aspnet_UsersInRoles">
           <End Type="PortalAukcyjnyModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
           <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_buyers">
+          <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Buyed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_buyed_auctions">
+          <End Type="PortalAukcyjnyModel.Auctions" Role="Auctions" Multiplicity="1" />
+          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auctions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyed">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>

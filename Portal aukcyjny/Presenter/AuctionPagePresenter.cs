@@ -17,6 +17,7 @@ namespace Presenter
         private IAuctionPageView view;
         private List<OfferControlData> offers;
         private string currencyCode;
+        private Auctions auction;
 
         public AuctionPagePresenter(IAuctionPageView view, string currencyCode)
         {
@@ -42,7 +43,7 @@ namespace Presenter
 
         public bool LoadAuctionPage()
         {
-            var auction = auctionsRepo.Get(view.AuctionId);
+            auction = auctionsRepo.Get(view.AuctionId);
             if (auction == null)
                 return false;
 
@@ -55,10 +56,22 @@ namespace Presenter
             else
                 view.AuctionImgUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auction.Image);
 
-            view.ItemsNumField = auction.ItemsNumber.ToString();
+            if (auction.Finalized)
+            {
+                view.ItemsNumLabelVisiblity = false;
+                view.ItemsNumFieldVisiblity = false;
+            }
+            else
+                view.ItemsNumField = auction.ItemsNumber.ToString();
+
             var timeLeft = (auction.EndDate.Subtract(DateTime.Now));
 
-            if (timeLeft.TotalDays > 1)
+            if (timeLeft.TotalMinutes < 0)
+            {
+                view.TimeLeftLabelText = "Zakończona: ";
+                view.TimeLeftField = auction.EndDate.ToString("dd.MM.yyyy hh:mm");
+            }
+            else if (timeLeft.TotalDays > 1)
                 view.TimeLeftField = (int)timeLeft.TotalDays + " dni";
             else
                 view.TimeLeftField = String.Format("{0:hh\\:mm\\:ss}", timeLeft);
@@ -66,6 +79,9 @@ namespace Presenter
             if (!IsUserLoggedIn() || GetCurrentUserId() == auction.OwnerId)
             {
                 view.ObserveBtnVisiblity = false;
+
+                if (!auction.Finalized && GetCurrentUserId() == auction.OwnerId)
+                    view.CloseAuctionBtnVisiblity = true;
             }
             else
             {
@@ -106,11 +122,11 @@ namespace Presenter
             if (auction.MinimumPrice != -1)
             {
                 view.HighestBidField = currencyRepo.Exchange(auction.MinimumPrice, currencyCode);
-                view.MinimumOffer = currencyRepo.Exchange((auction.MinimumPrice + 1), currencyCode);
+                view.MinimumOffer = currencyRepo.ExchangeWithoutCC((auction.MinimumPrice + 1), currencyCode).ToString();
                 LoadOffers(auction);
             }
 
-            if (!IsUserLoggedIn() || GetCurrentUserId() == auction.OwnerId)
+            if (!IsUserLoggedIn() || GetCurrentUserId() == auction.OwnerId || auction.Finalized)
             {
                 view.BuyItNowBtnVisiblity = false;
                 view.BidFieldVisiblity = false;
@@ -148,7 +164,7 @@ namespace Presenter
             view.HighestBidField = currencyRepo.Exchange(offers[0].Price, currencyCode);
             view.BestBidUserNameField = offers[0].BiddrName;
             view.BestBidderId = offers[0].BidderId;
-            view.MinimumOffer = currencyRepo.Exchange((offers[0].Price + 1), currencyCode);
+            view.MinimumOffer = currencyRepo.ExchangeWithoutCC((offers[0].Price + 1), currencyCode).ToString();
 
             view.LoadOffersControls(offers.Count());
         }
@@ -163,18 +179,21 @@ namespace Presenter
 
         public void SendBid()
         {
-            offersRepo.Add(GetCurrentUserId(), view.AuctionId, Convert.ToDecimal(view.BidField));
+            offersRepo.Add(GetCurrentUserId(), view.AuctionId, currencyRepo.ExchangeWithoutCC(Convert.ToDecimal(view.BidField), currencyCode, true));
             LoadAuctionPage();
         }
 
         public void Buy()
         {
-
+            offersRepo.Add(GetCurrentUserId(), auction.Id, auction.BuyItNowPrice);
+            auctionsRepo.BuyItem(auction, GetCurrentUserId());
+            LoadAuctionPage();
         }
 
         public void CloseAuction()
         {
-
+            auctionsRepo.CloseAuction(auction);
+            LoadAuctionPage();
         }
     }
 }

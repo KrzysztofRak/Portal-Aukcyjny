@@ -58,10 +58,7 @@ namespace Presenter
         {
             Guid userId = GetCurrentUserId();
             Selling = auctionsRepo.GetByUserId(userId);
-            Sold = auctionsRepo.GetByUserId(userId, true);
-            Buyed = auctionsRepo.GetObserved(userId);
-            Bidding = auctionsRepo.GetAuctioned(userId);
-            Observed = auctionsRepo.GetAuctioned(userId);
+            Observed = auctionsRepo.GetObserved(userId);
         }
     }
 }

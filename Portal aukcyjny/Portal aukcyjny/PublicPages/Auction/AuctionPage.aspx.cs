@@ -65,6 +65,12 @@ namespace Portal_aukcyjny.PublicPages.Auction
             set { Observe.Visible = value; }
         }
 
+        public bool CloseAuctionBtnVisiblity
+        {
+            get { return BtnCloseAuction.Visible; }
+            set { BtnCloseAuction.Visible = value; }
+        }
+
         public EventHandler ObserveBtnEvent
         {
             get { return null; }
@@ -89,10 +95,28 @@ namespace Portal_aukcyjny.PublicPages.Auction
             set { TimeLeft.Text = value; }
         }
 
+        public string TimeLeftLabelText
+        {
+            get { return TimeLeftLabel.Text; }
+            set { TimeLeftLabel.Text = value; }
+        }
+
         public string ItemsNumField
         {
             get { return ItemsNum.Text; }
             set { ItemsNum.Text = value; }
+        }
+
+        public bool ItemsNumLabelVisiblity
+        {
+            get { return ItemsNumLabel.Visible ; }
+            set { ItemsNumLabel.Visible = value; }
+        }
+
+        public bool ItemsNumFieldVisiblity
+        {
+            get { return ItemsNum.Visible; }
+            set { ItemsNum.Visible = value; }
         }
 
         public string BuyItNowPriceField
@@ -284,7 +308,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
             presenter.Buy();
         }
 
-        protected void CloseAuction_Click(object sender, EventArgs e)
+        protected void BtnCloseAuction_Click(object sender, EventArgs e)
         {
             presenter.CloseAuction();
         }

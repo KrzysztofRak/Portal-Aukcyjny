@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="536c8cb4da164bb6b5d9494780e37e23" Name="Diagram1" ZoomLevel="26">
+      <Diagram DiagramId="536c8cb4da164bb6b5d9494780e37e23" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="12.625" />
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Membership" Width="1.5" PointX="10.5" PointY="11.75" />
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Paths" Width="1.5" PointX="3" PointY="11.125" />
@@ -41,6 +41,8 @@
         <AssociationConnector Association="PortalAukcyjnyModel.fk_shipments" />
         <AssociationConnector Association="PortalAukcyjnyModel.fk_watched_auctions" />
         <AssociationConnector Association="PortalAukcyjnyModel.aspnet_UsersInRoles" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_buyers" />
+        <AssociationConnector Association="PortalAukcyjnyModel.fk_buyed_auctions" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

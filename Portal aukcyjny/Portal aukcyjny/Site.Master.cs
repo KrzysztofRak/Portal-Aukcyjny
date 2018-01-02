@@ -56,6 +56,8 @@ namespace Portal_aukcyjny
             ListDefaultCurrency.DataTextField = "name";
             ListDefaultCurrency.DataValueField = "code";
             ListDefaultCurrency.DataBind();
+            var defaultCurrency = Global.GetDefaultCurrency();
+            ListDefaultCurrency.Items.FindByValue(defaultCurrency).Selected = true;
         }
 
         private void SetDefaultCurrency(string currencyCode)

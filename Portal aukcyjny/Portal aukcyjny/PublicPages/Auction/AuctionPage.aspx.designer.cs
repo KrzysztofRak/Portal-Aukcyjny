@@ -31,13 +31,13 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Image AuctionImg;
         
         /// <summary>
-        /// Label8 control.
+        /// TimeLeftLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label TimeLeftLabel;
         
         /// <summary>
         /// TimeLeft control.
@@ -49,13 +49,13 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label TimeLeft;
         
         /// <summary>
-        /// Label6 control.
+        /// ItemsNumLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label ItemsNumLabel;
         
         /// <summary>
         /// ItemsNum control.
@@ -67,13 +67,13 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.Label ItemsNum;
         
         /// <summary>
-        /// CloseAuction control.
+        /// BtnCloseAuction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CloseAuction;
+        protected global::System.Web.UI.WebControls.Button BtnCloseAuction;
         
         /// <summary>
         /// BuyItNowLabel control.
