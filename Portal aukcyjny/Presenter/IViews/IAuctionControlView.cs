@@ -27,11 +27,10 @@ namespace Presenter.IViews
         string ViewsField { get; set; }
         void LoadAuctionsBySearch(string searchString);
         void LoadAuctionsByCatId(int catId);
-        void LoadSelling();
         void LoadSold();
         void LoadBuyed();
         void LoadBidding();
         void LoadObserved();
-        void LoadByUserId(Guid userId);
+        void LoadSelling(Guid userId);
     }
 }

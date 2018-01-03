@@ -25,6 +25,7 @@ namespace Model.RepositoriesDataModel
         public string SellerName { get; set; }
         public Guid SellerId { get; set; }
         public string ShipmentName { get; set; }
+        public string CategoryName { get; set; }
         public decimal ShipmentPrice { get; set; }
         public DateTime EndDate { get; set; }
         public int OffersNum { get; set; }
@@ -55,6 +56,11 @@ namespace Model.RepositoriesDataModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+    }
+
+    public class SearchFilters
+    {
 
     }
 }

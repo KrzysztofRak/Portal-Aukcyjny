@@ -69,7 +69,7 @@ namespace Portal_aukcyjny.PublicPages.User
         private void LoadAuctionsSection()
         {
             AuctionControl ac = new AuctionControl();
-            ac.LoadByUserId(userId);
+            ac.LoadSelling(userId);
             ac.LoadControls(ListView_UserAuctions);
         }
 

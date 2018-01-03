@@ -130,7 +130,7 @@ namespace Portal_aukcyjny.UserControls
 
         public void LoadSelling()
         {
-            presenter.LoadSelling();
+            presenter.LoadSelling(presenter.GetCurrentUserId());
         }
 
         public void LoadSold()
@@ -153,9 +153,9 @@ namespace Portal_aukcyjny.UserControls
             presenter.LoadObserved();
         }
 
-        public void LoadByUserId(Guid userId)
+        public void LoadSelling(Guid userId)
         {
-            presenter.LoadByUserId(userId);
+            presenter.LoadSelling(userId);
         }
 
         public void LoadControls(ListView listView)

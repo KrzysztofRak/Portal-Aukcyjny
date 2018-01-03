@@ -189,8 +189,8 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="UserControls\AuctionControl.ascx" />
     <Content Include="UserControls\CommentControl.ascx" />
+    <Content Include="UserControls\FilterControl.ascx" />
     <Content Include="UserControls\OfferControl.ascx" />
-    <Content Include="UserControls\SearchControl.ascx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -276,19 +276,19 @@
     <Compile Include="UserControls\CommentControl.ascx.designer.cs">
       <DependentUpon>CommentControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\FilterControl.ascx.cs">
+      <DependentUpon>FilterControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\FilterControl.ascx.designer.cs">
+      <DependentUpon>FilterControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\OfferControl.ascx.cs">
       <DependentUpon>OfferControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserControls\OfferControl.ascx.designer.cs">
       <DependentUpon>OfferControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\SearchControl.ascx.cs">
-      <DependentUpon>SearchControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserControls\SearchControl.ascx.designer.cs">
-      <DependentUpon>SearchControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -386,10 +386,10 @@
     <Content Include="MembersPages\Auction\App_LocalResources\MyAuctions.aspx.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UserControls\App_LocalResources\SearchControl.ascx.resx" />
+    <Content Include="UserControls\App_LocalResources\FilterControl.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UserControls\App_LocalResources\SearchControl.ascx.en-US.resx" />
+    <Content Include="UserControls\App_LocalResources\FilterControl.ascx.en-US.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

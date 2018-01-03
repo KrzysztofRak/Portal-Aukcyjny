@@ -46,8 +46,13 @@ namespace Portal_aukcyjny
                 selectedCatId = -1;
             }
 
-            if (!this.IsPostBack)
+            if (!IsPostBack)
                 presenter.LoadCategoriesTree();
+            else
+            {
+                CategoriesTree.Nodes[4].Selected = true;
+            }
+
 
             LoadAuctionsControls();
         }
@@ -58,7 +63,7 @@ namespace Portal_aukcyjny
             TreeNode categoriesChild = new TreeNode
             {
                 Text = catName,
-                NavigateUrl = ResolveUrl("~/Default.aspx?catId=" + catId)
+                Value = catId.ToString()
             };
             CategoriesTree.Nodes.Add(categoriesChild);
         }
@@ -74,6 +79,10 @@ namespace Portal_aukcyjny
             ac.LoadControls(ListView_Auctions);
         }
 
-
+        protected void CategoriesTree_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            selectedCatId = int.Parse(CategoriesTree.SelectedValue);
+            LoadAuctionsControls();
+        }
     }
 }

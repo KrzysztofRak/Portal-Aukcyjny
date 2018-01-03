@@ -13,13 +13,13 @@ namespace Portal_aukcyjny {
     public partial class _Default {
         
         /// <summary>
-        /// SearchControl1 control.
+        /// FilterControl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Portal_aukcyjny.SearchControl SearchControl1;
+        protected global::Portal_aukcyjny.UserControls.FilterControl FilterControl1;
         
         /// <summary>
         /// CategoriesTree control.

@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Cena maksymalna" xml:space="preserve">
+    <value>Cena maksymalna: </value>
+  </data>
+  <data name="Cena minimalna" xml:space="preserve">
+    <value>Cena minimalna: </value>
+  </data>
+  <data name="dni" xml:space="preserve">
+    <value>dni</value>
+  </data>
+  <data name="Maks. czas do końca" xml:space="preserve">
+    <value>Maks. czas do końca: </value>
+  </data>
+  <data name="Maks. ilość ofert" xml:space="preserve">
+    <value>Maks. ilość ofert: </value>
+  </data>
+  <data name="Maks. ilość wyświetleń" xml:space="preserve">
+    <value>Maks. ilość wyświetleń: </value>
+  </data>
+  <data name="Min. ilość ofert" xml:space="preserve">
+    <value>Min. ilość ofert: </value>
+  </data>
+  <data name="Min. ilość wyświetleń" xml:space="preserve">
+    <value>Min. ilość wyświetleń: </value>
+  </data>
+  <data name="Rodzaj przesyłki" xml:space="preserve">
+    <value>Rodzaj przesyłki: </value>
+  </data>
+  <data name="Tylko kup teraz" xml:space="preserve">
+    <value>Tylko kup teraz</value>
+  </data>
+  <data name="Tylko licytacje" xml:space="preserve">
+    <value>Tylko licytacje</value>
+  </data>
   <data name="Szukaj" xml:space="preserve">
-    <value>Search</value>
+    <value>Szukaj</value>
   </data>
 </root>

@@ -13,52 +13,9 @@ namespace Presenter
     {
         private IMyAuctionsView view;
 
-        private List<AuctionControlData> selling;
-        private List<AuctionControlData> sold;
-        private List<AuctionControlData> buyed;
-        private List<AuctionControlData> bidding;
-        private List<AuctionControlData> observed;
-
-        public List<AuctionControlData> Selling
-        {
-            get { return selling; }
-            set { selling = value; }
-        }
-
-        public List<AuctionControlData> Sold
-        {
-            get { return sold; }
-            set { sold = value; }
-        }
-
-        public List<AuctionControlData> Buyed
-        {
-            get { return buyed; }
-            set { buyed = value; }
-        }
-
-        public List<AuctionControlData> Bidding
-        {
-            get { return bidding; }
-            set { bidding = value; }
-        }
-
-        public List<AuctionControlData> Observed
-        {
-            get { return observed; }
-            set { observed = value; }
-        }
-
         public MyAuctionsPresenter(IMyAuctionsView view)
         {
             this.view = view;
-        }
-
-        public void LoadAuctionsToLists()
-        {
-            Guid userId = GetCurrentUserId();
-            Selling = auctionsRepo.GetByUserId(userId);
-            Observed = auctionsRepo.GetObserved(userId);
         }
     }
 }

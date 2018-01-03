@@ -15,6 +15,7 @@ namespace Presenter
         private IAuctionControlView view;
         private string currencyCode;
         private List<AuctionControlData> auctions;
+        private SearchFilters filters;
 
         public AuctionControlPresenter(IAuctionControlView view, string currencyCode)
         {
@@ -37,24 +38,19 @@ namespace Presenter
             auctions = auctionsRepo.GetByCategoryId(catId);
         }
 
-        public void LoadSelling()
-        {
-            auctions = auctionsRepo.GetByUserId(GetCurrentUserId());
-        }
-
         public void LoadSold()
         {
-
+            auctions = auctionsRepo.GetSold(GetCurrentUserId());
         }
 
         public void LoadBuyed()
         {
-
+            auctions = auctionsRepo.GetBuyed(GetCurrentUserId());
         }
 
         public void LoadBidding()
         {
-
+            auctions = auctionsRepo.GetBidding(GetCurrentUserId());
         }
 
         public void LoadObserved()
@@ -62,9 +58,16 @@ namespace Presenter
             auctions = auctionsRepo.GetObserved(GetCurrentUserId());
         }
 
-        public void LoadByUserId(Guid userId)
+        public void LoadSelling(Guid userId)
         {
-            auctions = auctionsRepo.GetByUserId(userId);
+            auctions = auctionsRepo.GetSelling(userId);
+        }
+
+        public void LoadByFilters(IFilterControlView filterView)
+        {   
+            // Tutaj przekopiuj filterView do filters
+            // Ale wcześniej porób propertisy w widoku
+            auctions = auctionsRepo.SearchByFilters(this.filters);
         }
 
         public IAuctionControlView SetControl(IAuctionControlView ac, int j)
