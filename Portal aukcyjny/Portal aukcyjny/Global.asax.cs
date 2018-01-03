@@ -25,5 +25,13 @@ namespace Portal_aukcyjny
             else
                 return "pln";
         }
+
+        public static string GetDefaultCultureCode()
+        {
+            if (HttpContext.Current.Request.Cookies["defaultCultureInfo"] != null)
+                return HttpContext.Current.Request.Cookies["defaultCultureInfo"].Value.ToString();
+            else
+                return "pl-PL";
+        }
     }
 }

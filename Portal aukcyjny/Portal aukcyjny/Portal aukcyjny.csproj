@@ -329,12 +329,67 @@
   <ItemGroup>
     <Folder Include="AdminPages\" />
     <Folder Include="Data\" />
+    <Folder Include="PublicPages\Account\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Presenter\Presenter.csproj">
       <Project>{1b565658-e2c3-4f77-a45c-6c36e116fd58}</Project>
       <Name>Presenter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Default.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Site.Master.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PublicPages\Auction\App_LocalResources\AuctionPage.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PublicPages\Auction\App_LocalResources\AuctionPage.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\AuctionControl.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\AuctionControl.ascx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PublicPages\User\App_LocalResources\UserProfile.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PublicPages\User\App_LocalResources\UserProfile.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\CommentControl.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\CommentControl.ascx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MembersPages\Auction\App_LocalResources\CreateAuction.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MembersPages\Auction\App_LocalResources\CreateAuction.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MembersPages\Auction\App_LocalResources\MyAuctions.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MembersPages\Auction\App_LocalResources\MyAuctions.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\SearchControl.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControls\App_LocalResources\SearchControl.ascx.en-US.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

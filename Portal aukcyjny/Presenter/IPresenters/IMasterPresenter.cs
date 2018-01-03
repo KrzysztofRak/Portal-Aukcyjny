@@ -10,7 +10,6 @@ namespace Presenter.IPresenters
     interface IMasterPresenter
     {
         bool IsUserLoggedIn();
-        void LoadLanguagesList();
         void SetCurrenciesListSource();
     }
 }

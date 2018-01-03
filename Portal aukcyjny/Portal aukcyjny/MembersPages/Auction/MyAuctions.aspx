@@ -7,7 +7,7 @@
     <table style="width: 100%;">
         <tr>
             <td><strong>
-                <asp:Label ID="Label1" runat="server" Style="font-size: x-large; color: #CC9900" Text="Wystawione"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Style="font-size: x-large; color: #CC9900" Text="<%$ Resources:Wystawione%>"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label3" runat="server" Style="font-size: x-large; color: #CC9900" Text="Sprzedane"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Style="font-size: x-large; color: #CC9900" Text="<%$ Resources:Sprzedane%>"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -53,7 +53,7 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label5" runat="server" Style="font-size: x-large; color: #CC9900" Text="Kupione"></asp:Label>
+                <asp:Label ID="Label5" runat="server" Style="font-size: x-large; color: #CC9900" Text="<%$ Resources:Kupione%>"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -76,7 +76,7 @@
         </tr>
         <tr>
             <td style="height: 36px"><strong>
-                <asp:Label ID="Label4" runat="server" Style="font-size: x-large; color: #CC9900" Text="Licytuję"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Style="font-size: x-large; color: #CC9900" Text="<%$ Resources:Licytuję%>"></asp:Label>
             </strong></td>
             <td style="height: 36px"></td>
             <td style="height: 36px"></td>
@@ -99,7 +99,7 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #CC9900" Text="Obserwowane"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Style="font-size: x-large; color: #CC9900" Text="<%$ Resources:Obserwowane%>"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

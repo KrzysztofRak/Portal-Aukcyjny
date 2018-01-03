@@ -3,9 +3,12 @@ using Presenters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
+using Presenter;
 using System.Web.UI.WebControls;
 
 namespace Portal_aukcyjny
@@ -20,19 +23,14 @@ namespace Portal_aukcyjny
             set { ListDefaultCurrency.DataSource = value; }
         }
 
-        public object LanguagesSource
-        {
-            get { return ListDefaultCurrency.DataSource; }
-            set { ListDefaultCurrency.DataSource = value; }
-        }
-
         public SiteMaster()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Global.GetDefaultCultureCode());
             presenter = new MasterPresenter(this);
         }
 
         protected void Page_Load(object sender, EventArgs e)
-        {        
+        {
             if (presenter.IsUserLoggedIn())
             {
                 string createAuctionUrl = Page.ResolveUrl("~/MembersPages/Auction/CreateAuction");
@@ -40,13 +38,16 @@ namespace Portal_aukcyjny
                 string settingsUrl = Page.ResolveUrl("~/MembersPages/Account/Settings");
                 string logoutUrl = Page.ResolveUrl("~/MembersPages/Account/Logout");
 
-                TopMenu.InnerHtml = "<li><a runat=\"server\" href=\"" + createAuctionUrl + "\">Dodaj aukcje</a></li>"
-                    + "<li><a runat=\"server\" href=\"" + myAuctionsUrl + "\">Moje aukcje</a></li>"
-                + "<li><a runat=\"server\" href=\"" + logoutUrl + "\">Wyloguj</a></li>";
+                TopMenu.InnerHtml = "<li><a runat=\"server\" href=\"" + createAuctionUrl + "\">" + GetLocalResourceObject("Dodaj aukcje") + "</a></li>"
+                    + "<li><a runat=\"server\" href=\"" + myAuctionsUrl + "\">" + GetLocalResourceObject("Moje aukcje") + "</a></li>"
+                + "<li><a runat=\"server\" href=\"" + logoutUrl + "\">" + GetLocalResourceObject("Wyloguj") + "</a></li>";
             }
 
             if (!IsPostBack)
+            {
                 LoadDefaultCurrencyList();
+                SetDefaultLanguageOnList();
+            }
         }
 
         private void LoadDefaultCurrencyList()
@@ -66,9 +67,27 @@ namespace Portal_aukcyjny
             Response.Cookies["defaultCurrency"].Expires = DateTime.Now.AddDays(10000);
         }
 
+        private void SetDefaultCultureInfo(string cultureCode)
+        {
+            Response.Cookies["defaultCultureInfo"].Value = cultureCode;
+            Response.Cookies["defaultCultureInfo"].Expires = DateTime.Now.AddDays(10000);
+        }
+
+        private void SetDefaultLanguageOnList()
+        {
+            var defaultLang = Global.GetDefaultCultureCode();
+            ListDefaultLanguage.Items.FindByValue(defaultLang).Selected = true;
+        }
+
         protected void ListDefaultCurrency_SelectedIndexChanged(object sender, EventArgs e)
         {
             SetDefaultCurrency(ListDefaultCurrency.SelectedValue);
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void ListLanguages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SetDefaultCultureInfo(ListDefaultLanguage.SelectedValue);
             Response.Redirect(Request.RawUrl);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Model;
 using Model.Repositories;
+using Model.RepositoriesDataModel;
 using Presenter.IPresenters;
 using Presenter.IViews;
 using System;
@@ -59,11 +60,6 @@ namespace Presenters
                 return new Guid(System.Web.Security.Membership.GetUser().ProviderUserKey.ToString());
             else
                 return new Guid();
-        }
-
-        public void LoadLanguagesList()
-        {
-
         }
 
         public void SetCurrenciesListSource()

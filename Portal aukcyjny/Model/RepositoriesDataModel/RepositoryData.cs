@@ -57,6 +57,4 @@ namespace Model.RepositoriesDataModel
         public string Name { get; set; }
 
     }
-
-
 }

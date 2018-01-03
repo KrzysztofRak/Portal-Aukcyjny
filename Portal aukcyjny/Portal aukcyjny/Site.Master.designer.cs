@@ -58,13 +58,13 @@ namespace Portal_aukcyjny {
         protected global::System.Web.UI.WebControls.Label LabelLanguage;
         
         /// <summary>
-        /// ListLanguages control.
+        /// ListDefaultLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListLanguages;
+        protected global::System.Web.UI.WebControls.DropDownList ListDefaultLanguage;
         
         /// <summary>
         /// LabelDefautCurrency control.

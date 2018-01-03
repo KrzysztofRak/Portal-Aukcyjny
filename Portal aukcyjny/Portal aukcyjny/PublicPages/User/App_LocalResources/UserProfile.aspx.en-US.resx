@@ -117,160 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Antyki i Sztuka" xml:space="preserve">
-    <value>Antyki i Sztuka</value>
+  <data name="Członek od" xml:space="preserve">
+    <value>Member since: </value>
   </data>
-  <data name="Biżuteria i Zegarki" xml:space="preserve">
-    <value>Biżuteria i Zegarki</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email: </value>
   </data>
-  <data name="Cena kup teraz" xml:space="preserve">
-    <value>Cena kup teraz</value>
+  <data name="Lista aukcji użytkownika" xml:space="preserve">
+    <value>List of user auctions</value>
   </data>
-  <data name="Dla Dzieci" xml:space="preserve">
-    <value>Dla Dzieci</value>
+  <data name="Otrzymane komentarze" xml:space="preserve">
+    <value>Comments</value>
   </data>
-  <data name="Do końca pozostało" xml:space="preserve">
-    <value>Do końca pozostało</value>
-  </data>
-  <data name="Dodaj aukcje" xml:space="preserve">
-    <value>Dodaj aukcje</value>
-  </data>
-  <data name="Dom i Ogród" xml:space="preserve">
-    <value>Dom i Ogród</value>
-  </data>
-  <data name="Domyślna waluta" xml:space="preserve">
-    <value>Domyślna waluta</value>
-  </data>
-  <data name="Dostępnych sztuk" xml:space="preserve">
-    <value>Dostępnych sztuk</value>
-  </data>
-  <data name="Edukacja" xml:space="preserve">
-    <value>Edukacja</value>
-  </data>
-  <data name="Elektronika" xml:space="preserve">
-    <value>Elektronika</value>
-  </data>
-  <data name="Filmy" xml:space="preserve">
-    <value>Filmy</value>
-  </data>
-  <data name="Gry" xml:space="preserve">
-    <value>Gry</value>
-  </data>
-  <data name="Język" xml:space="preserve">
-    <value>Język</value>
-  </data>
-  <data name="Komentarze" xml:space="preserve">
-    <value>Komentarze</value>
-  </data>
-  <data name="Książki i Komiksy" xml:space="preserve">
-    <value>Książki i Komiksy</value>
-  </data>
-  <data name="Kup teraz" xml:space="preserve">
-    <value>Kup teraz</value>
-  </data>
-  <data name="Kupione" xml:space="preserve">
-    <value>Kupione</value>
-  </data>
-  <data name="Licytacja" xml:space="preserve">
-    <value>Licytacja</value>
-  </data>
-  <data name="Licytuj" xml:space="preserve">
-    <value>Licytuj</value>
-  </data>
-  <data name="Licytuję" xml:space="preserve">
-    <value>Licytuję</value>
-  </data>
-  <data name="Lista ofert" xml:space="preserve">
-    <value>Lista ofert</value>
-  </data>
-  <data name="Moda" xml:space="preserve">
-    <value>Moda</value>
-  </data>
-  <data name="Moje aukcje" xml:space="preserve">
-    <value>Moje aukcje</value>
-  </data>
-  <data name="Motoryzacja" xml:space="preserve">
-    <value>Motoryzacja</value>
-  </data>
-  <data name="Muzyka" xml:space="preserve">
-    <value>Muzyka</value>
-  </data>
-  <data name="Najwyższa oferta" xml:space="preserve">
-    <value>Najwyższa oferta</value>
-  </data>
-  <data name="Nieruchomości" xml:space="preserve">
-    <value>Nieruchomości</value>
-  </data>
-  <data name="Obserwowane" xml:space="preserve">
-    <value>Obserwowane</value>
-  </data>
-  <data name="Obserwuj" xml:space="preserve">
-    <value>Obserwuj</value>
-  </data>
-  <data name="Od użytkownika" xml:space="preserve">
-    <value>Od użytkownika</value>
-  </data>
-  <data name="Ofert" xml:space="preserve">
-    <value>Ofert</value>
-  </data>
-  <data name="Opis przedmiotu" xml:space="preserve">
-    <value>Opis przedmiotu</value>
-  </data>
-  <data name="Pozostało" xml:space="preserve">
-    <value>Pozostało</value>
-  </data>
-  <data name="Praca" xml:space="preserve">
-    <value>Praca</value>
-  </data>
-  <data name="Przestań obserwować" xml:space="preserve">
-    <value>Przestań obserwować</value>
-  </data>
-  <data name="Przesyłka" xml:space="preserve">
-    <value>Przesyłka</value>
-  </data>
-  <data name="Rolnictwo" xml:space="preserve">
-    <value>Rolnictwo</value>
-  </data>
-  <data name="Sport i Hobby" xml:space="preserve">
-    <value>Sport i Hobby</value>
-  </data>
-  <data name="Sprzedający" xml:space="preserve">
-    <value>Sprzedający</value>
-  </data>
-  <data name="Sprzedane" xml:space="preserve">
-    <value>Sprzedane</value>
-  </data>
-  <data name="Szukaj" xml:space="preserve">
-    <value>Szukaj</value>
-  </data>
-  <data name="Usługi i Firmy" xml:space="preserve">
-    <value>Usługi i Firmy</value>
-  </data>
-  <data name="Wakacje" xml:space="preserve">
-    <value>Wakacje</value>
-  </data>
-  <data name="Wyloguj" xml:space="preserve">
-    <value>Wyloguj</value>
-  </data>
-  <data name="Wystawione" xml:space="preserve">
-    <value>Wystawione</value>
-  </data>
-  <data name="Wyświetleń" xml:space="preserve">
-    <value>Wyświetleń</value>
-  </data>
-  <data name="Zaloguj" xml:space="preserve">
-    <value>Zaloguj</value>
-  </data>
-  <data name="Zarejestruj" xml:space="preserve">
-    <value>Zarejestruj</value>
-  </data>
-  <data name="Zdrowie" xml:space="preserve">
-    <value>Zdrowie</value>
-  </data>
-  <data name="Zwierzęta" xml:space="preserve">
-    <value>Zwierzęta</value>
-  </data>
-  <data name="Ślub i Wesele" xml:space="preserve">
-    <value>Ślub i Wesele</value>
+  <data name="Sprzedanych przedmiotów" xml:space="preserve">
+    <value>Sold items: </value>
   </data>
 </root>

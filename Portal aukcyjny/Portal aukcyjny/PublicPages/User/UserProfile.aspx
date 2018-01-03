@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <td style="height: 22px"><strong>
-                <asp:Label ID="EmailLabel" runat="server" Text="Email: "></asp:Label>
+                <asp:Label ID="EmailLabel" runat="server" Text="<%$ Resources:Email%>"></asp:Label>
             </strong>
                 <asp:Label ID="Email" runat="server" Text="Label"></asp:Label>
             </td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td style="height: 22px"><strong>
-                <asp:Label ID="RegistrationDateLabel" runat="server" Text="Członek od: "></asp:Label>
+                <asp:Label ID="RegistrationDateLabel" runat="server" Text="<%$ Resources:Członek od%>"></asp:Label>
             </strong>
                 <asp:Label ID="RegistrationDate" runat="server" Text="Label"></asp:Label>
             </td>
@@ -39,7 +39,7 @@
         </tr>
         <tr>
             <td style="height: 23px"><strong>
-                <asp:Label ID="SoldItemsNumLabel" runat="server" Text="Sprzedanych przedmiotów:"></asp:Label>
+                <asp:Label ID="SoldItemsNumLabel" runat="server" Text="<%$ Resources:Sprzedanych przedmiotów%>"></asp:Label>
             </strong>&nbsp;<asp:Label ID="SoldItemsNum" runat="server" Text="Label"></asp:Label>
             </td>
             <td style="height: 23px"></td>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td><strong>
-                <asp:Label ID="Label9" runat="server" Style="color: #CC9900; font-size: x-large" Text="Lista aukcji użytkownika"></asp:Label>
+                <asp:Label ID="Label9" runat="server" Style="color: #CC9900; font-size: x-large" Text="<%$ Resources:Lista aukcji użytkownika%>"></asp:Label>
             </strong></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -80,7 +80,7 @@
         </tr>
         <tr>
             <td style="height: 22px"><strong>
-                <asp:Label ID="Label8" runat="server" Style="color: #CC9900; font-size: x-large" Text="Otrzymane komentarze"></asp:Label>
+                <asp:Label ID="Label8" runat="server" Style="color: #CC9900; font-size: x-large" Text="<%$ Resources:Otrzymane komentarze%>"></asp:Label>
             </strong></td>
             <td style="height: 22px"></td>
             <td style="height: 22px"></td>

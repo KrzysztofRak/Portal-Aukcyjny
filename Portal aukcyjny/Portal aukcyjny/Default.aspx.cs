@@ -8,6 +8,8 @@ using System.Diagnostics;
 using Portal_aukcyjny.UserControls;
 using Presenters;
 using Presenters.IViews;
+using System.Globalization;
+using System.Threading;
 
 namespace Portal_aukcyjny
 {
@@ -45,15 +47,14 @@ namespace Portal_aukcyjny
             }
 
             if (!this.IsPostBack)
-            {
                 presenter.LoadCategoriesTree();
-            }
 
             LoadAuctionsControls();
         }
 
         public void AddNewItemToCategoriesTree(string catName, int catId)
         {
+            catName = GetLocalResourceObject(catName).ToString();
             TreeNode categoriesChild = new TreeNode
             {
                 Text = catName,
