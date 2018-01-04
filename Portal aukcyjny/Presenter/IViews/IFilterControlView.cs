@@ -27,6 +27,6 @@ namespace Presenter.IViews
         string MaxViewsCount { get; set; }
         string MaxDaysLeft { get; set; }
         string Search { get; set; }
-        string ShipmentId { get; set; }
+        string ShipmentId { get; }
     }
 }

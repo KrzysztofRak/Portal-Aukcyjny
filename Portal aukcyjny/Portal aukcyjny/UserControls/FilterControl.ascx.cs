@@ -131,7 +131,6 @@ namespace Portal_aukcyjny.UserControls
         public string ShipmentId
         {
             get { return DDListShipmentType.SelectedValue; }
-            set { DDListShipmentType.SelectedValue = value; }
         }
 
         public FilterControl()

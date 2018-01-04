@@ -8,12 +8,16 @@ namespace Presenter.IViews
 {
     public interface IAuctionPageView
     {
+        int ImageWidth { get; }
+        int ImageHeight { get; }
         int AuctionId { get; set; }
         string SellerId { get; set; }
         string BestBidderId { get; set; }
         string BidderId { get; set; }
         string MinimumOffer { get; set; }
         string ObserveBtnText { get; set; }
+        string ResObserve { get; }
+        string ResStopObserve { get; }
         bool ObserveBtnVisiblity { get; set; }
         EventHandler ObserveBtnEvent { get; set; }
         string AuctionTitleField { get; set; }

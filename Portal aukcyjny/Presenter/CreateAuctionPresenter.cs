@@ -29,7 +29,6 @@ namespace Presenter
                 Finalized = false,
 
                 Title = view.AuctionTitleField,
-                Image = view.ImageFileBytes,
                 ItemsNumber = int.Parse(view.ItemsNumberField),
 
                 Location = view.LocationField,
@@ -49,6 +48,8 @@ namespace Presenter
                 auction.MinimumPrice = decimal.Parse(view.StartPriceField);
 
             auctionsRepo.Add(auction);
+
+            imagesRepo.Add(new Images() {AuctionId = auction.Id, ImageData = view.ImageFileBytes});
 
             return auction.Id;
         }

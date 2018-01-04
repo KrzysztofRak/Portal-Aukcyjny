@@ -31,6 +31,7 @@
                                     <td class="text-left" style="height: 24px; width: 146px; font-size: small; color: #336699;"><strong><%= GetLocalResourceObject("Zdjęcie") %></strong></td>
                                     <td class="text-left" style="height: 24px">
                                         <asp:FileUpload ID="ImageFile" runat="server" Width="406px" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="<%$ Resources:Zdjęcie przedmiotu jest wymagane%>" ControlToValidate="ImageFile"></asp:RequiredFieldValidator>
                                     </td>
                                     <td class="text-left" style="height: 24px">&nbsp;</td>
                                 </tr>

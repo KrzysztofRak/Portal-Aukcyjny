@@ -13,6 +13,15 @@ namespace Portal_aukcyjny.UserControls
     {
         private CommentControlPresenter presenter;
 
+        public string Seller
+        {
+            get { return GetLocalResourceObject("Sprzedający").ToString();  }
+        }
+        public string Buyer
+        {
+            get { return GetLocalResourceObject("Kupujący").ToString(); }
+        }
+
         public string AuthorNameField
         {
             get { return AuthorName.Text; }
@@ -25,7 +34,7 @@ namespace Portal_aukcyjny.UserControls
             set { AuthorName.NavigateUrl = value; }
         }
 
-        public string IsSellerField
+        public string AuthorType
         {
             get { return IsSeller.Text; }
             set { IsSeller.Text = value; }

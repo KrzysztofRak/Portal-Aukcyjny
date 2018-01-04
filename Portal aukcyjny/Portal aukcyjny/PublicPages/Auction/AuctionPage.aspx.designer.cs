@@ -193,13 +193,13 @@ namespace Portal_aukcyjny.PublicPages.Auction {
         protected global::System.Web.UI.WebControls.HyperLink SellerName;
         
         /// <summary>
-        /// Observe control.
+        /// BtnObserve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Observe;
+        protected global::System.Web.UI.WebControls.Button BtnObserve;
         
         /// <summary>
         /// Label11 control.

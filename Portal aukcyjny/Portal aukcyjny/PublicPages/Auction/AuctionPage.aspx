@@ -94,7 +94,7 @@
             <td class="auto-style1"></td>
             <td rowspan="11" style="width: 30px">&nbsp;</td>
             <td rowspan="11" style="width: 30px">
-                <asp:Image ID="AuctionImg" runat="server" Width="400px" BorderStyle="Solid" BorderWidth="1px" />
+                <asp:Image ID="AuctionImg" runat="server" ImageUrl="~/Handlers/Image.ashx" Width="400px" BorderStyle="Solid" BorderWidth="1px" Height="400px" />
             </td>
             <td rowspan="11" style="width: 29px">&nbsp;</td>
             <td class="auto-style19"><strong>
@@ -211,7 +211,7 @@
             <td style="height: 22px; width: 30px"></td>
             <td style="height: 22px; width: 30px">&nbsp;</td>
             <td style="height: 22px; width: 30px">
-                <asp:Button ID="Observe" runat="server" Height="38px" Text="<%$ Resources:Obserwuj%>" Width="399px" />
+                <asp:Button ID="BtnObserve" runat="server" Height="38px" Text="<%$ Resources:Obserwuj%>" Width="399px" />
             </td>
             <td style="height: 22px; width: 29px"></td>
             <td class="auto-style17">

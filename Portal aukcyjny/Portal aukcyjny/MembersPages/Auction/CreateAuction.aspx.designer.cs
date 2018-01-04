@@ -58,6 +58,15 @@ namespace Portal_aukcyjny.Auction {
         protected global::System.Web.UI.WebControls.FileUpload ImageFile;
         
         /// <summary>
+        /// RequiredFieldValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        
+        /// <summary>
         /// ItemsNumber control.
         /// </summary>
         /// <remarks>
@@ -130,7 +139,7 @@ namespace Portal_aukcyjny.Auction {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// ShipmentId control.
+        /// ShipmentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

@@ -23,6 +23,26 @@ namespace Portal_aukcyjny.PublicPages.Auction
         private string bidderId;
         private string minimumOffer;
 
+        public int ImageWidth
+        {
+            get { return (int)AuctionImg.Width.Value; }
+        }
+
+        public int ImageHeight
+        {
+            get { return (int)AuctionImg.Height.Value; }
+        }
+
+        public string ResObserve
+        {
+            get { return GetLocalResourceObject("Obserwuj").ToString(); }
+        }
+
+        public string ResStopObserve
+        {
+            get { return GetLocalResourceObject("Przestań obserwować").ToString(); }
+        }
+
         public int AuctionId
         {
             get { return auctionId; }
@@ -55,14 +75,14 @@ namespace Portal_aukcyjny.PublicPages.Auction
 
         public string ObserveBtnText
         {
-            get { return Observe.Text; }
-            set { Observe.Text = value; }
+            get { return BtnObserve.Text; }
+            set { BtnObserve.Text = value; }
         }
 
         public bool ObserveBtnVisiblity
         {
-            get { return Observe.Visible; }
-            set { Observe.Visible = value; }
+            get { return BtnObserve.Visible; }
+            set { BtnObserve.Visible = value; }
         }
 
         public bool CloseAuctionBtnVisiblity
@@ -74,7 +94,7 @@ namespace Portal_aukcyjny.PublicPages.Auction
         public EventHandler ObserveBtnEvent
         {
             get { return null; }
-            set { Observe.Click += value; }
+            set { BtnObserve.Click += value; }
         }
 
         public string AuctionTitleField

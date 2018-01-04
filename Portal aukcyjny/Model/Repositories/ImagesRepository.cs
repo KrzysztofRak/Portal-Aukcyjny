@@ -20,11 +20,17 @@ namespace Model.Repositories
             db = new PortalAukcyjnyEntities();
         }
 
-        byte[] GetImage(int auctionId)
+        public byte[] GetImage(int auctionId)
         {
-            var img = (from p in db.Images where p.AuctionId == auctionId select p.ImageData).DefaultIfEmpty(null).FirstOrDefault();
+            byte[] img = (from p in db.Images where p.AuctionId == auctionId select p.ImageData).FirstOrDefault();
 
             return img;
+        }
+
+        public void Add(Images img)
+        {
+                db.Images.Add(img);
+                db.SaveChanges();
         }
     }
 }

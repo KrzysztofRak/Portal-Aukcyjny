@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace Presenter.IViews
 {
     public interface IAuctionControlView
     {
+        string ResFinished { get; }
+        string ResDays { get; }
+        int ImageWidth { get; }
+        int ImageHeight { get; }
         string TitleField { get; set; }
         string AuctionUrl { get; set; }
         string ImageUrl { get; set; }

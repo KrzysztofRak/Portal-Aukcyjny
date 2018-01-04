@@ -17,7 +17,6 @@ namespace Model.RepositoriesDataModel
     {
         public string Title { get; set; }
         public int AuctionId { get; set; }
-        public byte[] Image { get; set; }
         public decimal BuyItNowPrice { get; set; }
         public string BestPriceUsername { get; set; }
         public decimal MinimumPrice { get; set; }

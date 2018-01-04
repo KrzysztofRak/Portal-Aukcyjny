@@ -6,23 +6,23 @@
     <edmx:Diagrams>
       <Diagram DiagramId="536c8cb4da164bb6b5d9494780e37e23" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="15.75" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="13.375" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Paths" Width="1.5" PointX="3" PointY="24" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="27.375" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="20" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="23.125" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Roles" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Membership" Width="1.5" PointX="8" PointY="14.125" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Paths" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="17.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="14.25" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="27.875" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Roles" Width="1.5" PointX="3" PointY="24" />
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="14.125" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="20.875" />
         <EntityTypeShape EntityType="PortalAukcyjnyModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Auctions" Width="1.5" PointX="10.5" PointY="13.625" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Bidders" Width="1.5" PointX="15.75" PointY="15.125" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Buyed" Width="1.5" PointX="12.75" PointY="11.125" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Categories" Width="1.5" PointX="8.25" PointY="10.25" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Comments" Width="1.5" PointX="12.75" PointY="14.875" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Images" Width="1.5" PointX="12.75" PointY="27.875" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Observers" Width="1.5" PointX="15.75" PointY="12.25" />
-        <EntityTypeShape EntityType="PortalAukcyjnyModel.Shipments" Width="1.5" PointX="8.25" PointY="7.5" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Auctions" Width="1.5" PointX="7.5" PointY="21.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Bidders" Width="1.5" PointX="12.75" PointY="19.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Buyed" Width="1.5" PointX="12.75" PointY="25.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Categories" Width="1.5" PointX="5.25" PointY="28.5" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Comments" Width="1.5" PointX="9.75" PointY="22.375" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Images" Width="1.5" PointX="9.75" PointY="35.625" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Observers" Width="1.5" PointX="12.75" PointY="22.75" />
+        <EntityTypeShape EntityType="PortalAukcyjnyModel.Shipments" Width="1.5" PointX="5.25" PointY="26" />
         <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Me__Appli__3A81B327" />
         <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Pa__Appli__6C190EBB" />
         <AssociationConnector Association="PortalAukcyjnyModel.FK__aspnet_Ro__Appli__59063A47" />

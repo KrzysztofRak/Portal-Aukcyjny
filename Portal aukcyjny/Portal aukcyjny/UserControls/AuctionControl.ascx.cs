@@ -24,6 +24,27 @@ namespace Portal_aukcyjny.UserControls
 
         }
 
+        public string ResFinished
+        {
+            get { return GetLocalResourceObject("Zakończono").ToString();  }
+        }
+
+        public string ResDays
+        {
+            get { return GetLocalResourceObject("Dni").ToString(); }
+        }
+
+
+        public int ImageWidth
+        {
+            get { return (int)Image.Width.Value; }
+        }
+
+        public int ImageHeight
+        {
+            get { return (int)Image.Height.Value; }
+        }
+
         public string TitleField
         {
             get { return Title.Text; }

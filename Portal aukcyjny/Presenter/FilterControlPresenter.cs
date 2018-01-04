@@ -44,7 +44,6 @@ namespace Presenter
             view.MaxViewsCount = "";
             view.MaxDaysLeft = "";
             view.Search = "";
-            view.ShipmentId = "";
         }
     }
 }

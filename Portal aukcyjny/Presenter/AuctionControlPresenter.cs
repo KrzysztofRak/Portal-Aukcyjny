@@ -97,10 +97,9 @@ namespace Presenter
         {
             ac.TitleField = auctions[j].Title;
 
-            if (auctions[j].Image == null)
-                ac.ImageUrl = "~/Images/defaultAuctionImg.jpg";
-            else
-                ac.ImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auctions[j].Image);
+
+            ac.ImageUrl = "ImageHandler.aspx?auctionId=" + auctions[j].AuctionId +
+                          "&width=" + ac.ImageWidth + "&height=" + ac.ImageHeight;
 
             if (auctions[j].BuyItNowPrice > 0)
             {
@@ -125,11 +124,11 @@ namespace Presenter
 
             if (leftDateTime.TotalMinutes < 0)
             {
-                ac.TimeLeftLabelText = "Zakończono: ";
+                ac.TimeLeftLabelText = "Zakończono: ";//view.ResFinished;
                 ac.TimeLeftField = auctions[j].EndDate.ToString("dd.MM.yyyy hh:mm");
             }
             else if (leftDateTime.TotalDays > 1)
-                ac.TimeLeftField = (int)leftDateTime.TotalDays + " dni";
+                ac.TimeLeftField = (int) leftDateTime.TotalDays + " dni";// + view.ResDays;
             else
                 ac.TimeLeftField = string.Format("{0:hh\\:mm\\:ss}", leftDateTime);
 

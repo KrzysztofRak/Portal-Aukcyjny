@@ -24,6 +24,7 @@ namespace Presenters
         protected ObserversRepository observersRepo;
         protected ShipmentsRepository shipmentsRepo;
         protected ImagesRepository imagesRepo;
+        protected BuyedItemsRepository buyedItemsRepo;
 
         protected Guid currentUserId;
 
@@ -49,6 +50,7 @@ namespace Presenters
             observersRepo = new ObserversRepository(db);
             shipmentsRepo = new ShipmentsRepository(db);
             imagesRepo = new ImagesRepository(db);
+            buyedItemsRepo = new BuyedItemsRepository(db);
         }
 
         public bool IsUserLoggedIn()

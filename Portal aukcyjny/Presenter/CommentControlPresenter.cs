@@ -34,9 +34,9 @@ namespace Presenter
             cc.AuthorNameField = comments[j].AuthorName;
 
             if (comments[j].AuthorIsSeller)
-                cc.IsSellerField = "Sprzedający";
+                cc.AuthorType = cc.Seller;
             else
-                cc.IsSellerField = "Kupujący";
+                cc.AuthorType = cc.Buyer;
 
             cc.CommentField = comments[j].Comment;
             cc.DateField = comments[j].Date.ToString("dd.MM.yyyy hh:mm");

@@ -28,7 +28,7 @@ namespace Presenter
         public void StartObserve(object sender, EventArgs e)
         {
             observersRepo.Add(GetCurrentUserId(), view.AuctionId);
-            view.ObserveBtnText = "Przestań obserwować";
+            view.ObserveBtnText = view.ResStopObserve;
             view.ObserveBtnEvent -= StartObserve;
             view.ObserveBtnEvent += StopObserve;
         }
@@ -36,7 +36,7 @@ namespace Presenter
         public void StopObserve(object sender, EventArgs e)
         {
             observersRepo.Delete(GetCurrentUserId(), view.AuctionId);
-            view.ObserveBtnText = "Obserwuj";
+            view.ObserveBtnText = view.ResObserve;
             view.ObserveBtnEvent -= StopObserve;
             view.ObserveBtnEvent += StartObserve;
         }
@@ -51,10 +51,8 @@ namespace Presenter
 
             view.AuctionTitleField = auction.Title;
 
-            if (auction.Image == null)
-                view.AuctionImgUrl = "~/Images/defaultAuctionImg.jpg";
-            else
-                view.AuctionImgUrl = "data:image/jpeg;base64," + Convert.ToBase64String(auction.Image);
+            view.AuctionImgUrl = "ImageHandler.aspx?auctionId=" + auction.Id +
+                                     "&width=" + view.ImageWidth + "&height=" + view.ImageHeight;
 
             if (auction.Finalized)
             {
@@ -87,13 +85,13 @@ namespace Presenter
             {
                 if (!observersRepo.CheckIfAuctionIsObservedByUser(GetCurrentUserId(), auction.Id))
                 {
-                    view.ObserveBtnText = "Obserwuj";
+                    view.ObserveBtnText = view.ResObserve;
                     view.ObserveBtnEvent -= StopObserve;
                     view.ObserveBtnEvent += StartObserve;
                 }
                 else
                 {
-                    view.ObserveBtnText = "Przestań obserwować";
+                    view.ObserveBtnText = view.ResStopObserve;
                     view.ObserveBtnEvent -= StartObserve;
                     view.ObserveBtnEvent += StopObserve;
                 }
@@ -186,7 +184,7 @@ namespace Presenter
         public void Buy()
         {
             offersRepo.Add(GetCurrentUserId(), auction.Id, auction.BuyItNowPrice);
-            auctionsRepo.BuyItem(auction, GetCurrentUserId());
+            buyedItemsRepo.BuyItem(auction, GetCurrentUserId());
             LoadAuctionPage();
         }
 

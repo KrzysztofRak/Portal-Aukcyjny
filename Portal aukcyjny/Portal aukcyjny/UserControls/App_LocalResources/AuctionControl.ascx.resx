@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Dni" xml:space="preserve">
+    <value>dni</value>
+  </data>
   <data name="Kup teraz" xml:space="preserve">
     <value>Kup teraz: </value>
   </data>
@@ -137,5 +140,8 @@
   </data>
   <data name="Wyświetleń" xml:space="preserve">
     <value>Wyświetleń: </value>
+  </data>
+  <data name="Zakończono" xml:space="preserve">
+    <value>Zakończono: </value>
   </data>
 </root>

@@ -189,4 +189,7 @@
   <data name="Zdjęcie" xml:space="preserve">
     <value>Photo</value>
   </data>
+  <data name="Zdjęcie przedmiotu jest wymagane" xml:space="preserve">
+    <value>Item image is required</value>
+  </data>
 </root>

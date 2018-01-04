@@ -135,6 +135,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesDataModel\RepositoryData.cs" />
     <Compile Include="Repositories\AuctionsRepository.cs" />
+    <Compile Include="Repositories\BuyedItemsRepository.cs" />
     <Compile Include="Repositories\CategoriesRepository.cs" />
     <Compile Include="Repositories\CommentsRepository.cs" />
     <Compile Include="Repositories\CurrencyExchangeRepository.cs" />
@@ -148,7 +149,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\defaultAuctionImg.jpg" />
     <Content Include="PortalAukcyjny.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
