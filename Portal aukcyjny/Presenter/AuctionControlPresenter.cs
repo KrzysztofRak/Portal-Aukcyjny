@@ -98,7 +98,7 @@ namespace Presenter
             ac.TitleField = auctions[j].Title;
 
 
-            ac.ImageUrl = "ImageHandler.aspx?auctionId=" + auctions[j].AuctionId +
+            ac.ImageUrl = "image?auctionId=" + auctions[j].AuctionId +
                           "&width=" + ac.ImageWidth + "&height=" + ac.ImageHeight;
 
             if (auctions[j].BuyItNowPrice > 0)

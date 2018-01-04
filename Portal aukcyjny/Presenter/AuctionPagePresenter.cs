@@ -51,7 +51,7 @@ namespace Presenter
 
             view.AuctionTitleField = auction.Title;
 
-            view.AuctionImgUrl = "ImageHandler.aspx?auctionId=" + auction.Id +
+            view.AuctionImgUrl = "image?auctionId=" + auction.Id +
                                      "&width=" + view.ImageWidth + "&height=" + view.ImageHeight;
 
             if (auction.Finalized)
