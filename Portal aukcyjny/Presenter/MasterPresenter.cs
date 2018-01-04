@@ -23,6 +23,7 @@ namespace Presenters
         protected CommentsRepository commentsRepo;
         protected ObserversRepository observersRepo;
         protected ShipmentsRepository shipmentsRepo;
+        protected ImagesRepository imagesRepo;
 
         protected Guid currentUserId;
 
@@ -47,6 +48,7 @@ namespace Presenters
             commentsRepo = new CommentsRepository(db);
             observersRepo = new ObserversRepository(db);
             shipmentsRepo = new ShipmentsRepository(db);
+            imagesRepo = new ImagesRepository(db);
         }
 
         public bool IsUserLoggedIn()

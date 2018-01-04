@@ -148,6 +148,15 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// BtnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnReset;
+        
+        /// <summary>
         /// CheckBox_MaxOffersNum control.
         /// </summary>
         /// <remarks>
@@ -175,13 +184,13 @@ namespace Portal_aukcyjny.UserControls {
         protected global::System.Web.UI.WebControls.CheckBox CheckBox_ShipmentType;
         
         /// <summary>
-        /// DropDownList_ShipmentType control.
+        /// DDListShipmentType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList_ShipmentType;
+        protected global::System.Web.UI.WebControls.DropDownList DDListShipmentType;
         
         /// <summary>
         /// SearchBox control.

@@ -18,6 +18,7 @@ namespace Presenter.IPresenters
         void LoadBidding();
         void LoadObserved();
         void LoadSelling(Guid userId);
+        void LoadByFilters(IFilterControlView filterView, int catId);
         IAuctionControlView SetControl(IAuctionControlView ac, int j);
     }
 }

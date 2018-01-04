@@ -154,6 +154,7 @@
     </Content>
     <Content Include="MembersPages\Auction\CreateAuction.aspx" />
     <Content Include="MembersPages\Auction\MyAuctions.aspx" />
+    <Content Include="Image.ashx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="PublicPages\Account\Login.aspx" />
     <Content Include="PublicPages\Account\Register.aspx" />
@@ -200,6 +201,9 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Image.ashx.cs">
+      <DependentUpon>Image.ashx</DependentUpon>
+    </Compile>
     <Compile Include="MembersPages\Auction\MyAuctions.aspx.cs">
       <DependentUpon>MyAuctions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

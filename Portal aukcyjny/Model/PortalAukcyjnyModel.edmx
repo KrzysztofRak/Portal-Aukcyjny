@@ -145,7 +145,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Image" Type="image" />
+          <Property Name="ImageId" Type="int" Nullable="false" />
           <Property Name="BuyItNowPrice" Type="decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
           <Property Name="OwnerId" Type="uniqueidentifier" Nullable="false" />
@@ -195,6 +195,14 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="RecipientId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AuthorIsSeller" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuctionId" Type="int" Nullable="false" />
+          <Property Name="ImageData" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="Observers">
           <Key>
@@ -356,6 +364,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_auctions_images">
+          <End Role="Auctions" Type="Self.Auctions" Multiplicity="1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auctions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_bidders">
           <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
           <End Role="Bidders" Type="Self.Bidders" Multiplicity="*" />
@@ -493,6 +513,7 @@
           <EntitySet Name="Buyed" EntityType="Self.Buyed" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Observers" EntityType="Self.Observers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shipments" EntityType="Self.Shipments" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__aspnet_Me__Appli__3A81B327" Association="Self.FK__aspnet_Me__Appli__3A81B327">
@@ -542,6 +563,10 @@
           <AssociationSet Name="fk_auctions" Association="Self.fk_auctions">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Auctions" EntitySet="Auctions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_auctions_images" Association="Self.fk_auctions_images">
+            <End Role="Auctions" EntitySet="Auctions" />
+            <End Role="Images" EntitySet="Images" />
           </AssociationSet>
           <AssociationSet Name="fk_bidders" Association="Self.fk_bidders">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
@@ -604,6 +629,7 @@
           <EntitySet Name="Buyed" EntityType="PortalAukcyjnyModel.Buyed" />
           <EntitySet Name="Categories" EntityType="PortalAukcyjnyModel.Categories" />
           <EntitySet Name="Comments" EntityType="PortalAukcyjnyModel.Comments" />
+          <EntitySet Name="Images" EntityType="PortalAukcyjnyModel.Images" />
           <EntitySet Name="Observers" EntityType="PortalAukcyjnyModel.Observers" />
           <EntitySet Name="Shipments" EntityType="PortalAukcyjnyModel.Shipments" />
           <AssociationSet Name="FK__aspnet_Me__Appli__3A81B327" Association="PortalAukcyjnyModel.FK__aspnet_Me__Appli__3A81B327">
@@ -650,6 +676,10 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Bidders" EntitySet="Bidders" />
           </AssociationSet>
+          <AssociationSet Name="fk_buyers" Association="PortalAukcyjnyModel.fk_buyers">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Buyed" EntitySet="Buyed" />
+          </AssociationSet>
           <AssociationSet Name="fk_comments_authors" Association="PortalAukcyjnyModel.fk_comments_authors">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Comments" EntitySet="Comments" />
@@ -658,9 +688,17 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="Observers" EntitySet="Observers" />
           </AssociationSet>
+          <AssociationSet Name="fk_auctions_images" Association="PortalAukcyjnyModel.fk_auctions_images">
+            <End Role="Auctions" EntitySet="Auctions" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
           <AssociationSet Name="fk_bids" Association="PortalAukcyjnyModel.fk_bids">
             <End Role="Auctions" EntitySet="Auctions" />
             <End Role="Bidders" EntitySet="Bidders" />
+          </AssociationSet>
+          <AssociationSet Name="fk_buyed_auctions" Association="PortalAukcyjnyModel.fk_buyed_auctions">
+            <End Role="Auctions" EntitySet="Auctions" />
+            <End Role="Buyed" EntitySet="Buyed" />
           </AssociationSet>
           <AssociationSet Name="fk_categories" Association="PortalAukcyjnyModel.fk_categories">
             <End Role="Categories" EntitySet="Categories" />
@@ -681,14 +719,6 @@
           <AssociationSet Name="aspnet_UsersInRoles" Association="PortalAukcyjnyModel.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
-          <AssociationSet Name="fk_buyers" Association="PortalAukcyjnyModel.fk_buyers">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="Buyed" EntitySet="Buyed" />
-          </AssociationSet>
-          <AssociationSet Name="fk_buyed_auctions" Association="PortalAukcyjnyModel.fk_buyed_auctions">
-            <End Role="Auctions" EntitySet="Auctions" />
-            <End Role="Buyed" EntitySet="Buyed" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
@@ -816,10 +846,10 @@
           <NavigationProperty Name="aspnet_Profile" Relationship="PortalAukcyjnyModel.FK__aspnet_Pr__UserI__4F7CD00D" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_auctions" FromRole="aspnet_Users" ToRole="Auctions" />
           <NavigationProperty Name="Bidders" Relationship="PortalAukcyjnyModel.fk_bidders" FromRole="aspnet_Users" ToRole="Bidders" />
+          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyers" FromRole="aspnet_Users" ToRole="Buyed" />
           <NavigationProperty Name="Comments" Relationship="PortalAukcyjnyModel.fk_comments_authors" FromRole="aspnet_Users" ToRole="Comments" />
           <NavigationProperty Name="Observers" Relationship="PortalAukcyjnyModel.fk_observers" FromRole="aspnet_Users" ToRole="Observers" />
           <NavigationProperty Name="aspnet_Roles" Relationship="PortalAukcyjnyModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyers" FromRole="aspnet_Users" ToRole="Buyed" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -848,7 +878,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ImageId" Type="Int32" Nullable="false" />
           <Property Name="BuyItNowPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OwnerId" Type="Guid" Nullable="false" />
@@ -860,12 +890,13 @@
           <Property Name="ItemsNumber" Type="Int32" Nullable="false" />
           <Property Name="MinimumPrice" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_auctions" FromRole="Auctions" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Images" Relationship="PortalAukcyjnyModel.fk_auctions_images" FromRole="Auctions" ToRole="Images" />
           <NavigationProperty Name="Bidders" Relationship="PortalAukcyjnyModel.fk_bids" FromRole="Auctions" ToRole="Bidders" />
+          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyed_auctions" FromRole="Auctions" ToRole="Buyed" />
           <NavigationProperty Name="Categories" Relationship="PortalAukcyjnyModel.fk_categories" FromRole="Auctions" ToRole="Categories" />
           <NavigationProperty Name="Comments" Relationship="PortalAukcyjnyModel.fk_comments" FromRole="Auctions" ToRole="Comments" />
           <NavigationProperty Name="Shipments" Relationship="PortalAukcyjnyModel.fk_shipments" FromRole="Auctions" ToRole="Shipments" />
           <NavigationProperty Name="Observers" Relationship="PortalAukcyjnyModel.fk_watched_auctions" FromRole="Auctions" ToRole="Observers" />
-          <NavigationProperty Name="Buyed" Relationship="PortalAukcyjnyModel.fk_buyed_auctions" FromRole="Auctions" ToRole="Buyed" />
         </EntityType>
         <EntityType Name="Bidders">
           <Key>
@@ -883,7 +914,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuctionId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
@@ -912,6 +943,15 @@
           <Property Name="AuthorIsSeller" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="PortalAukcyjnyModel.fk_comments_authors" FromRole="Comments" ToRole="aspnet_Users" />
           <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_comments" FromRole="Comments" ToRole="Auctions" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuctionId" Type="Int32" Nullable="false" />
+          <Property Name="ImageData" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Auctions" Relationship="PortalAukcyjnyModel.fk_auctions_images" FromRole="Images" ToRole="Auctions" />
         </EntityType>
         <EntityType Name="Observers">
           <Key>
@@ -1064,6 +1104,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_buyers">
+          <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Buyed">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_comments_authors">
           <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
           <End Type="PortalAukcyjnyModel.Comments" Role="Comments" Multiplicity="*" />
@@ -1088,6 +1140,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_auctions_images">
+          <End Type="PortalAukcyjnyModel.Auctions" Role="Auctions" Multiplicity="1" />
+          <End Type="PortalAukcyjnyModel.Images" Role="Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auctions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_bids">
           <End Type="PortalAukcyjnyModel.Auctions" Role="Auctions" Multiplicity="1" />
           <End Type="PortalAukcyjnyModel.Bidders" Role="Bidders" Multiplicity="*" />
@@ -1096,6 +1160,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Bidders">
+              <PropertyRef Name="AuctionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_buyed_auctions">
+          <End Type="PortalAukcyjnyModel.Auctions" Role="Auctions" Multiplicity="1" />
+          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auctions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyed">
               <PropertyRef Name="AuctionId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1151,30 +1227,6 @@
         <Association Name="aspnet_UsersInRoles">
           <End Type="PortalAukcyjnyModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
           <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-        </Association>
-        <Association Name="fk_buyers">
-          <End Type="PortalAukcyjnyModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="Buyed">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_buyed_auctions">
-          <End Type="PortalAukcyjnyModel.Auctions" Role="Auctions" Multiplicity="1" />
-          <End Type="PortalAukcyjnyModel.Buyed" Role="Buyed" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Auctions">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Buyed">
-              <PropertyRef Name="AuctionId" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1329,7 +1381,7 @@
                 <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="BuyItNowPrice" ColumnName="BuyItNowPrice" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -1375,6 +1427,15 @@
                 <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
                 <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="PortalAukcyjnyModel.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="ImageData" ColumnName="ImageData" />
+                <ScalarProperty Name="AuctionId" ColumnName="AuctionId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

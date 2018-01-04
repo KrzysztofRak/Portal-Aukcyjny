@@ -158,6 +158,11 @@ namespace Portal_aukcyjny.UserControls
             presenter.LoadSelling(userId);
         }
 
+        public void LoadByFilters(IFilterControlView filterView, int catId)
+        {
+            presenter.LoadByFilters(filterView, catId);
+        }
+
         public void LoadControls(ListView listView)
         {
             var auctionControls = new List<AuctionControl>();

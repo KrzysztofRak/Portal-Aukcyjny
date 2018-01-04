@@ -17,16 +17,17 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Auctions()
         {
+            this.Images = new HashSet<Images>();
             this.Bidders = new HashSet<Bidders>();
+            this.Buyed = new HashSet<Buyed>();
             this.Comments = new HashSet<Comments>();
             this.Observers = new HashSet<Observers>();
-            this.Buyed = new HashSet<Buyed>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public byte[] Image { get; set; }
+        public int ImageId { get; set; }
         public decimal BuyItNowPrice { get; set; }
         public string Location { get; set; }
         public System.Guid OwnerId { get; set; }
@@ -40,14 +41,16 @@ namespace Model
     
         public virtual aspnet_Users aspnet_Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Images> Images { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bidders> Bidders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Buyed> Buyed { get; set; }
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
         public virtual Shipments Shipments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Observers> Observers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Buyed> Buyed { get; set; }
     }
 }

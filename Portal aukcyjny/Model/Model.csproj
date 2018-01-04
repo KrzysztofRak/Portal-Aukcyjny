@@ -110,6 +110,9 @@
     <Compile Include="Comments.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Images.cs">
+      <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="IRepositories\IRepository.cs" />
     <Compile Include="Observers.cs">
       <DependentUpon>PortalAukcyjnyModel.tt</DependentUpon>
@@ -135,6 +138,7 @@
     <Compile Include="Repositories\CategoriesRepository.cs" />
     <Compile Include="Repositories\CommentsRepository.cs" />
     <Compile Include="Repositories\CurrencyExchangeRepository.cs" />
+    <Compile Include="Repositories\ImagesRepository.cs" />
     <Compile Include="Repositories\ObserversRepository.cs" />
     <Compile Include="Repositories\OffersRepository.cs" />
     <Compile Include="Repositories\ShipmentsRepository.cs" />

@@ -57,11 +57,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -69,6 +70,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -86,11 +88,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -98,6 +101,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -116,11 +120,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -128,6 +133,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -146,11 +152,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -158,6 +165,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -176,11 +184,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -188,6 +197,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -206,11 +216,12 @@ namespace Model.Repositories
             join u in db.aspnet_Users on a.OwnerId equals u.UserId
             join t in db.Bidders on a.Id equals t.AuctionId into Bids
             join s in db.Shipments on a.ShipmentId equals s.Id
+            join i in db.Images on a.Id equals i.AuctionId
             select new AuctionControlData()
             {
                 Title = a.Title,
                 AuctionId = a.Id,
-                Image = a.Image,
+                Image = i.ImageData,
                 BuyItNowPrice = a.BuyItNowPrice,
                 BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                 BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -218,6 +229,7 @@ namespace Model.Repositories
                 SellerName = u.UserName,
                 SellerId = a.OwnerId,
                 ShipmentName = s.Name,
+                ShipmentId = a.ShipmentId,
                 ShipmentPrice = s.Price,
                 EndDate = a.EndDate,
                 OffersNum = Bids.Count(),
@@ -236,11 +248,12 @@ namespace Model.Repositories
                 join u in db.aspnet_Users on a.OwnerId equals u.UserId
                 join t in db.Bidders on a.Id equals t.AuctionId into Bids
                 join s in db.Shipments on a.ShipmentId equals s.Id
+                join i in db.Images on a.Id equals i.AuctionId
                 select new AuctionControlData()
                 {
                     Title = a.Title,
                     AuctionId = a.Id,
-                    Image = a.Image,
+                    Image = i.ImageData,
                     BuyItNowPrice = a.BuyItNowPrice,
                     BestPrice = Bids.Max(p => p.Price).ToString().Length == 0 ? 0 : Bids.Max(p => p.Price),
                     BestPriceUsername = (from o in db.aspnet_Users where o.UserId == Bids.OrderByDescending(p => p.Price).FirstOrDefault().BidderId select o).FirstOrDefault().UserName,//o.UserName,
@@ -248,6 +261,7 @@ namespace Model.Repositories
                     SellerName = u.UserName,
                     SellerId = a.OwnerId,
                     ShipmentName = s.Name,
+                    ShipmentId = a.ShipmentId,
                     ShipmentPrice = s.Price,
                     EndDate = a.EndDate,
                     OffersNum = Bids.Count(),
@@ -263,10 +277,33 @@ namespace Model.Repositories
             return new List<AuctionControlData>();
         }
 
-        public List<AuctionControlData> SearchByFilters(SearchFilters filters)
+        public List<AuctionControlData> SearchWithFilters(SearchFilters filters)
         {
-            
-            return new List<AuctionControlData>();
+            var auctions = GetByCategoryId(filters.CatId);
+            auctions = (from a in auctions where a.Title.ToLower().Contains(filters.Search.ToLower()) select a).ToList();
+
+            if (filters.IsBuyItNow)
+                auctions = (from a in auctions where a.BuyItNowPrice != -1 select a).ToList();
+            if (filters.IsBidding)
+                auctions = (from a in auctions where a.MinimumPrice != -1 select a).ToList();
+            if (filters.IsMinPrice)
+                auctions = (from a in auctions where a.BuyItNowPrice >= filters.MinPrice || (a.MinimumPrice >= filters.MinPrice && a.BestPrice >= filters.MinPrice) select a).ToList();
+            if (filters.IsMaxPrice)
+                auctions = (from a in auctions where a.BuyItNowPrice <= filters.MaxPrice || (a.BestPrice <= filters.MaxPrice && a.MinimumPrice <= filters.MaxPrice) select a).ToList();
+            if (filters.IsMinOffersNum)
+                auctions = (from a in auctions where a.OffersNum >= filters.MinOffersNum select a).ToList();
+            if (filters.IsMaxOffersNum)
+                auctions = (from a in auctions where a.OffersNum <= filters.MaxOffersNum select a).ToList();
+            if (filters.IsMinViewsCount)
+                auctions = (from a in auctions where a.Views >= filters.MinViewsCount select a).ToList();
+            if (filters.IsMaxViewsCount)
+                auctions = (from a in auctions where a.Views <= filters.MaxViewsCount select a).ToList();
+            if (filters.IsMaxTimeLeft)
+                auctions = (from a in auctions where a.EndDate.Subtract(DateTime.Now).TotalDays <= filters.MaxDaysLeft select a).ToList();
+            if (filters.IsShipmentType)
+                auctions = (from a in auctions where a.ShipmentId == filters.ShipmentId select a).ToList();
+
+            return auctions;
         }
 
         public void Add(Auctions auction)

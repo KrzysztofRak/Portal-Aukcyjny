@@ -8,5 +8,7 @@ namespace Presenter.IPresenters
 {
     public interface IFilterControlPresenter
     {
+        void ResetFilters();
+        void SetListsSources(string currencyCode);
     }
 }

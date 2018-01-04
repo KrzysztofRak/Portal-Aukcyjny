@@ -32,5 +32,6 @@ namespace Presenter.IViews
         void LoadBidding();
         void LoadObserved();
         void LoadSelling(Guid userId);
+        void LoadByFilters(IFilterControlView filterView, int catId);
     }
 }

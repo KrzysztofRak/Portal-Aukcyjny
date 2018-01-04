@@ -6,9 +6,6 @@
     .auto-style10 {
         font-size: medium;
     }
-    .auto-style23 {
-        width: 154px;
-    }
     .auto-style29 {
         height: 29px;
     }
@@ -32,12 +29,19 @@
     .auto-style38 {
         width: 158px;
     }
+    .auto-style39 {
+        width: 180px;
+    }
+    .auto-style40 {
+        height: 29px;
+        width: 180px;
+    }
 </style>
 
 <table class="auto-style4">
     <tr>
         <td>&nbsp;</td>
-        <td>
+        <td class="auto-style39">
             <asp:CheckBox ID="CheckBox_OnlyBuyItNow" runat="server" Text="<%$ Resources:Tylko kup teraz%>" />
         </td>
         <td class="auto-style38">
@@ -57,7 +61,7 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td class="auto-style23">
+        <td class="auto-style39">
             <asp:CheckBox ID="CheckBox_OnlyBidding" runat="server" Text="<%$ Resources:Tylko licytacje%>" />
         </td>
         <td class="auto-style38">
@@ -77,7 +81,7 @@
     </tr>
     <tr>
         <td class="auto-style29"></td>
-        <td class="auto-style29"></td>
+        <td class="auto-style40"></td>
         <td class="auto-style33">
             <asp:CheckBox ID="CheckBox_MinOffersNum" runat="server" Text="<%$ Resources:Min. ilość ofert%>" />
         </td>
@@ -97,7 +101,9 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="auto-style39">
+            <asp:Button ID="BtnReset" runat="server" OnClick="BtnReset_Click" Text="<%$ Resources:Wyczyść%>" Width="152px" />
+        </td>
         <td class="auto-style38">
             <asp:CheckBox ID="CheckBox_MaxOffersNum" runat="server" Text="<%$ Resources:Maks. ilość ofert%>" />
         </td>
@@ -108,14 +114,14 @@
             <asp:CheckBox ID="CheckBox_ShipmentType" runat="server" Text="<%$ Resources:Rodzaj przesyłki%>" />
         </td>
         <td colspan="2">
-            <asp:DropDownList ID="DropDownList_ShipmentType" runat="server" Height="22px" Width="300px">
+            <asp:DropDownList ID="DDListShipmentType" runat="server" Height="22px" Width="330px">
             </asp:DropDownList>
         </td>
         <td>&nbsp;</td>
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="auto-style39">&nbsp;</td>
         <td class="auto-style38">
             &nbsp;</td>
         <td class="auto-style35">
@@ -128,7 +134,7 @@
     </tr>
     <tr>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td class="auto-style39">&nbsp;</td>
         <td colspan="5">
 <asp:TextBox ID="SearchBox" runat="server" Width="391px"></asp:TextBox>
 <asp:Button ID="BtnSearch" runat="server" Text="<%$ Resources:Szukaj%>" OnClick="SearchBtn_Click" />

@@ -153,4 +153,7 @@
   <data name="Szukaj" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="Wyczyść" xml:space="preserve">
+    <value>Reset</value>
+  </data>
 </root>

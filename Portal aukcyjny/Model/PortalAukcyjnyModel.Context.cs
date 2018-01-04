@@ -40,6 +40,7 @@ namespace Model
         public virtual DbSet<Buyed> Buyed { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Comments> Comments { get; set; }
+        public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Observers> Observers { get; set; }
         public virtual DbSet<Shipments> Shipments { get; set; }
     }

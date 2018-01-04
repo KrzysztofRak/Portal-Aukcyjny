@@ -17,18 +17,6 @@ namespace Portal_aukcyjny
     {
         private DefaultPresenter presenter;
 
-        private int selectedCatId;
-        private string searchString;
-
-        public int SelectedCatId
-        {
-            get { return selectedCatId; }
-        }
-
-        public string SearchString
-        {
-            get { return searchString; }
-        }
         public _Default()
         {
             presenter = new DefaultPresenter(this);
@@ -36,25 +24,11 @@ namespace Portal_aukcyjny
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            searchString = Request.QueryString["search"];
-            try
-            {
-                selectedCatId = int.Parse(Request.QueryString["catId"]);
-            }
-            catch
-            {
-                selectedCatId = -1;
-            }
-
             if (!IsPostBack)
-                presenter.LoadCategoriesTree();
-            else
             {
-                CategoriesTree.Nodes[4].Selected = true;
+                presenter.LoadCategoriesTree();
+                LoadAuctionsControls();
             }
-
-
-            LoadAuctionsControls();
         }
 
         public void AddNewItemToCategoriesTree(string catName, int catId)
@@ -70,18 +44,19 @@ namespace Portal_aukcyjny
 
         private void LoadAuctionsControls()
         {
-            AuctionControl ac = new AuctionControl();
-            if (searchString != null)
-                ac.LoadAuctionsBySearch(searchString);
+            int catId;
+            if (CategoriesTree.SelectedNode == null)
+                catId = -1;
             else
-                ac.LoadAuctionsByCatId(selectedCatId);
+                catId = int.Parse(CategoriesTree.SelectedValue);
 
+            AuctionControl ac = new AuctionControl();
+            ac.LoadAuctionsByCatId(catId);
             ac.LoadControls(ListView_Auctions);
         }
 
         protected void CategoriesTree_SelectedNodeChanged(object sender, EventArgs e)
         {
-            selectedCatId = int.Parse(CategoriesTree.SelectedValue);
             LoadAuctionsControls();
         }
     }

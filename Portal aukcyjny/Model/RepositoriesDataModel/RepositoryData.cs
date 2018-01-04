@@ -20,11 +20,12 @@ namespace Model.RepositoriesDataModel
         public byte[] Image { get; set; }
         public decimal BuyItNowPrice { get; set; }
         public string BestPriceUsername { get; set; }
-        public decimal BestPrice { get; set; }
         public decimal MinimumPrice { get; set; }
+        public decimal BestPrice { get; set; }
         public string SellerName { get; set; }
         public Guid SellerId { get; set; }
         public string ShipmentName { get; set; }
+        public int ShipmentId { get; set; }
         public string CategoryName { get; set; }
         public decimal ShipmentPrice { get; set; }
         public DateTime EndDate { get; set; }
@@ -61,6 +62,25 @@ namespace Model.RepositoriesDataModel
 
     public class SearchFilters
     {
-
+        public bool IsBuyItNow  { get; set; }
+        public bool IsBidding  { get; set; }
+        public bool IsMinPrice  { get; set; }
+        public bool IsMaxPrice  { get; set; }
+        public bool IsMinOffersNum  { get; set; }
+        public bool IsMaxOffersNum  { get; set; }
+        public bool IsMinViewsCount  { get; set; }
+        public bool IsMaxViewsCount  { get; set; }
+        public bool IsMaxTimeLeft  { get; set; }
+        public bool IsShipmentType  { get; set; }
+        public int MinPrice { get; set; }
+        public int MaxPrice { get; set; }
+        public int MinOffersNum { get; set; }
+        public int MaxOffersNum { get; set; }
+        public int MinViewsCount { get; set; }
+        public int MaxViewsCount { get; set; }
+        public int MaxDaysLeft { get; set; }
+        public string Search { get; set; }
+        public int ShipmentId { get; set; }
+        public int CatId { get; set; }
     }
 }

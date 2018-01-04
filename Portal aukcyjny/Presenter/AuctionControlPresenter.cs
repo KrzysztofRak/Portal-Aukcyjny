@@ -1,4 +1,5 @@
-﻿using Model.RepositoriesDataModel;
+﻿using Extensions;
+using Model.RepositoriesDataModel;
 using Presenter.IPresenters;
 using Presenter.IViews;
 using Presenters;
@@ -15,7 +16,6 @@ namespace Presenter
         private IAuctionControlView view;
         private string currencyCode;
         private List<AuctionControlData> auctions;
-        private SearchFilters filters;
 
         public AuctionControlPresenter(IAuctionControlView view, string currencyCode)
         {
@@ -63,11 +63,34 @@ namespace Presenter
             auctions = auctionsRepo.GetSelling(userId);
         }
 
-        public void LoadByFilters(IFilterControlView filterView)
-        {   
-            // Tutaj przekopiuj filterView do filters
-            // Ale wcześniej porób propertisy w widoku
-            auctions = auctionsRepo.SearchByFilters(this.filters);
+        public void LoadByFilters(IFilterControlView filterView, int catId)
+        {
+            SearchFilters filters = new SearchFilters()
+            {
+                IsBuyItNow = filterView.IsBuyItNow,
+                IsBidding = filterView.IsBidding,
+                IsMinPrice = filterView.IsMinPrice,
+                IsMaxPrice = filterView.IsMaxPrice,
+                IsMinOffersNum = filterView.IsMinOffersNum,
+                IsMaxOffersNum = filterView.IsMaxOffersNum,
+                IsMinViewsCount = filterView.IsMinViewsCount,
+                IsMaxViewsCount = filterView.IsMaxViewsCount,
+                IsMaxTimeLeft = filterView.IsMaxTimeLeft,
+                IsShipmentType = filterView.IsShipmentType,
+                Search = filterView.Search,
+                CatId = catId
+            };
+
+            filters.ShipmentId = ExtensionMethod.TryIntParse(filterView.ShipmentId);
+            filters.MinPrice = ExtensionMethod.TryIntParse(filterView.MinPrice);
+            filters.MaxPrice = ExtensionMethod.TryIntParse(filterView.MaxPrice);
+            filters.MinOffersNum = ExtensionMethod.TryIntParse(filterView.MinOffersNum);
+            filters.MaxOffersNum = ExtensionMethod.TryIntParse(filterView.MaxOffersNum);
+            filters.MinViewsCount = ExtensionMethod.TryIntParse(filterView.MinViewsCount);
+            filters.MaxViewsCount = ExtensionMethod.TryIntParse(filterView.MaxViewsCount);
+            filters.MaxDaysLeft = ExtensionMethod.TryIntParse(filterView.MaxDaysLeft);
+
+            auctions = auctionsRepo.SearchWithFilters(filters);
         }
 
         public IAuctionControlView SetControl(IAuctionControlView ac, int j)

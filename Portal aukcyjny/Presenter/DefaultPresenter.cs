@@ -19,14 +19,6 @@ namespace Presenters
             this.view = view;
         }
 
-        public List<AuctionControlData> GetAuctionsList()
-        {
-            if (view.SearchString != null)
-                return auctionsRepo.Search(view.SearchString);
-            else
-                return auctionsRepo.GetByCategoryId(view.SelectedCatId);
-        }
-
         public void LoadCategoriesTree()
         {
             var categories = catRepo.GetList();

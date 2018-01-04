@@ -130,7 +130,7 @@ namespace Portal_aukcyjny.Auction {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// ShipmentType control.
+        /// ShipmentId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

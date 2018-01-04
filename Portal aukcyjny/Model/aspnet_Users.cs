@@ -20,10 +20,10 @@ namespace Model
             this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
             this.Auctions = new HashSet<Auctions>();
             this.Bidders = new HashSet<Bidders>();
+            this.Buyed = new HashSet<Buyed>();
             this.Comments = new HashSet<Comments>();
             this.Observers = new HashSet<Observers>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
-            this.Buyed = new HashSet<Buyed>();
         }
     
         public System.Guid ApplicationId { get; set; }
@@ -44,12 +44,12 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bidders> Bidders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Buyed> Buyed { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Observers> Observers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Buyed> Buyed { get; set; }
     }
 }
