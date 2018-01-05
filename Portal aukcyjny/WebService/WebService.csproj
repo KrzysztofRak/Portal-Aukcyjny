@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1B565658-E2C3-4F77-A45C-6C36E116FD58}</ProjectGuid>
+    <ProjectGuid>{B0D7E35D-15DB-497B-A670-E503B4E44EDE}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presenter</RootNamespace>
-    <AssemblyName>Presenter</AssemblyName>
+    <RootNamespace>WebService</RootNamespace>
+    <AssemblyName>WebService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -44,6 +44,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -70,15 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\localhost\AuctionsService.wsdl" />
-    <None Include="Web References\localhost\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,77 +84,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\localhost\AuctionsService.disco" />
+    <Content Include="AuctionsService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuctionControlPresenter.cs" />
-    <Compile Include="AuctionPagePresenter.cs" />
-    <Compile Include="CommentControlPresenter.cs" />
-    <Compile Include="CreateAuctionPresenter.cs" />
-    <Compile Include="DefaultPresenter.cs" />
-    <Compile Include="Extensions\ExtensionMethod.cs" />
-    <Compile Include="FilterControlPresenter.cs" />
-    <Compile Include="IPresenters\IAuctionControlPresenter.cs" />
-    <Compile Include="IPresenters\IAuctionPagePresenter.cs" />
-    <Compile Include="IPresenters\ICommentControlPresenter.cs" />
-    <Compile Include="IPresenters\ICreateAuctionPresenter.cs" />
-    <Compile Include="IPresenters\IDefaultPresenter.cs" />
-    <Compile Include="IPresenters\IFilterControlPresenter.cs" />
-    <Compile Include="IPresenters\IMasterPresenter.cs" />
-    <Compile Include="IPresenters\IMyAuctionsPresenter.cs" />
-    <Compile Include="IPresenters\IOfferControlPresenter.cs" />
-    <Compile Include="IPresenters\IUserProfilePresenter.cs" />
-    <Compile Include="IViews\IAuctionControlView.cs" />
-    <Compile Include="IViews\IAuctionPageView.cs" />
-    <Compile Include="IViews\ICommentControlView.cs" />
-    <Compile Include="IViews\ICreateAuctionView.cs" />
-    <Compile Include="IViews\IDefaultView.cs" />
-    <Compile Include="IViews\IFilterControlView.cs" />
-    <Compile Include="IViews\IMasterView.cs" />
-    <Compile Include="IViews\IMyAuctionsView.cs" />
-    <Compile Include="IViews\IOfferControlView.cs" />
-    <Compile Include="IViews\IUserProfileView.cs" />
-    <Compile Include="MasterPresenter.cs" />
-    <Compile Include="MyAuctionsPresenter.cs" />
-    <Compile Include="OfferControlPresenter.cs" />
+    <Compile Include="AuctionsService.asmx.cs">
+      <DependentUpon>AuctionsService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="UserProfilePresenter.cs" />
-    <Compile Include="Web References\localhost\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{145cd504-acd2-4a40-b676-adf83263285f}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:64176/AuctionsService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:64176/AuctionsService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Presenter_localhost_AuctionsService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -172,9 +113,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52919</DevelopmentServerPort>
+          <DevelopmentServerPort>55292</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52919/</IISUrl>
+          <IISUrl>http://localhost:64176/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

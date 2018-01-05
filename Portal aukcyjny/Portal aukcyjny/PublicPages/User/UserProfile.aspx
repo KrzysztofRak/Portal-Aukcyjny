@@ -64,11 +64,13 @@
         </tr>
         <tr>
             <td>
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_UserAuctions" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -92,11 +94,13 @@
         </tr>
         <tr>
             <td>
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_Comments" runat="server">
                     <ItemTemplate>
                         <uc1:CommentControl runat="server" ID="CommentControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

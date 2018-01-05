@@ -14,11 +14,13 @@
         </tr>
         <tr>
             <td style="height: 22px">
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_MyAuctions" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td style="height: 22px"></td>
             <td style="height: 22px"></td>
@@ -37,11 +39,13 @@
         </tr>
         <tr>
             <td>
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_Sold" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -60,11 +64,13 @@
         </tr>
         <tr>
             <td>
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_Buyed" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
@@ -83,11 +89,13 @@
         </tr>
         <tr>
             <td style="height: 22px">
+                <div style="height:200px; overflow:scroll">
                 <asp:ListView ID="ListView_Bid" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td style="height: 22px"></td>
             <td style="height: 22px"></td>
@@ -106,12 +114,13 @@
         </tr>
         <tr>
             <td>
+                <div style="height:200px; overflow:scroll">
                                 <asp:ListView ID="ListView_Watched" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
-
+                    </div>
             </td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>

@@ -15,7 +15,9 @@
     </style>
     <table style="width: 100%;">
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="testLabel" runat="server" Text="Label"></asp:Label>
+            </td>
             <td class="text-left" colspan="3">
                 <uc2:FilterControl ID="FilterControl1" runat="server" />
             </td>
@@ -41,11 +43,13 @@
                 </asp:TreeView>
             </td>
             <td>
+                <div style="height:500px; overflow:scroll">
                 <asp:ListView ID="ListView_Auctions" runat="server">
                     <ItemTemplate>
                         <uc1:AuctionControl runat="server" ID="AuctionControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td>&nbsp;</td>
         </tr>

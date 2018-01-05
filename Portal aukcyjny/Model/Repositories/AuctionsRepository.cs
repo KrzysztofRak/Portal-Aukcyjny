@@ -60,6 +60,21 @@ namespace Model.Repositories
             return auctionsData;
         }
 
+        public List<Auctions> GetAllActual()
+        {
+            var auctions =
+            (from a in db.Auctions where !a.Finalized && a.EndDate > DateTime.Now select a).ToList();
+
+            return auctions;
+        }
+
+        public Auctions GetById(int id)
+        {
+            var auction = (from a in db.Auctions where a.Id == id select a).DefaultIfEmpty(null).FirstOrDefault();
+
+            return auction;
+        }
+
         public List<AuctionControlData> GetSelling(Guid userId)
         {
             var auctions =

@@ -2,6 +2,8 @@
 
 <%@ Register Src="../../UserControls/OfferControl.ascx" TagName="OfferControl" TagPrefix="uc1" %>
 <%@ Register Src="~/UserControls/OfferControl.ascx" TagPrefix="uc2" TagName="OfferControl" %>
+<%@ Register Src="~/UserControls/CommentControl.ascx" TagPrefix="uc1" TagName="CommentControl" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -68,6 +70,9 @@
             text-align: left;
             width: 893px;
             height: 24px;
+        }
+        .auto-style21 {
+            height: 22px;
         }
     </style>
     <table style="width: 100%;">
@@ -284,12 +289,14 @@
             <td style="width: 30px; height: 22px">&nbsp;</td>
             <td style="height: 22px">&nbsp;</td>
             <td style="height: 22px" colspan="5">
+                <div style="height:300px; overflow:scroll">
                 <asp:ListView ID="ListView_Offers" runat="server">
 
                     <ItemTemplate>
                         <uc2:OfferControl runat="server" ID="OfferControl" />
                     </ItemTemplate>
                 </asp:ListView>
+                </div>
             </td>
             <td style="height: 22px">&nbsp;</td>
         </tr>
@@ -313,6 +320,20 @@
             <td class="auto-style17">&nbsp;</td>
             <td class="auto-style18">&nbsp;</td>
             <td style="width: 304px; height: 22px">&nbsp;</td>
+            <td style="height: 22px">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 30px; height: 22px">&nbsp;</td>
+            <td style="width: 30px; height: 22px">&nbsp;</td>
+            <td class="auto-style21" colspan="5">
+                <div style="height:300px; overflow:scroll">
+                <asp:ListView ID="ListView_Comments" runat="server">                 
+                    <ItemTemplate>
+                        <uc1:CommentControl runat="server" ID="CommentControl" />
+                    </ItemTemplate>
+                </asp:ListView>
+                </div>
+            </td>
             <td style="height: 22px">&nbsp;</td>
         </tr>
         <tr>

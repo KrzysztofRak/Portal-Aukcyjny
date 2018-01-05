@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+      <s:element name="GetFirstAuction">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFirstAuctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirstAuctionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetFirstAuctionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirstAuction" />
+  </wsdl:message>
+  <wsdl:message name="GetFirstAuctionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirstAuctionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuctionsServiceSoap">
+    <wsdl:operation name="GetFirstAuction">
+      <wsdl:input message="tns:GetFirstAuctionSoapIn" />
+      <wsdl:output message="tns:GetFirstAuctionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuctionsServiceSoap" type="tns:AuctionsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFirstAuction">
+      <soap:operation soapAction="http://localhost/GetFirstAuction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuctionsServiceSoap12" type="tns:AuctionsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFirstAuction">
+      <soap12:operation soapAction="http://localhost/GetFirstAuction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuctionsService">
+    <wsdl:port name="AuctionsServiceSoap" binding="tns:AuctionsServiceSoap">
+      <soap:address location="http://localhost:64176/AuctionsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuctionsServiceSoap12" binding="tns:AuctionsServiceSoap12">
+      <soap12:address location="http://localhost:64176/AuctionsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

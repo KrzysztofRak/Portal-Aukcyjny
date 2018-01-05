@@ -17,6 +17,12 @@ namespace Portal_aukcyjny
     {
         private DefaultPresenter presenter;
 
+        public string test
+        {
+            get { return testLabel.Text; }
+            set { testLabel.Text = value; }
+        }
+
         public _Default()
         {
             presenter = new DefaultPresenter(this);
