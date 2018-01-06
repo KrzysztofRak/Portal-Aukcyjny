@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Presenter.localhost {
+namespace Presenter.AuctionsWebService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -23,19 +23,19 @@ namespace Presenter.localhost {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="AuctionsServiceSoap", Namespace="http://localhost/")]
     public partial class AuctionsService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback GetFirstAuctionOperationCompleted;
+        private System.Threading.SendOrPostCallback GetActualAuctionsByCatIdOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public AuctionsService() {
-            this.Url = global::Presenter.Properties.Settings.Default.Presenter_localhost_AuctionsService;
+            this.Url = global::Presenter.Properties.Settings.Default.Presenter_AuctionsWebService_AuctionsService;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -70,32 +70,34 @@ namespace Presenter.localhost {
         }
         
         /// <remarks/>
-        public event GetFirstAuctionCompletedEventHandler GetFirstAuctionCompleted;
+        public event GetActualAuctionsByCatIdCompletedEventHandler GetActualAuctionsByCatIdCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost/GetFirstAuction", RequestNamespace="http://localhost/", ResponseNamespace="http://localhost/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string GetFirstAuction() {
-            object[] results = this.Invoke("GetFirstAuction", new object[0]);
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://localhost/GetActualAuctionsByCatId", RequestNamespace="http://localhost/", ResponseNamespace="http://localhost/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string GetActualAuctionsByCatId(int catId) {
+            object[] results = this.Invoke("GetActualAuctionsByCatId", new object[] {
+                        catId});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GetFirstAuctionAsync() {
-            this.GetFirstAuctionAsync(null);
+        public void GetActualAuctionsByCatIdAsync(int catId) {
+            this.GetActualAuctionsByCatIdAsync(catId, null);
         }
         
         /// <remarks/>
-        public void GetFirstAuctionAsync(object userState) {
-            if ((this.GetFirstAuctionOperationCompleted == null)) {
-                this.GetFirstAuctionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetFirstAuctionOperationCompleted);
+        public void GetActualAuctionsByCatIdAsync(int catId, object userState) {
+            if ((this.GetActualAuctionsByCatIdOperationCompleted == null)) {
+                this.GetActualAuctionsByCatIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetActualAuctionsByCatIdOperationCompleted);
             }
-            this.InvokeAsync("GetFirstAuction", new object[0], this.GetFirstAuctionOperationCompleted, userState);
+            this.InvokeAsync("GetActualAuctionsByCatId", new object[] {
+                        catId}, this.GetActualAuctionsByCatIdOperationCompleted, userState);
         }
         
-        private void OnGetFirstAuctionOperationCompleted(object arg) {
-            if ((this.GetFirstAuctionCompleted != null)) {
+        private void OnGetActualAuctionsByCatIdOperationCompleted(object arg) {
+            if ((this.GetActualAuctionsByCatIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.GetFirstAuctionCompleted(this, new GetFirstAuctionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.GetActualAuctionsByCatIdCompleted(this, new GetActualAuctionsByCatIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -119,18 +121,18 @@ namespace Presenter.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
-    public delegate void GetFirstAuctionCompletedEventHandler(object sender, GetFirstAuctionCompletedEventArgs e);
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
+    public delegate void GetActualAuctionsByCatIdCompletedEventHandler(object sender, GetActualAuctionsByCatIdCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class GetFirstAuctionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetActualAuctionsByCatIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal GetFirstAuctionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal GetActualAuctionsByCatIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

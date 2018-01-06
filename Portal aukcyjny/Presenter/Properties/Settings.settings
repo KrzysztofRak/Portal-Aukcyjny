@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Presenter.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Presenter_localhost_AuctionsService" Type="(Web Service URL)" Scope="Application">
+    <Setting Name="Presenter_AuctionsWebService_AuctionsService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:64176/AuctionsService.asmx</Value>
     </Setting>
   </Settings>

@@ -16,8 +16,7 @@
     <table style="width: 100%;">
         <tr>
             <td>
-                <asp:Label ID="testLabel" runat="server" Text="Label"></asp:Label>
-            </td>
+                &nbsp;</td>
             <td class="text-left" colspan="3">
                 <uc2:FilterControl ID="FilterControl1" runat="server" />
             </td>

@@ -8,7 +8,6 @@ namespace Presenters.IViews
 {
     public interface IDefaultView
     {
-        string test { get; set; }
         void AddNewItemToCategoriesTree(string catName, int catId);
     }
 }

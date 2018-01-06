@@ -27,9 +27,9 @@ namespace Presenter.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:64176/AuctionsService.asmx")]
-        public string Presenter_localhost_AuctionsService {
+        public string Presenter_AuctionsWebService_AuctionsService {
             get {
-                return ((string)(this["Presenter_localhost_AuctionsService"]));
+                return ((string)(this["Presenter_AuctionsWebService_AuctionsService"]));
             }
         }
     }

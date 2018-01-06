@@ -1,5 +1,7 @@
 ﻿using Extensions;
 using Model.RepositoriesDataModel;
+using Newtonsoft.Json;
+using Presenter.AuctionsWebService;
 using Presenter.IPresenters;
 using Presenter.IViews;
 using Presenters;
@@ -35,7 +37,9 @@ namespace Presenter
 
         public void LoadAuctionsByCatId(int catId)
         {
-            auctions = auctionsRepo.GetByCategoryId(catId);
+            AuctionsService auctionsService = new AuctionsService();
+            string jsonAuctions = auctionsService.GetActualAuctionsByCatId(catId);
+            auctions = JsonConvert.DeserializeObject <List<AuctionControlData>>(jsonAuctions);
         }
 
         public void LoadSold()

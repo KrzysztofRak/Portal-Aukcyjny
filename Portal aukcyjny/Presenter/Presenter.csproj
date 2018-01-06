@@ -74,11 +74,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost\AuctionsService.wsdl" />
-    <None Include="Web References\localhost\Reference.map">
+    <Content Include="Global.asax" />
+    <None Include="Web References\AuctionsWebService\AuctionsService.wsdl" />
+    <Content Include="Web References\AuctionsWebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,7 +88,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\localhost\AuctionsService.disco" />
+    <None Include="Web References\AuctionsWebService\AuctionsService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +99,9 @@
     <Compile Include="DefaultPresenter.cs" />
     <Compile Include="Extensions\ExtensionMethod.cs" />
     <Compile Include="FilterControlPresenter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="IPresenters\IAuctionControlPresenter.cs" />
     <Compile Include="IPresenters\IAuctionPagePresenter.cs" />
     <Compile Include="IPresenters\ICommentControlPresenter.cs" />
@@ -128,7 +132,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="UserProfilePresenter.cs" />
-    <Compile Include="Web References\localhost\Reference.cs">
+    <Compile Include="Web References\AuctionsWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -149,14 +153,14 @@
   <ItemGroup>
     <WebReferenceUrl Include="http://localhost:64176/AuctionsService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost\</RelPath>
+      <RelPath>Web References\AuctionsWebService\</RelPath>
       <UpdateFromURL>http://localhost:64176/AuctionsService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Presenter_localhost_AuctionsService</CachedSettingsPropName>
+      <CachedSettingsPropName>Presenter_AuctionsWebService_AuctionsService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>

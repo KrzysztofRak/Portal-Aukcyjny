@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using Newtonsoft.Json;
+using System.Web.Services.Protocols;
 
 namespace WebService
 {
@@ -16,13 +17,13 @@ namespace WebService
     // [System.Web.Script.Services.ScriptService]
     public class AuctionsService : System.Web.Services.WebService
     {
-
         [WebMethod]
-        public string GetFirstAuction()
+        public string GetActualAuctionsByCatId(int catId)
         {
             AuctionsRepository auctionsRepo = new AuctionsRepository();
-            var auc = auctionsRepo.GetAllActual().FirstOrDefault();
-            return JsonConvert.SerializeObject(auc, Formatting.Indented);
+            var auctions = auctionsRepo.GetByCategoryId(catId);
+
+            return JsonConvert.SerializeObject(auctions);
         }
     }
 }
